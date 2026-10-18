@@ -6,6 +6,10 @@
 [data-theme="dark"][data-texture="trails"]{--page-texture:url("trails-dark.svg")}
 .swatch{background-image:var(--page-texture)}
 body{background-image:var(--page-texture);background-size:var(--texture-size);background-repeat:repeat}
+/* Keep navigation trails inside each section; never repeat mismatched tile edges. */
+[data-texture="trails"] body{background-image:none}
+[data-texture="trails"] :is(.hero,#things,.about){position:relative;isolation:isolate}
+[data-texture="trails"] :is(.hero,#things,.about)::after{content:"";position:absolute;inset:24px 0 32px;z-index:-1;pointer-events:none;background-image:var(--page-texture);background-size:var(--texture-size);background-position:center;background-repeat:no-repeat;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 48px,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(to bottom,transparent,#000 48px,#000 calc(100% - 48px),transparent)}
 .card-scene{position:relative;isolation:isolate;display:block;height:268px;margin-top:16px}
 .card-scene:before{content:"";position:absolute;inset:0 -10px;border-radius:18px;background:center/100% 100% no-repeat;z-index:-1;pointer-events:none;opacity:.9}
 .scene-workflow:before{background-image:url("workflow.svg")}
