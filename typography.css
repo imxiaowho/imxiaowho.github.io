@@ -1,0 +1,33 @@
+@font-face{font-family:"Noto Sans SC";font-style:normal;font-weight:400 800;font-display:swap;src:url("noto-sans-sc-site.woff2") format("woff2")}
+
+/* Deliberate Chinese-first typography: open tracking, clear hierarchy, local font delivery. */
+:root{--sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+body{font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.75;letter-spacing:.015em;font-kerning:normal;text-rendering:optimizeLegibility}
+button,summary{font-family:inherit}
+.hero h1{font-size:clamp(64px,7vw,100px);font-weight:750;letter-spacing:.015em;line-height:1.3;margin:25px 0 23px}
+.hero h1 .punct{letter-spacing:0}
+h2{font-weight:700;letter-spacing:.025em;line-height:1.5}
+.brand{font-size:13px;font-weight:700;letter-spacing:.075em;line-height:1.4}
+nav a{font-size:13px;font-weight:500;letter-spacing:.025em;line-height:1.5}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:.12em;line-height:1.8}
+.signature{font-size:14px;gap:16px;letter-spacing:.025em;line-height:1.85;flex-wrap:wrap;row-gap:4px}
+.hero-intro{font-size:16px;line-height:2;letter-spacing:.035em;max-width:24em;margin:25px 0 23px;text-wrap:pretty}
+.inline-link{font-size:13px;font-weight:500;letter-spacing:.025em}
+.section-head h2{font-size:28px}
+.section-head p{font-size:13px;line-height:1.8;letter-spacing:.025em}
+.card-title{font-size:32px;font-weight:700;letter-spacing:.025em;line-height:1.45;margin-bottom:7px}
+.card-sub{font-size:13px;line-height:1.85;letter-spacing:.025em}
+.card-bottom{font-size:12px;line-height:1.8;letter-spacing:.02em}
+.card-number{letter-spacing:-.02em}
+.card-detail p,.company-desc{font-size:14px;line-height:2;letter-spacing:.025em;text-wrap:pretty}
+.detail-tags span{font-size:12px;line-height:1.6}
+.about-label{font-size:12px;letter-spacing:.12em;line-height:1.8}
+.about h2{font-size:34px;line-height:1.5;letter-spacing:.025em;text-wrap:balance}
+.about-copy p{font-size:16px;line-height:2.05;letter-spacing:.025em;text-wrap:pretty}
+.about-note{font-size:14px!important}
+.scroll-note{font-size:12px;line-height:1.8}
+.scroll-note .mono{font-size:10px;letter-spacing:.08em}
+footer{font-size:12px;line-height:1.8;letter-spacing:.025em}
+@media(min-width:621px) and (max-width:900px){.hero h1{font-size:clamp(46px,7.2vw,64px)}.card-title{font-size:28px}.hero-intro{font-size:15px}}
+@media(max-width:620px){.hero h1{font-size:clamp(46px,15.4vw,72px);line-height:1.3;letter-spacing:.015em;margin:24px 0 21px}.brand{font-size:11px;letter-spacing:.04em}nav a{font-size:12px}.eyebrow{font-size:10px}.signature{font-size:13px;gap:12px}.hero-intro{font-size:15px;max-width:22em;line-height:2}.section-head{align-items:start;gap:16px}.section-head h2{font-size:25px}.section-head p{font-size:12px;max-width:10em;text-align:right}.card-title{font-size:30px}.card-sub{font-size:13px}.about h2{font-size:29px}.about-copy p{font-size:15px}.scroll-note,footer{font-size:11px}}
+@media(max-width:360px){.brand{font-size:10px;gap:7px}.section-head h2{font-size:23px}.section-head p{font-size:11px}.card-title{font-size:28px}}

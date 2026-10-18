@@ -24,6 +24,8 @@ h1{white-space:nowrap}
 </style>
 <link rel="stylesheet" href="head-refinements.css">
 <link rel="stylesheet" href="background-studies.css">
+<link rel="preload" href="noto-sans-sc-site.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="typography.css">
 <script>
 const previewParams=new URLSearchParams(location.search);
 const textureChoice=previewParams.get('texture');
@@ -45,8 +47,7 @@ document.documentElement.dataset.texture=['paper','trails','contours','signals']
 <g fill="#e7b45d" stroke="#a57c33" stroke-width="3"><path class="head-spark spark-joy" d="M110 600L123 634L157 647L123 660L110 694L97 660L63 647L97 634Z"/><path class="head-spark spark-joy" d="M1140 340L1150 366L1176 376L1150 386L1140 412L1130 386L1104 376L1130 366Z"/><path class="head-spark spark-wink" d="M1130 920L1144 955L1179 969L1144 983L1130 1018L1116 983L1081 969L1116 955Z"/></g>
 </svg>
 </button>
-<div class="expression-controls" role="group" aria-label="选择机器人表情"><button class="expression-choice" type="button" data-choice="calm" aria-pressed="true">放松</button><button class="expression-choice" type="button" data-choice="joy" aria-pressed="false">开心</button><button class="expression-choice" type="button" data-choice="wink" aria-pressed="false">眨眼</button></div>
-<span class="mascot-hint" id="expression-hint">在头像上移动鼠标，或点一下换个表情</span><span class="expression-status" id="expression-status" role="status" aria-live="polite"></span>
+<span class="expression-status" id="expression-hint">在头像上移动鼠标，或点一下换个表情</span><span class="expression-status" id="expression-status" role="status" aria-live="polite"></span>
 </div></section>
 <div class="scroll-note"><a href="#things">往下看看，我在关注什么 <span aria-hidden="true">↓</span></a><span class="mono">A PERSONAL CORNER ON THE WEB</span></div>
 <section id="things" aria-labelledby="things-title"><div class="section-head"><h2 id="things-title">我的日常探索<span class="punct">。</span></h2><p>一些关注，也在动手尝试</p></div><div class="cards">
@@ -67,7 +68,6 @@ themeButton.addEventListener('click',()=>{const dark=document.documentElement.da
 document.getElementById('year').textContent=new Date().getFullYear();
 const mascot=document.getElementById('mascot');
 const expressionStage=document.querySelector('.mascot-stage');
-const expressionButtons=[...document.querySelectorAll('[data-choice]')];
 const expressions=[{id:'calm',label:'放松'},{id:'joy',label:'开心'},{id:'wink',label:'眨眼'}];
 let expressionIndex=0,lastPointerChange=0;
 function setExpression(index,announce=false){
@@ -75,11 +75,9 @@ function setExpression(index,announce=false){
   const expression=expressions[index];
   expressionStage.dataset.expression=expression.id;
   mascot.setAttribute('aria-label','切换机器人表情，当前：'+expression.label);
-  expressionButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.choice===expression.id)));
   if(announce)document.getElementById('expression-status').textContent='当前表情：'+expression.label;
 }
 mascot.addEventListener('click',()=>setExpression((expressionIndex+1)%expressions.length,true));
-expressionButtons.forEach((button,index)=>button.addEventListener('click',()=>setExpression(index,true)));
 mascot.addEventListener('pointermove',event=>{
   if(event.pointerType!=='mouse'||performance.now()-lastPointerChange<220)return;
   const bounds=mascot.getBoundingClientRect();
