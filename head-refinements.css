@@ -1,0 +1,36 @@
+/* Head-only expression interaction; card depth and the nautical company scene. */
+:root{--badge-face:#222620;--badge-features:#fff8eb;--number-fill:#dce3d5;--number-hatch:rgba(83,109,66,.48);--number-outline:rgba(83,109,66,.18)}
+[data-theme="dark"]{--badge-face:#f5f5eb;--badge-features:#202420;--number-fill:#3e4e37;--number-hatch:rgba(195,214,170,.57);--number-outline:rgba(195,214,170,.3)}
+.mini-face{width:34px;height:32px;display:block;background:none;border-radius:0;flex-shrink:0}
+.badge-panel{fill:var(--badge-face);transition:fill .2s}.badge-features{stroke:var(--badge-features);transition:stroke .2s}
+.mascot-stage{min-height:450px;flex-direction:column;align-items:center;justify-content:center;padding:15px 0 10px}
+.mascot-stage:before{width:300px;height:300px;top:70px;opacity:.7}
+.mascot{width:min(100%,365px);height:355px;display:block;margin:0 auto;transform:none;--tilt:0deg}
+.head-art{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 18px 12px rgba(28,35,23,.2)) drop-shadow(0 3px 2px rgba(28,35,23,.09));transform-origin:50% 58%;transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.expression{opacity:0;transition:opacity .16s}.expression-calm{opacity:1}
+[data-expression="joy"] .expression-calm,[data-expression="wink"] .expression-calm{opacity:0}
+[data-expression="joy"] .expression-joy,[data-expression="wink"] .expression-wink{opacity:1}
+[data-expression="joy"] .head-art{transform:translateY(-7px) rotate(-3deg)}
+[data-expression="wink"] .head-art{transform:rotate(6deg)}
+.head-spark{opacity:0;transform-box:fill-box;transform-origin:center;transition:opacity .22s,transform .32s;transform:scale(.45) rotate(-35deg)}
+[data-expression="joy"] .spark-joy,[data-expression="wink"] .spark-wink{opacity:1;transform:scale(1) rotate(0deg)}
+.expression-controls{display:flex;gap:9px;justify-content:center;margin-top:15px;position:relative;z-index:2}
+.expression-choice{border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:18px;padding:8px 13px;font-size:11px;min-height:36px;transition:background .2s,border-color .2s,color .2s}
+.expression-choice[aria-pressed="true"]{background:var(--sage);border-color:var(--green);color:var(--green)}
+.expression-choice:hover{border-color:var(--green);color:var(--ink)}
+.mascot-hint{position:static;transform:none;margin-top:13px;font-size:11px;letter-spacing:.02em;text-align:center}.mascot-hint:before{display:none}
+.expression-status{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.card{box-shadow:0 5px 10px rgba(34,44,26,.035),0 16px 27px -22px rgba(34,44,26,.28)}
+.card:hover{box-shadow:0 10px 18px rgba(34,44,26,.06),0 25px 36px -20px rgba(34,44,26,.22)}
+.card-visual{filter:drop-shadow(0 13px 8px rgba(30,37,24,.18)) drop-shadow(0 2px 2px rgba(30,37,24,.12))}
+[data-theme="dark"] .card-visual{filter:drop-shadow(1px 0 0 #718067) drop-shadow(-1px 0 0 #718067) drop-shadow(0 1px 0 #718067) drop-shadow(0 -1px 0 #718067) drop-shadow(0 16px 9px rgba(0,0,0,.38))}
+[data-theme="dark"] .head-art{filter:drop-shadow(0 16px 12px rgba(0,0,0,.38)) drop-shadow(0 0 1px #798774)}
+.card-bottom{padding-top:10px;min-height:64px}
+.card-number{display:inline-block;font-size:43px;line-height:1.1;padding:1px 5px 2px 0;color:transparent;background-image:repeating-linear-gradient(132deg,var(--number-hatch) 0px,var(--number-hatch) 1px,transparent 1px,transparent 4px),linear-gradient(var(--number-fill),var(--number-fill));background-size:100% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-stroke:.55px var(--number-outline);transform-origin:left bottom;transition:transform .3s,filter .3s,background-position .6s;filter:drop-shadow(0 2px 1px rgba(47,62,35,.06))}
+.card:hover .card-number,.card:focus-within .card-number,details[open] .card-number{transform:translateY(-3px) rotate(-4deg);background-position:14px 0,0 0;filter:drop-shadow(1px 4px 1px rgba(47,62,35,.13))}
+.company-scene{display:block}
+.company-scene .ship-scene,.company:hover .company-scene .ship-scene{position:static;width:100%;height:100%;object-fit:contain;margin:0;transform:none;transition:transform .35s}
+.company:hover .company-scene .ship-scene{transform:translateY(-4px) rotate(-1deg)}
+@media(max-width:900px){.mascot-stage{min-height:390px}.mascot{width:min(100%,300px);height:300px}.mascot-stage:before{width:240px;height:240px;top:65px}.expression-controls{gap:6px;margin-top:10px}.expression-choice{padding:7px 10px}.mascot-hint{font-size:10px}}
+@media(max-width:620px){.mascot-stage{width:100%;min-height:0;margin:24px auto 5px;padding:0 0 9px}.mascot{width:265px;height:260px;max-width:84%}.mascot-stage:before{width:225px;height:225px;top:20px}.expression-controls{margin-top:13px;gap:10px}.expression-choice{padding:8px 14px;min-height:38px}.mascot-hint{margin-top:12px}.card-number{font-size:41px}}
+@media(prefers-reduced-motion:reduce){.head-art,.head-spark,.card:hover .card-number,.card:focus-within .card-number,details[open] .card-number,.company:hover .company-scene .ship-scene{transform:none!important}}
