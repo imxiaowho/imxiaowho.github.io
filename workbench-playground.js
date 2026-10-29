@@ -100,7 +100,4 @@ portrait.addEventListener('click',()=>{
 portrait.addEventListener('animationend',()=>portrait.classList.remove('is-greeting'));
 const buddyVisibility=new IntersectionObserver(entries=>{entries.forEach(entry=>portrait.classList.toggle('is-awake',entry.isIntersecting))});
 buddyVisibility.observe(portrait);
-function setTheme(dark){document.documentElement.dataset.theme=dark?'dark':'light';$('theme').setAttribute('aria-label',dark?'切换浅色':'切换深色')}
-try{setTheme(localStorage.getItem('chen-reading-theme')==='dark')}catch{setTheme(false)}
-$('theme').addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';setTheme(dark);try{localStorage.setItem('chen-reading-theme',dark?'dark':'light')}catch{/* The theme also works without storage. */}});
 render();

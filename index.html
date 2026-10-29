@@ -36,7 +36,7 @@ const previewParams=new URLSearchParams(location.search);
 const textureChoice=previewParams.get('texture');
 document.documentElement.dataset.texture=['paper','trails','contours','signals'].includes(textureChoice)?textureChoice:'trails';
 </script>
-</head>
+<link rel="stylesheet" href="site-preferences.css?v=20261030-mobile"><script src="site-preferences.js?v=20261030-mobile"></script></head>
 <body>
 <div id="site-welcome" class="site-welcome" hidden aria-label="小谁的主页开场">
  <div class="welcome-center"><span class="welcome-slip" aria-hidden="true"></span><span class="welcome-slip" aria-hidden="true"></span><span class="welcome-slip" aria-hidden="true"></span><div class="welcome-face"><img src="xiaowho-avatar-yellow.png" width="512" height="512" alt="戴黄色 Chz 棒球帽的 xiaowho"></div><p>小谁，开桌。</p><small>IDEAS · TOOLS · EVERYDAY</small></div><button class="welcome-skip" id="welcome-skip" type="button">直接进入 ↗</button>
@@ -68,11 +68,6 @@ document.documentElement.dataset.texture=['paper','trails','contours','signals']
 </main><footer><span>© <span id="year">2026</span> 陈震 · 个人主页</span><div><button class="motion-replay" id="motion-replay" type="button">重播开场 ↻</button><a href="#top">回到开头 ↑</a></div></footer>
 </div>
 <script>
-const themeButton=document.getElementById('theme-toggle');
-function setTheme(dark){document.documentElement.dataset.theme=dark?'dark':'light';themeButton.setAttribute('aria-pressed',String(dark));themeButton.setAttribute('aria-label',dark?'切换浅色阅读模式':'切换深色阅读模式');document.querySelector('meta[name="theme-color"]').content=dark?'#202420':'#fcfcf9'}
-const previewTheme=previewParams.get('previewTheme');
-if(previewTheme==='light'||previewTheme==='dark'){setTheme(previewTheme==='dark')}else{try{setTheme(localStorage.getItem('chen-reading-theme')==='dark')}catch{setTheme(false)}}
-themeButton.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';setTheme(dark);try{localStorage.setItem('chen-reading-theme',dark?'dark':'light')}catch{/* Reading mode works without storage. */}});
 document.getElementById('year').textContent=new Date().getFullYear();
 const mascot=document.getElementById('mascot');
 const expressionStage=document.querySelector('.mascot-stage');
