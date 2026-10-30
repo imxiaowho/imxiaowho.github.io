@@ -31,6 +31,38 @@
  function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(updateCards)}}
  window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);
  document.querySelectorAll('details.card').forEach(card=>card.addEventListener('toggle',schedule));
+ const company=document.querySelector('details.company');
+ if(company){
+  const summary=company.querySelector('summary'),content=company.querySelector('.company-desc');
+  let expanded=company.open,heightAnimation=null,fadeAnimation=null;
+  function label(){
+   const en=document.documentElement.lang==='en';
+   summary.setAttribute('aria-expanded',String(expanded));
+   summary.querySelector('.card-bottom > span:last-child').textContent=en?(expanded?'Show less':'Read more'):(expanded?'点击收起':'点击展开');
+  }
+  summary.setAttribute('aria-controls','company-detail');label();
+  summary.addEventListener('click',event=>{
+   event.preventDefault();
+   const start=company.getBoundingClientRect().height,opacity=getComputedStyle(content).opacity;
+   expanded=!expanded;
+   heightAnimation?.cancel();fadeAnimation?.cancel();
+   company.classList.toggle('is-closing',!expanded);label();
+   if(reduced.matches){company.open=expanded;company.classList.remove('is-closing');schedule();return;}
+   const wasOpen=company.open;company.open=true;
+   const style=getComputedStyle(company),border=parseFloat(style.borderTopWidth)+parseFloat(style.borderBottomWidth);
+   const end=(expanded?company.scrollHeight:summary.getBoundingClientRect().height)+border;
+   const animation=company.animate([{height:start+'px'},{height:end+'px'}],{duration:340,easing:'cubic-bezier(.22,1,.36,1)'});
+   heightAnimation=animation;
+   fadeAnimation=content.animate([{opacity:wasOpen?opacity:0},{opacity:expanded?1:0}],{duration:260,easing:'ease-out'});
+   animation.onfinish=()=>{
+    if(heightAnimation!==animation)return;
+    company.open=expanded;company.classList.remove('is-closing');heightAnimation=null;fadeAnimation=null;label();schedule();
+   };
+   schedule();
+  });
+  addEventListener('site-preferences-change',label);
+  reduced.addEventListener('change',()=>{if(reduced.matches)heightAnimation?.finish();});
+ }
  reduced.addEventListener('change',()=>{if(reduced.matches){welcome.hidden=true;clearTimeout(exitTimer);clearTimeout(hideTimer)}schedule()});
  updateCards();
 })();
