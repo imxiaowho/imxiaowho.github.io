@@ -10,28 +10,11 @@
   const reduced=matchMedia('(prefers-reduced-motion:reduce)');
   const replay=document.getElementById('replay-steps');
   const header=document.querySelector('.site-header');
-  const ns='http://www.w3.org/2000/svg';
   let feet=[];
   let paintFrame=0;
   let layoutFrame=0;
 
-  function stamp(foot,delay=0) {
-    foot.walked=true;
-    foot.node.classList.add('is-walked');
-    if(reduced.matches)return;
-    foot.sole.getAnimations().forEach(animation=>animation.cancel());
-    foot.dust.getAnimations().forEach(animation=>animation.cancel());
-    foot.sole.animate([
-      {transform:'translateY(-7px) scale(1.35)',opacity:0},
-      {transform:'translateY(0) scale(.86,1.1)',opacity:1,offset:.5},
-      {transform:'scale(1)',opacity:1}
-    ],{duration:420,delay,easing:'cubic-bezier(.2,.7,.3,1)',fill:'backwards'});
-    foot.dust.animate([
-      {transform:'scale(.5)',opacity:0},
-      {transform:'scale(1)',opacity:.5,offset:.4},
-      {transform:'scale(1.9)',opacity:0}
-    ],{duration:520,delay:delay+120,easing:'ease-out'});
-  }
+  function stamp(foot,delay=0){FootstepMotion.stamp(foot,delay,reduced.matches);}
   function paintWalk(animate=true) {
     paintFrame=0;
     const bounds=journey.getBoundingClientRect();
@@ -73,27 +56,8 @@
     const last=anchors[anchors.length-1];
     d+=small.matches ? `C${last.x+10} ${last.y+80} 18 ${height-140} 26 ${height-90}` : `C${last.x-25} ${last.y+100} ${width*.54} ${height-180} ${width*.55} ${height-140}`;
     route.setAttribute('d',d);
-    const total=route.getTotalLength();
-    const fragment=document.createDocumentFragment();
-    const step=small.matches?55:70;
-    feet=[];
-    for(let at=10,index=0;at<total;at+=step,index++){
-      const point=route.getPointAtLength(at);
-      const ahead=route.getPointAtLength(Math.min(total,at+2));
-      const angle=Math.atan2(ahead.y-point.y,ahead.x-point.x)*180/Math.PI+90;
-      const spread=small.matches?4:8;
-      const lateral=index%2?spread:-spread;
-      const node=document.createElementNS(ns,'g');
-      node.classList.add('footprint');
-      const size=small.matches ? 1.35 : 1.8;
-      node.setAttribute('transform',`translate(${point.x},${point.y}) rotate(${angle+(index%2?6:-6)}) translate(${lateral},0) scale(${index%2?-size:size},${size})`);
-      const sole=document.createElementNS(ns,'path');
-      sole.setAttribute('d','M-1-7C-4-7-5-4-4-1L-3 3Q0 4 3 2L4-1C5-5 2-8-1-7ZM-2.5 4.5L2.5 4Q3 8 0 8.5Q-3 9-2.5 4.5Z');
-      const dust=document.createElementNS(ns,'ellipse');
-      dust.classList.add('step-dust');dust.setAttribute('rx','6');dust.setAttribute('ry','9');
-      node.append(dust,sole);fragment.append(node);feet.push({node,sole,dust,y:point.y,walked:false});
-    }
-    footprints.replaceChildren(fragment);
+    const drawn=FootstepMotion.create(route,small.matches?{step:55,spread:4,size:1.35}:{});
+    feet=drawn.feet;footprints.replaceChildren(drawn.fragment);
     paintWalk(false);
   }
   function queueLayout(){if(!layoutFrame)layoutFrame=requestAnimationFrame(drawTrail);}

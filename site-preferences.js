@@ -4,9 +4,9 @@
   const query = new URLSearchParams(location.search);
   const read = (key, fallback) => { try { return localStorage.getItem(key) || fallback; } catch { return fallback; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Preferences remain usable for this page. */ } };
-  let language = query.get('lang') || read('chen-language', 'zh');
+  let language = query.get('lang') || root.dataset.sceneLanguage || read('chen-language', 'zh');
   language = language === 'en' ? 'en' : 'zh';
-  let theme = query.get('theme') || read('chen-reading-theme', 'light');
+  let theme = query.get('theme') || root.dataset.sceneTheme || read('chen-reading-theme', 'light');
   theme = theme === 'dark' ? 'dark' : 'light';
   root.dataset.theme = theme;
   root.lang = language === 'en' ? 'en' : 'zh-CN';
@@ -45,7 +45,7 @@
       const walker = document.createTreeWalker(document.documentElement, NodeFilter.SHOW_TEXT);
       while (walker.nextNode()) {
         const node = walker.currentNode;
-        if (node.parentElement.closest('script, style, .reading-controls')) continue;
+        if (node.parentElement.closest('script, style, pre, code, [data-no-translate], .reading-controls')) continue;
         const previous = originals.get(node);
         const source = previous && node.data === previous.output ? previous.source : node.data;
         const output = language === 'en' ? translate(source) : source;
@@ -55,7 +55,7 @@
       document.querySelectorAll('[aria-label], [alt], meta[name="description"]').forEach(element => {
         const values = originals.get(element) || {};
         for (const attr of ['aria-label', 'alt', 'content']) {
-          if (!element.hasAttribute(attr) || element.closest('.reading-controls')) continue;
+          if (!element.hasAttribute(attr) || element.closest('.reading-controls, [data-no-translate]')) continue;
           const current = element.getAttribute(attr), previous = values[attr];
           const source = previous && current === previous.output ? previous.source : current;
           const output = language === 'en' ? translate(source) : source;
@@ -65,10 +65,14 @@
         originals.set(element, values);
       });
     }
-    languageButton.addEventListener('click', () => { language = language === 'en' ? 'zh' : 'en'; save('chen-language', language); update(); window.dispatchEvent(new Event('resize')); });
-    themeButton.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; save('chen-reading-theme', theme); update(); });
-    const observer = new MutationObserver(() => { observer.disconnect(); update(); observe(); });
-    const observe = () => observer.observe(document.documentElement, {subtree:true, childList:true, characterData:true, attributes:true, attributeFilter:['aria-label', 'alt']});
-    update(); observe();
+    const announce = () => window.dispatchEvent(new CustomEvent('site-preferences-change', {detail:{language, theme}}));
+    languageButton.addEventListener('click', () => { language = language === 'en' ? 'zh' : 'en'; save('chen-language', language); update(); announce(); window.dispatchEvent(new Event('resize')); });
+    themeButton.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; save('chen-reading-theme', theme); update(); announce(); });
+    let disposed = false;
+    const observer = new MutationObserver(() => { observer.disconnect(); if (disposed || !root.isConnected) return; update(); observe(); });
+    const observe = () => { if (!disposed && root.isConnected) observer.observe(root, {subtree:true, childList:true, characterData:true, attributes:true, attributeFilter:['aria-label', 'alt']}); };
+    window.addEventListener('pagehide', () => { disposed = true; observer.disconnect(); });
+    window.addEventListener('pageshow', event => { if (event.persisted) { disposed = false; observe(); } });
+    update(); observe(); announce();
   });
 })();
