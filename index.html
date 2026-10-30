@@ -25,25 +25,25 @@ h1{white-space:nowrap}
 .workflow-preview{display:block;margin:23px 0;color:var(--ink);text-decoration:none}.workdesk-screen{display:block;padding:7px;background:#343b33;border-radius:12px;box-shadow:0 12px 22px #15271818;transform:rotate(-1deg);transition:transform .25s,box-shadow .25s}.workdesk-screen img{display:block;width:100%;height:auto;border-radius:5px}.workdesk-open{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:17px;font-size:16px;font-weight:650}.workdesk-open>span{display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;width:32px;height:32px;font-size:18px}.workflow-preview small{display:block;font-size:12px;line-height:1.9;color:var(--muted);margin-top:7px}.workflow-preview:hover .workdesk-screen{transform:rotate(0) translateY(-3px);box-shadow:0 17px 27px #15271824}.workflow-preview:hover .workdesk-open{color:var(--green)}@media(prefers-reduced-motion:reduce){.workflow-preview:hover .workdesk-screen{transform:none}}
 
 </style>
-<link rel="stylesheet" href="head-refinements.css?v=20261030-notebook-release">
-<link rel="stylesheet" href="background-studies.css?v=20261030-notebook-release">
+<link rel="stylesheet" href="head-refinements.css">
+<link rel="stylesheet" href="background-studies.css?v=20261018-sections">
 <link rel="preload" href="noto-sans-sc-site.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="typography.css?v=20261030-notebook-release">
-<link rel="stylesheet" href="home-motion.css?v=20261030-notebook-release">
-<script src="home-motion.js?v=20261030-notebook-release" defer></script>
+<link rel="stylesheet" href="typography.css">
+<link rel="stylesheet" href="home-motion.css?v=20261029-xiaowho">
+<script src="home-motion.js?v=20261029-xiaowho" defer></script>
 <script>
 const previewParams=new URLSearchParams(location.search);
 const textureChoice=previewParams.get('texture');
 document.documentElement.dataset.texture=['paper','trails','contours','signals'].includes(textureChoice)?textureChoice:'trails';
 </script>
-<link rel="stylesheet" href="site-preferences.css?v=20261030-notebook-release"><script src="site-preferences.js?v=20261030-notebook-release"></script><link rel="stylesheet" href="bookshelf.css?v=20261030-notebook-release"><link rel="stylesheet" href="discovery.css?v=20261030-notebook-release"><script src="footsteps-motion.js?v=20261030-notebook-release" defer></script><link rel="stylesheet" href="notebook-reference.css?v=20261030-notebook-release"><script src="notebook-reference.js?v=20261030-notebook-release" defer></script><script src="bookshelf.js?v=20261030-notebook-release" data-book-path="motion.html" defer></script></head>
+<link rel="stylesheet" href="site-preferences.css?v=20261030-mobile"><script src="site-preferences.js?v=20261030-mobile"></script></head>
 <body>
 <div id="site-welcome" class="site-welcome" hidden aria-label="小谁的主页开场">
  <div class="welcome-center"><span class="welcome-slip" aria-hidden="true"></span><span class="welcome-slip" aria-hidden="true"></span><span class="welcome-slip" aria-hidden="true"></span><div class="welcome-face"><img src="xiaowho-avatar-yellow.png" width="512" height="512" alt="戴黄色 Chz 棒球帽的 xiaowho"></div><p>小谁，开桌。</p><small>IDEAS · TOOLS · EVERYDAY</small></div><button class="welcome-skip" id="welcome-skip" type="button">直接进入 ↗</button>
 </div>
 <a class="skip" href="#things">跳到正文</a>
 <div class="shell" id="top">
-<header><a href="#top" class="brand" aria-label="陈震，回到首页"><svg class="mini-face" viewBox="0 0 40 38" aria-hidden="true"><rect class="badge-panel" x="2" y="2" width="36" height="34" rx="6"/><g class="badge-features" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M10 11Q13 8 16 9M24 9Q27 8 30 11"/><path d="M13 18V27M27 18V27" stroke-width="3.5"/></g></svg>CHEN ZHEN</a><nav aria-label="主导航"><a href="#things">在做什么</a><a href="#about">关于我</a><a href="#bookshelf">书架</a><a class="nav-github" href="https://github.com/imxiaowho" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="theme-button" id="theme-toggle" type="button" aria-label="切换深色阅读模式" aria-pressed="false">◐</button></nav></header>
+<header><a href="#top" class="brand" aria-label="陈震，回到首页"><svg class="mini-face" viewBox="0 0 40 38" aria-hidden="true"><rect class="badge-panel" x="2" y="2" width="36" height="34" rx="6"/><g class="badge-features" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M10 11Q13 8 16 9M24 9Q27 8 30 11"/><path d="M13 18V27M27 18V27" stroke-width="3.5"/></g></svg>CHEN ZHEN</a><nav aria-label="主导航"><a href="#things">在做什么</a><a href="#about">关于我</a><a class="nav-github" href="https://github.com/imxiaowho" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button class="theme-button" id="theme-toggle" type="button" aria-label="切换深色阅读模式" aria-pressed="false">◐</button></nav></header>
 <main>
 <section class="hero" aria-labelledby="intro-title"><div class="hero-copy"><div class="eyebrow">AI · 科技 · 独立开发</div><h1 id="intro-title">你好，<br>我是陈震<span class="punct">。</span></h1><div class="signature">Chen Zhen <span aria-hidden="true"></span>边学习，边动手做</div><p class="hero-intro">关注新工具，也关心它们在实际工作里，能不能让事情更清楚、更省力。</p><a class="inline-link" href="https://github.com/imxiaowho" target="_blank" rel="noopener noreferrer">去我的 GitHub 看看 <span class="arrow" aria-hidden="true">↗</span></a></div><div class="mascot-stage" data-expression="calm">
 <button class="mascot" id="mascot" type="button" aria-label="切换机器人表情，当前：放松" aria-describedby="expression-hint">
@@ -64,7 +64,6 @@ document.documentElement.dataset.texture=['paper','trails','contours','signals']
 <details class="card"><summary><span class="card-title">内容与记录</span><span class="card-sub">边做，边把想法整理清楚</span><span class="card-action" aria-hidden="true">+</span><span class="card-scene scene-notebook"><img class="card-visual" src="notes-v1.png" alt="机器人坐在地上用笔在本子里做记录" width="1536" height="1024" loading="lazy"></span><span class="card-bottom"><span class="card-number" aria-hidden="true">03</span><span>点击展开</span></span></summary><div class="card-detail"><p>记录做元舵时遇到的具体问题。</p><a class="article-entry" href="workbench-footsteps.html"><time datetime="2026-10-19">2026.10.19</time><strong>元舵协同工作台，是怎么一点点做起来的</strong><span>从9月25日的讨论，到试飞书、切回 WPS。沿着脚印看看 ↗</span></a><div class="detail-tags"><span>内容生产</span><span>思考与整理</span></div></div></details>
 <article class="card company"><a href="https://www.tunenomics.com" target="_blank" rel="noopener noreferrer" aria-label="元舵，我的 OPC 公司，访问官网（新窗口）"><span class="card-title">关于元舵</span><span class="card-sub">我正在做的 OPC 公司</span><span class="card-action" aria-hidden="true">↗</span><div class="company-scene"><img class="card-visual ship-scene" src="steering-v1.png" alt="戴 Chz 帽子的机器人掌着船舵，驾驶蓝白色小船向前航行" width="1536" height="1024" loading="lazy"></div><div class="card-bottom"><span class="card-number" aria-hidden="true">04</span><span>访问官网 ↗</span></div></a><p class="company-desc">围绕具体场景梳理问题，尝试 AI 工作流与轻量工具，参与方案验证和交付。</p></article>
 </div></section>
-<section class="knowledge-shelf" id="bookshelf" aria-labelledby="shelf-title"></section>
 <section class="about" id="about" aria-labelledby="about-title"><div><div class="about-label">关于我 / ABOUT</div><h2 id="about-title">好奇，然后动手。</h2><a class="inline-link" href="https://github.com/imxiaowho" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow" aria-hidden="true">↗</span></a></div><div class="about-copy"><p>我是陈震，关注 AI、科技与独立开发。</p><p>我的日常有技术工作，也有内容生产。我会尝试新工具，留意它们能解决什么问题，再把有用的部分放进自己的工作里。</p><p class="about-note">给自己的提醒：先理解问题，再动手验证。</p></div></section>
 </main><footer><span>© <span id="year">2026</span> 陈震 · 个人主页</span><div><button class="motion-replay" id="motion-replay" type="button">重播开场 ↻</button><a href="#top">回到开头 ↑</a></div></footer>
 </div>
