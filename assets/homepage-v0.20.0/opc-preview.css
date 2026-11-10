@@ -1,0 +1,20 @@
+@font-face{font-family:"Xiaowho Serif";src:url("assets/opc-preview-v12/serif-opc.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap;unicode-range:U+5143,U+8235}
+
+/* The whole lower reading column is the paper, with no flight route.
+   Hidden panels must not push the paper below the selected company row. */
+[data-nav-version="5"] .work:has(#panel-company:not([hidden])) .project-panel[hidden]{display:none!important}
+.company-preview{display:block;position:relative;margin:16px 0 24px;color:var(--muted);text-decoration:none;perspective:900px}
+.company-preview[hidden]{display:none!important}
+.preview-paper{display:block;visibility:hidden;pointer-events:none;overflow:hidden;background:var(--paper);box-shadow:0 10px 26px color-mix(in srgb,var(--ink) 9%,transparent);transform-origin:top center;opacity:0;clip-path:inset(0 0 100% 0);transform:rotateX(-12deg);transition:visibility 0s linear 620ms,opacity 160ms linear,clip-path 620ms var(--ease-out),transform 620ms var(--ease-out)}
+.preview-screen{position:relative;display:block;aspect-ratio:1265/712;overflow:hidden;background:#f4f1e8}
+.preview-screen iframe{display:block;width:1265px;height:712px;max-width:none;border:0;transform:scale(var(--preview-scale,1));transform-origin:top left;color-scheme:light}
+/* Bridge the small gap from the trigger to the unfolded sheet. */
+.company-preview[data-state="open"]::before{content:"";position:absolute;inset:-20px 0 auto;height:20px}
+.preview-caption{display:flex;align-items:center;justify-content:space-between;min-height:28px;padding:8px 12px;border-top:1px solid var(--line);font-family:"Xiaowho Sans",sans-serif;font-size:11px;font-weight:400;line-height:1;letter-spacing:.02em;color:var(--muted);text-decoration:none}
+.preview-caption svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.1}
+.company-preview[data-state="open"] .preview-paper{visibility:visible;pointer-events:auto;transition-delay:0s;opacity:1;clip-path:inset(0);transform:none}
+.preview-caption:focus-visible{outline:1px solid var(--ink);outline-offset:5px}
+body[data-home-design="index"][data-nav-version="5"] .reading-body>.site-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:0}
+.footer-motto{flex-basis:100%;font-family:"Xiaowho Serif",serif;font-size:16px;font-weight:500;line-height:1.65;color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.preview-paper{transition:none;transform:none}}
+@media print{.company-preview[hidden]{display:none!important}.company-preview .preview-paper{opacity:1;clip-path:none;transform:none}}
