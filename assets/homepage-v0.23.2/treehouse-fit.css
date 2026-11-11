@@ -1,0 +1,61 @@
+/* Selected A: the whole painting fits beside, rather than behind, the index. */
+body[data-home-design=index].treehouse-page[data-art-layout=contained]{--paper:#f8f8f5;--ink:#242421;--muted:#575752;--line:#d5d5ce;--accent:#3d3d37}
+/* Native scanned-paper texture stays below content and does not receive input. */
+body[data-art-layout=contained]::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:url("assets/paper/cotton-paper.webp") repeat;background-size:512px 512px;opacity:.25;mix-blend-mode:multiply}
+[data-art-layout=contained]:has([data-material=none])::before{opacity:0}
+[data-art-layout=contained] .surface-texture[data-material=ink]{opacity:.18}
+[data-art-layout=contained] .ambient{background:none}
+[data-art-layout=contained] .world-illustration img{filter:contrast(1.07)}
+body[data-home-design=index][data-art-layout=contained] .project-row h2{font-weight:550}
+body.treehouse-page[data-art-layout=contained]{--review-bar:42px}
+body.treehouse-page[data-art-layout=contained][data-home-published=true]{--review-bar:0px}
+body[data-home-design=index].treehouse-page[data-art-layout=contained] .page{
+ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,640px);column-gap:64px;
+ width:min(1240px,calc(100% - 80px));min-height:calc(100svh - var(--review-bar));
+ margin:0 auto;padding:32px 0;align-content:center;
+}
+[data-art-layout=contained] .page>.site-header{grid-column:2;grid-row:1;min-height:72px;padding-top:0}
+[data-art-layout=contained] .page>main{grid-column:2;grid-row:2;padding-top:12px}
+[data-art-layout=contained] .page>.site-footer{grid-column:2;grid-row:3;padding:12px 0 0}
+[data-art-layout=contained] .world-illustration{
+ grid-column:1;grid-row:1 / 4;position:relative;inset:auto!important;align-self:center;
+ width:100%;height:min(840px,calc(100svh - var(--review-bar) - 64px));
+ margin:0;mask-image:none;aspect-ratio:auto;overflow:visible;
+}
+[data-art-layout=contained] .world-illustration img{width:100%;height:100%;object-fit:contain;max-width:100%}
+body[data-home-design=index][data-art-layout=contained] .project-row{min-height:112px;padding:24px 0}
+body[data-home-design=index][data-art-layout=contained] .project-panel{min-height:224px}
+body[data-home-design=index][data-art-layout=contained] .intro{padding:24px 0 20px}
+[data-art-layout=contained] .more{margin-top:0;padding:8px 0}
+[data-art-layout=contained] .surface-tools{padding:0 0 12px}
+@media(min-width:901px) and (max-height:800px){
+ body[data-home-design=index].treehouse-page[data-art-layout=contained] .page{padding-block:24px}
+ [data-art-layout=contained] .page>.site-header{min-height:64px}
+ [data-art-layout=contained] .page>main{padding-top:8px}
+ [data-art-layout=contained] .world-illustration{height:calc(100svh - var(--review-bar) - 48px)}
+ body[data-home-design=index][data-art-layout=contained] .project-row{min-height:100px;padding:20px 0}
+ body[data-home-design=index][data-art-layout=contained] .project-panel{min-height:200px}
+ body[data-home-design=index][data-art-layout=contained] .intro{padding:20px 0 16px}
+ [data-art-layout=contained] .more{padding:0}
+ [data-art-layout=contained] .surface-tools{padding:0}
+ [data-art-layout=contained] .page>.site-footer{padding-top:8px}
+}
+@media(min-width:901px) and (max-width:1200px){
+ body[data-home-design=index].treehouse-page[data-art-layout=contained] .page{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:40px}
+}
+@media(max-width:900px){
+ body[data-home-design=index].treehouse-page[data-art-layout=contained] .page{display:block;width:min(640px,calc(100% - 48px));padding:16px 0 24px}
+ [data-art-layout=contained] .page>.site-header{min-height:76px}
+ [data-art-layout=contained] .world-illustration{height:min(280px,34svh);width:100%;margin:4px 0 20px}
+ [data-art-layout=contained] .page>main{padding-top:0}
+}
+@media(max-width:400px){
+ body[data-home-design=index].treehouse-page[data-art-layout=contained] .page{width:calc(100% - 40px)}
+ [data-art-layout=contained] .wordmark{font-size:25px}
+ [data-art-layout=contained] .header-actions{gap:12px}
+ [data-art-layout=contained] .world-illustration{height:min(240px,30svh);margin-bottom:16px}
+}
+@media print{
+ body[data-home-design=index].treehouse-page[data-art-layout=contained] .page{display:block;width:100%;padding:0}
+ [data-art-layout=contained] .world-illustration{height:280px;margin-bottom:24px}
+}
