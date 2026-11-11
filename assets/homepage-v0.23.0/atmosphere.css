@@ -1,0 +1,34 @@
+/* Soft cloud banks gather and disperse; a clear center protects the reading plane. */
+body.treehouse-page .surface-texture[data-atmosphere="fog"]{
+ inset:0;z-index:0;opacity:.6;background-image:none;mask-image:none;
+ transform:none;filter:none;mix-blend-mode:multiply;pointer-events:none;overflow:hidden;
+}
+body.treehouse-page .surface-texture[data-atmosphere="fog"][data-material="none"]{opacity:0}
+.fog-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+body.treehouse-page .surface-texture[data-atmosphere="fog"]::before,
+body.treehouse-page .surface-texture[data-atmosphere="fog"]::after{
+ content:"";position:absolute;top:-18%;bottom:-18%;width:88%;left:-34%;
+ background:radial-gradient(ellipse at 38% 32%,rgba(69,73,66,.25),transparent 48%),
+ radial-gradient(ellipse at 51% 72%,rgba(83,87,79,.21),transparent 45%),
+ radial-gradient(ellipse at 26% 51%,rgba(99,103,94,.16),transparent 38%);
+ filter:blur(22px);animation:mist-left 18s ease-in-out infinite alternate paused;
+}
+body.treehouse-page .surface-texture[data-atmosphere="fog"]::after{
+ left:auto;right:-34%;animation-name:mist-right;animation-duration:23s;animation-delay:-11s;
+}
+body.treehouse-page .surface-texture[data-atmosphere="fog"][data-fog-running="true"]::before,
+body.treehouse-page .surface-texture[data-atmosphere="fog"][data-fog-running="true"]::after{animation-play-state:running}
+body.treehouse-page .surface-texture[data-atmosphere="fog"][data-fog-renderer="webgl"]::before,
+body.treehouse-page .surface-texture[data-atmosphere="fog"][data-fog-renderer="webgl"]::after{display:none}
+@keyframes mist-left{
+ from{transform:translate3d(-12%,9%,0) scale(1.03) rotate(-5deg);opacity:.6}
+ to{transform:translate3d(18%,-12%,0) scale(1.17) rotate(5deg);opacity:1}
+}
+@keyframes mist-right{
+ from{transform:translate3d(12%,-10%,0) scale(1.16) rotate(5deg);opacity:1}
+ to{transform:translate3d(-18%,12%,0) scale(1.02) rotate(-5deg);opacity:.55}
+}
+@media(prefers-reduced-motion:reduce){
+ body.treehouse-page .surface-texture[data-atmosphere="fog"]::before,
+ body.treehouse-page .surface-texture[data-atmosphere="fog"]::after{animation:none!important}
+}
