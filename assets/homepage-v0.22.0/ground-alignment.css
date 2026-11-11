@@ -1,0 +1,29 @@
+/* The portrait's visible ground ends at y1478/1536 (native alpha >=32).
+   Account for object-fit:contain letterboxing before aligning the reading footer. */
+@supports(width:1cqi){
+ @media screen and (min-width:901px){
+  body[data-art-layout="contained"][data-nav-version="5"] .page{
+   container-type:inline-size;
+   --art-frame-height:min(840px,calc(100svh - var(--review-bar) - 64px));
+   --header-row:96px;
+  }
+  body[data-art-layout="contained"][data-nav-version="5"] .world-illustration{height:var(--art-frame-height)}
+  body[data-art-layout="contained"][data-nav-version="5"] .reading-body{
+   --art-inline:calc(100cqi - 704px);
+   --art-drawn-height:min(calc(var(--art-inline) * 1.5),var(--art-frame-height));
+   min-height:calc(var(--art-frame-height) / 2 + var(--art-drawn-height) * 710 / 1536 - var(--header-row));
+   display:flex;flex-direction:column;
+  }
+  body[data-art-layout="contained"][data-nav-version="5"] .reading-body>main{display:flex;flex-direction:column;flex:1}
+  body[data-art-layout="contained"][data-nav-version="5"] .intro{margin-top:auto}
+ }
+ @media screen and (min-width:901px) and (max-width:1200px){
+  body[data-art-layout="contained"][data-nav-version="5"] .reading-body{--art-inline:calc((100cqi - 40px) * .4)}
+ }
+ @media screen and (min-width:901px) and (max-height:800px){
+  body[data-art-layout="contained"][data-nav-version="5"] .page{
+   --art-frame-height:calc(100svh - var(--review-bar) - 48px);
+   --header-row:80px;
+  }
+ }
+}
