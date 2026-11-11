@@ -1,0 +1,31 @@
+/* The character belongs to the native illustration; there is no actor overlay. */
+@font-face{font-family:"Xiaowho Sans";src:url("assets/taxonomy-v4/sans.woff2") format("woff2");font-style:normal;font-weight:400 800;font-display:swap;unicode-range:U+4E16,U+754C}
+body.treehouse-page{position:relative;min-height:100svh;padding-top:42px;overflow-x:clip}
+body[data-home-design=index].treehouse-page .page{position:relative;width:min(640px,38vw);margin-left:37.5vw;margin-right:0;padding-bottom:120px;min-height:calc(100svh - 42px)}
+.treehouse-page .page>.site-header,.treehouse-page .page>main,.treehouse-page .page>.site-footer{position:relative;z-index:2}
+.world-illustration{position:absolute;z-index:1;top:-42px;left:-37.5vw;width:100vw;margin:0;pointer-events:none;mask-image:linear-gradient(to right,#000 35%,transparent 37%,transparent 77%,#000 83%),linear-gradient(to bottom,#000 90%,transparent);mask-composite:intersect}
+.world-illustration img{display:block;width:100%;height:auto;max-width:none}
+body[data-home-design=index].treehouse-page .intro{display:block;min-height:0;padding:40px 0 36px}
+body[data-home-design=index].treehouse-page .intro-description{padding-right:0}
+.treehouse-page .intro-copy{max-width:100%}
+.scene-nav{position:fixed;z-index:1001;top:0;left:0;right:0;height:42px;display:flex;align-items:center;gap:24px;padding:0 28px;border-bottom:1px solid #dedede;background:#fafafa;font-family:"Xiaowho Sans",sans-serif;font-size:13px}
+.scene-nav a{color:#555;padding:9px 0;text-decoration:none;text-underline-offset:6px;text-decoration-thickness:1px}
+.scene-nav a[aria-current=page]{color:#272727;text-decoration:underline}
+.scene-nav a:last-child{margin-left:auto}
+.scene-nav :focus-visible{outline:1px solid #555;outline-offset:3px}
+.treehouse-page[data-home-published=true]{padding-top:0}
+.treehouse-page[data-home-published=true] .scene-nav{display:none}
+.treehouse-page[data-home-published=true] .world-illustration{top:0}
+@media(max-width:1100px){
+ body[data-home-design=index].treehouse-page .page{width:min(860px,calc(100% - 72px));margin:0 auto;min-height:100svh;padding-bottom:48px}
+ .world-illustration{position:relative;top:auto!important;left:auto;width:100%;margin:0 0 28px;mask-image:linear-gradient(to bottom,#000 95%,transparent)}
+ .treehouse-page .page>main{padding-top:0}
+}
+@media(max-width:600px){
+ body[data-home-design=index].treehouse-page .page{width:calc(100% - 44px)}
+ .world-illustration{width:calc(100% + 44px);margin:0 -22px 28px;aspect-ratio:3/5;overflow:hidden}
+ .world-illustration img{width:250%;height:auto}
+ .scene-nav{gap:18px;padding:0 18px;font-size:12px}
+ body[data-home-design=index].treehouse-page .intro{padding:32px 0}
+}
+@media print{.scene-nav{display:none}body.treehouse-page{padding-top:0}.world-illustration{mask-image:none}}
