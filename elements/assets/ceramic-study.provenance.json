@@ -1,0 +1,12 @@
+{
+  "asset": "elements/assets/ceramic-study.jpg",
+  "origin": "Original fictional design asset generated with built-in image_gen on2026-11-08",
+  "prompt": "Original premium editorial still-life photograph, landscape 3:2. A matte pale terracotta sculptural ceramic vase with two slender branches and small ochre leaves, a low cream ceramic bowl, on a worn light limestone ledge; deep warm olive background, diagonal natural afternoon light, elegant asymmetric composition with negative space, honest tactile ceramics, refined independent craft journal aesthetic. No people, no text, no logos, no border, no collage, no UI. Fictional original arrangement as a frontend design asset.",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "source_png_sha256": "bba65586501d89b4c8ff545b9830297c9e9d26787c8ab2669663fea3f2d240e4",
+  "sha256": "13a44ff54a42566b2931f8a2c4954cc969924086315e29b245f3a81b6a960847",
+  "conversion": "JPEG91, no resizing or compositional edit; exact prompt and origin embedded in EXIF"
+}

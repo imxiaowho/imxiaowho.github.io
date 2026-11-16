@@ -1,0 +1,12 @@
+/* Delivery shares the normal business desk and card geometry. */
+.work-card.delivery-knowledge{border-color:#adc8df;background:#f7faff}
+.work-card.delivery-html{border-color:#c9b4df;background:#fcf9ff}
+.work-card.delivery-knowledge .card-meta>.tag:first-child,.delivery-label.knowledge{background:#356b98;color:#fff;font-weight:650}
+.work-card.delivery-html .card-meta>.tag:first-child,.delivery-label.html{background:#79549c;color:#fff;font-weight:650}
+.work-card.delivery-knowledge .work-actions .primary{background:#356b98;border-color:#356b98}
+.work-card.delivery-html .work-actions .primary{background:#79549c;border-color:#79549c}
+.delivery-label{display:inline-flex;padding:5px 9px;border-radius:5px;font-size:11px;font-weight:650}
+.delivery-detail-context{padding:15px;border:1px solid #ccdce9;border-radius:7px;background:#edf4fb;margin:15px 0}
+[data-delivery-branch=html] .delivery-detail-context{border-color:#dfd1ec;background:#f3eef9}
+.delivery-detail-context p{font-size:12px;line-height:1.8;margin:10px 0}
+.monitor-modules{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}

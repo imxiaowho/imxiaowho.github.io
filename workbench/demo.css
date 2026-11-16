@@ -1,0 +1,15 @@
+/* Keep the demo label on one line in the compact status bar. */
+html[data-desktop-shell] body #connection {
+  white-space: nowrap;
+}
+
+@media (max-width: 370px) {
+  html[data-desktop-shell] body .sidebar #navigation > .sidebar-group:first-child .nav-quick {
+    gap: 2px;
+    padding-inline: 1px;
+  }
+
+  html[data-desktop-shell] body .sidebar #navigation > .sidebar-group:first-child .nav-count {
+    min-width: 12px;
+  }
+}

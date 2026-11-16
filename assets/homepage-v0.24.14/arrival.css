@@ -1,0 +1,100 @@
+.site-arrival {
+  --arrival-exit: 280ms;
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  color: var(--ink);
+  pointer-events: none;
+  animation: arrival-fail-open 1ms 1500ms forwards;
+}
+
+.site-arrival::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 44%, #fcfaf2, var(--paper) 82%);
+  content: "";
+  animation: arrival-paper-in 100ms ease-out both;
+}
+
+.site-arrival__signature {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: .085em;
+  font: 600 clamp(34px, 11vw, 70px) / 1.2 "Xiaowho Serif", Georgia, serif;
+  letter-spacing: -.035em;
+  transform-origin: left top;
+}
+
+.site-arrival__letters {
+  mask-image: linear-gradient(101deg, #000 0 44%, transparent 59%);
+  mask-size: 255% 100%;
+  mask-repeat: no-repeat;
+  animation: arrival-imprint 390ms 30ms cubic-bezier(.34, .06, .24, 1) both;
+}
+
+.site-arrival__stamp {
+  display: block;
+  width: .38em;
+  height: .38em;
+  animation: arrival-stamp 185ms 303ms cubic-bezier(.2, .72, .28, 1) both;
+}
+
+.site-arrival__rule {
+  position: absolute;
+  inset: auto 0 -.045em .045em;
+  height: 1px;
+  background: linear-gradient(90deg, #a77c35, #a77c3580 76%, #a77c351a);
+  transform-origin: left;
+  animation: arrival-rule 365ms 82ms cubic-bezier(.35, .1, .25, 1) both;
+}
+
+.site-arrival__skip {
+  position: absolute;
+  inset-block-end: calc(18px + env(safe-area-inset-bottom));
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: .3em;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.site-arrival[data-phase="leaving"]::before {
+  animation: arrival-paper-out var(--arrival-exit) ease-out both;
+}
+
+.site-arrival[data-phase="leaving"] :is(.site-arrival__stamp, .site-arrival__rule, .site-arrival__skip) {
+  animation: arrival-paper-out 140ms ease both;
+  pointer-events: none;
+}
+
+.site-arrival[data-phase="leaving"]:not([data-flight]) .site-arrival__signature {
+  animation: arrival-paper-out var(--arrival-exit) ease-out both;
+}
+
+@keyframes arrival-paper-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes arrival-paper-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes arrival-imprint {
+  from { opacity: .2; mask-position: 100% 0; }
+  to { opacity: 1; mask-position: 0 0; }
+}
+@keyframes arrival-stamp {
+  from { opacity: 0; transform: translate(-.14em, -.1em) rotate(-11deg) scale(.9); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes arrival-rule { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes arrival-fail-open { to { visibility: hidden; } }
+
+@media (prefers-reduced-motion: reduce), print {
+  .site-arrival { display: none; }
+}

@@ -1,0 +1,33 @@
+{
+  "family": "Fraunces",
+  "purpose": "Selected cream-printroom Xiaowho wordmark only; existing Space/CJK UI stack retained.",
+  "source_repository": "https://github.com/google/fonts",
+  "source_commit": "4024282d9b0cffcdb8e3024560862746178d741f",
+  "acquired_at": "2026-11-08T17:19:28+08:00",
+  "license": "SIL Open Font License 1.1; full unchanged text in OFL-Fraunces.txt",
+  "font_modified": false,
+  "files": [
+    {
+      "path": "catalog/assets/fonts/Fraunces-Italic.ttf",
+      "upstream_path": "ofl/fraunces/Fraunces-Italic[SOFT,WONK,opsz,wght].ttf",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/4024282d9b0cffcdb8e3024560862746178d741f/ofl/fraunces/Fraunces-Italic%5BSOFT%2CWONK%2Copsz%2Cwght%5D.ttf",
+      "bytes": 414904,
+      "sha256": "b24448c43702fac4ee856781d461a0dfba8d8e594b6e8e190234b75fed2c0e01"
+    },
+    {
+      "path": "catalog/assets/fonts/OFL-Fraunces.txt",
+      "upstream_path": "ofl/fraunces/OFL.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/4024282d9b0cffcdb8e3024560862746178d741f/ofl/fraunces/OFL.txt",
+      "bytes": 4391,
+      "sha256": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b"
+    },
+    {
+      "path": "catalog/assets/fonts/Fraunces-METADATA.pb",
+      "upstream_path": "ofl/fraunces/METADATA.pb",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/4024282d9b0cffcdb8e3024560862746178d741f/ofl/fraunces/METADATA.pb",
+      "bytes": 1197,
+      "sha256": "812aeaea90af8021a306b8fbb5490e0a861c27a5291d2253b403d9fc9f37afd5"
+    }
+  ],
+  "git_asset_policy": "Fraunces TTF binary;original OFL/METADATA retain LF so upstream byte hashes survive Windows checkouts."
+}

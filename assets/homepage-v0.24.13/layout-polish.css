@@ -1,0 +1,21 @@
+body[data-home-design="index"][data-nav-version="5"] .reading-body > .site-footer {
+  padding-block-start: 8px;
+}
+
+.footer-motto:lang(en) > span + span::before {
+  content: " ";
+}
+
+@media screen and (max-width: 480px) {
+  /* The footer rule closes the list on narrow screens. */
+  #panel-vbc .vbc-list > li:last-child > .vbc-entry:not([open]) > summary,
+  #panel-vbc .vbc-list > li:last-child > .vbc-entry > .vbc-note {
+    border-block-end-color: transparent;
+  }
+}
+
+@media screen and (max-width: 900px) and (hover: none) {
+  .reading-body:has(#workbench-preview[data-state="closed"]) #workbench-project {
+    border-block-end-color: transparent;
+  }
+}

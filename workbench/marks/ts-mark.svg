@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" role="img" aria-labelledby="title">
+  <title id="title">TrimSteer workspace mark</title>
+  <rect width="44" height="44" rx="11" fill="#d7eaa8"/>
+  <text x="8" y="32" fill="#213b34" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="-.5">TS</text>
+  <path d="M26 10h8v8M34 10L25 19" fill="none" stroke="#213b34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

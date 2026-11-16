@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-11-09T16:56:28+08:00",
+  "source": "Official imxiaowho homepage v0.16.0 uses Noto Sans SC / Noto Serif SC under Xiaowho aliases. Homepage text subsets lack dictionary coverage.",
+  "official_reference": "https://imxiaowho.github.io/assets/homepage-v0.16.0/refined-home.css?v=4",
+  "license": "SIL Open Font License 1.1",
+  "modification": "Unicode-subset WOFF2; variable weights preserved; no contour redesign. Typeface comparison retains both official families.",
+  "build": "python tools/subset_site_fonts.py",
+  "fonttools_version": "4.68.0",
+  "files": [
+    {
+      "path": "catalog/assets/fonts/xiaowho-sans.woff2",
+      "upstream_url": "https://raw.githubusercontent.com/google/fonts/00a38a53f92aef923b9353f40128e8f4552ddae4/ofl/notosanssc/NotoSansSC[wght].ttf",
+      "upstream_sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "sha256": "53167015bf0fa0c8bb646cdd7f5bb6777243eddd0ee84aef986a7274c38f51a3",
+      "bytes": 294028,
+      "glyph_coverage": 1144,
+      "missing_dictionary_han": [],
+      "license_path": "catalog/assets/fonts/OFL-notosanssc.txt"
+    },
+    {
+      "path": "catalog/assets/fonts/xiaowho-serif.woff2",
+      "upstream_url": "https://raw.githubusercontent.com/google/fonts/00a38a53f92aef923b9353f40128e8f4552ddae4/ofl/notoserifsc/NotoSerifSC[wght].ttf",
+      "upstream_sha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9",
+      "sha256": "73aebcedac2a937b8f0b03f2e4e40abae0e3c5a1fb39c0a1ff107d499c364195",
+      "bytes": 381972,
+      "glyph_coverage": 1144,
+      "missing_dictionary_han": [],
+      "license_path": "catalog/assets/fonts/OFL-notoserifsc.txt"
+    }
+  ],
+  "embedded_stylesheet": {
+    "path": "catalog/site-fonts.css",
+    "sha256": "8d6074b2b98f08dd19fd1aa8fec489b3cdb1761e0f2ac8065e1dfe76bb9be5d9",
+    "bytes": 902074,
+    "reason": "Self-contained shared data faces preserve opaque sandbox font loading without CORS or sandbox changes."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "asset": "catalog/assets/index-paper.png",
+  "origin": "Original procedural raster drawn for the frontend dictionary index paper.",
+  "dimensions": [
+    720,
+    720
+  ],
+  "display_tile_css_px": [
+    360,
+    360
+  ],
+  "seed": 2026111401,
+  "process": "Seeded transparent micrograin with 970 short curved pulp strokes, wrapped edge coordinates, a 63 percent final alpha scale and a 64-color PNG palette.",
+  "sha256": "9246ccbfb9dd06ec9d47f6a7f4e5637c9db9b936bc8ffff87b3bd83a839f55c0",
+  "scope": "Quiet Sequence catalog shell, entry reveal and featured paper specimen."
+}

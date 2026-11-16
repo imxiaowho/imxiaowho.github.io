@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN" data-workspace="ops">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#302426">
+  <title>运营协同 · xiaowho 的工作台</title>
+  <link rel="stylesheet" href="/workbench/styles.css">
+  <link rel="stylesheet" href="/workbench/delivery.css">
+  <link rel="stylesheet" href="/workbench/xiaowho.css?v=0.24.18">
+  <link rel="stylesheet" href="/workbench/workdrag.css">
+  <link rel="stylesheet" href="/workbench/ops.css?v=0.24.18">
+  <link rel="stylesheet" href="/workbench/typography.css">
+  <link rel="stylesheet" href="/workbench/ops-switch.css?v=0.24.18">
+  <script src="/workbench/ops-motion.js" defer></script>
+  <script src="/workbench/ops.js" defer></script>
+  <link rel="icon" href="/favicon.ico?v=1">
+  <link rel="stylesheet" href="/workbench/desktop.css?v=0.24.6">
+  <link rel="stylesheet" href="/assets/homepage-v0.24.13/workbench-demo.css">
+  <script src="/workbench/desktop.js"></script>
+  <script src="/workbench/demo-samples.js"></script>
+  <script src="/workbench/demo-api.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <button class="brand-mark" id="xiaowho-buddy" type="button" aria-label="和戴红围巾的 xiaowho 打个招呼"><img id="workspace-mark" src="/workbench/marks/xiaowho-red.png" alt="xiaowho · 运营协同红色围巾"></button>
+        <span class="xiaowho-greeting" id="xiaowho-greeting" role="status" aria-live="polite" hidden></span>
+        <div class="workspace-brand">
+          <button id="workspace-switch" type="button" aria-label="工作空间" aria-expanded="false" aria-controls="workspace-menu"><span>运营协同</span><span class="workspace-chevron" aria-hidden="true">⌄</span></button>
+          <div id="workspace-menu" class="workspace-menu" hidden>
+            <a href="/workbench/" class="ops-switch-link" data-native-scope="ts"><img src="/workbench/marks/xiaowho-yellow.png" alt=""><span>TS · TrimSteer</span></a>
+            <a href="/workbench/" class="ops-switch-link" data-native-scope="ks"><img src="/workbench/marks/xiaowho-blue.png" alt=""><span>KS · KeelSteer</span></a>
+            <button type="button" id="ops-current-scope" aria-pressed="true"><img src="/workbench/marks/xiaowho-red.png" alt=""><span>运营协同</span><span class="workspace-check" aria-hidden="true">✓</span></button>
+          </div>
+          <small>xiaowho 的工作台</small>
+        </div>
+      </div>
+      <div class="workspace-label"><span id="release">正在连接…</span></div>
+      <nav id="navigation" aria-label="协作对象"><section class="sidebar-group"><h2>协作对象</h2><div id="ops-projects"></div></section></nav>
+      <div class="side-note"><span class="live-dot"></span>一次沟通 · 一张卡片<p>你在“我 · 陈震”发起需求；需要继续处理的回件再转交；无需回复的回件仅归档。复制成功后在接收方闭环。</p></div>
+      <div class="profile"><img class="avatar xiaowho-profile" src="/workbench/marks/xiaowho-red.png" alt="xiaowho 头像"><div>陈震<small>项目负责人 · 当前操作人</small></div></div>
+    </aside>
+    <main>
+      <header class="topbar"><div class="breadcrumb"><span>运营协同</span><span>/</span><span id="breadcrumb-current">我 · 陈震</span></div><div class="topbar-right"><span id="connection" class="connection">正在连接</span><button id="refresh" class="icon-button" type="button" aria-label="刷新运营卡片">↻</button></div></header>
+      <div class="content">
+        <section class="page-heading"><div><div class="eyebrow">OPERATIONS WORKSPACE</div><h1 id="page-title">我 · 陈震</h1><p id="page-subtitle"></p></div></section>
+        <section id="ops-pending" class="panel ops-pending" hidden aria-live="polite"><h2>本次复制已成功，流转结果待核对</h2><p>先核对服务器记录；卡片不会在未确认结果时显示为已闭环。</p><div class="actions"><button id="ops-reconcile" class="button primary" type="button">核对并确认本次流转</button><button id="ops-forget" class="button" type="button">放弃本次待确认</button></div></section>
+        <section id="ops-unavailable" class="panel ops-editor" hidden><h2>项目暂不可交接</h2><p id="ops-unavailable-note"></p></section>
+        <section id="ops-compose" class="panel ops-editor" hidden>
+          <div class="desk-head"><div><span class="section-kicker">发起人：陈震</span><h2>写沟通</h2><p>从这里写下你的需求，保存后拖给需要先处理的项目。</p></div></div>
+          <div id="ops-reply-context" class="ops-reply-context" hidden><span id="ops-reply-label"></span><button id="ops-cancel-reply" class="button small" type="button">改为新沟通</button></div>
+          <form id="ops-form"><label for="ops-body">沟通内容</label><textarea id="ops-body" maxlength="12000" rows="5" required placeholder="写明问题、需要对方处理的内容，以及希望返回什么。"></textarea><div class="ops-editor-bottom"><span class="helper">保存只生成待交接卡片。</span><button id="ops-save" class="button primary" type="submit">保存卡片</button></div></form>
+        </section>
+        <section id="ops-unsent-section" class="ops-section"><div class="ops-section-head"><h2><span id="ops-unsent-title">待交接</span><span id="ops-unsent-count" class="column-count">0</span></h2><span id="ops-unsent-note" class="helper">拖到左边的接收对象，或使用卡片上的交接按钮。</span></div><div id="ops-unsent" class="work-history"></div></section>
+        <section class="ops-section"><div class="ops-section-head"><div><h2>已闭环 <span id="ops-received-count" class="column-count">0</span></h2><p class="helper">本对象收到的沟通；闭环表示这一次交接已记录。</p></div><input id="ops-search" type="search" aria-label="搜索收到的闭环卡片" placeholder="搜索原文、来源或卡号"></div><div id="ops-received" class="work-history"></div></section>
+        <details class="desk-tools" id="ops-archived"><summary id="ops-archived-label">仅归档 · 0</summary><p class="helper">无需继续转交的回件；原文保留，不代表业务完成。</p><div id="ops-archived-list" class="work-history"></div></details>
+        <details class="desk-tools" id="ops-outgoing"><summary id="ops-outgoing-label">已流出记录 · 0</summary><div id="ops-outgoing-list"></div></details>
+        <details class="desk-tools" id="ops-folders"><summary>沟通回件目录</summary><p class="helper">只读取本次卡号对应的 UTF-8 Markdown 回件；不会扫描项目正文或启动 Agent。</p><p id="ops-reply-dir" class="source-path"></p><button class="button small" id="ops-sync" type="button">刷新回件与卡片</button></details>
+        <section id="ops-warnings" class="ops-warnings" hidden aria-live="polite"></section>
+        <p id="ops-limit-note" class="helper" hidden>当前列表最多显示500张卡片，完整记录仍保存在本机。</p>
+        <footer>沟通回件存于独立目录，业务执行由陈震手动交给对应 Agent。<span>运营协同 · 按项目交接</span></footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="ops-detail" class="form-dialog task-dialog"><div class="dialog-heading"><h2 id="ops-detail-title">沟通卡片</h2><button class="icon-button" type="button" data-close aria-label="关闭">×</button></div><p id="ops-detail-meta" class="helper"></p><div id="ops-detail-body" class="task-description"></div><div id="ops-detail-related" class="helper"></div><div class="task-actions"><button id="ops-detail-reply" class="button primary" type="button" hidden>补充沟通</button><button id="ops-detail-prompt" class="button" type="button" hidden>重新复制原交接单</button></div></dialog>
+  <dialog id="ops-handoff" class="form-dialog"><div class="dialog-heading"><h2>复制并交接</h2><button class="icon-button" type="button" data-close aria-label="关闭">×</button></div><p id="ops-handoff-card" class="helper"></p><label for="ops-target">接收对象</label><select id="ops-target"></select><p id="ops-copy-note" class="helper">复制成功后，卡片从发起方移出，在接收方闭环。</p><textarea id="ops-prepared-text" rows="8" readonly hidden aria-label="本次交接提示词"></textarea><div class="form-actions"><button id="ops-copy-handoff" class="button primary" type="button">复制并完成交接</button><button class="button" type="button" data-close>取消</button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

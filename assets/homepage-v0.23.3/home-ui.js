@@ -9,16 +9,26 @@
   const panels = [...document.querySelectorAll('[role="tabpanel"]')];
   const tabBar = document.querySelector('.category-tabs');
   const marker = document.getElementById('tab-marker');
+  const sample = document.querySelector('[data-vbc-marker-demo]');
+  const sampleMarker = sample?.querySelector('.tab-marker');
   const rows = [...document.querySelectorAll('.project-row')];
+  const magneticTrack = document.getElementById('vbc-magnetic-track');
+  const magneticOffsets = magneticTrack?.querySelectorAll('[data-vbc-offset]');
   let active = 0, panelMotion;
 
+  function placeMarker(bar, selected, indicator) {
+    if (!indicator || !selected) return;
+    const box = selected.getBoundingClientRect();
+    if (!box.width) return;
+    const bounds = bar.getBoundingClientRect();
+    indicator.style.setProperty('--marker-x', (box.left - bounds.left) + 'px');
+    indicator.style.setProperty('--marker-width', String(box.width));
+    indicator.hidden = false;
+    bar.classList.add('marker-ready');
+  }
   function positionMarker() {
-    if (!marker || !tabs[active]) return;
-    const bar = tabBar.getBoundingClientRect(), box = tabs[active].getBoundingClientRect();
-    marker.style.setProperty('--marker-x', (box.left - bar.left) + 'px');
-    marker.style.setProperty('--marker-width', String(box.width));
-    marker.hidden = false;
-    tabBar.classList.add('marker-ready');
+    placeMarker(tabBar, tabs[active], marker);
+    if (sample) placeMarker(sample, sample.querySelector('[aria-pressed="true"]'), sampleMarker);
   }
   function selectTab(index, focus = false, animate = true) {
     panelMotion?.cancel();
@@ -50,7 +60,34 @@
     });
   });
 
+  function applyRowMotion(row, x, y) {
+    const titleX = x * 4;
+    const actionX = x * 7;
+    row.style.setProperty('--row-x', titleX.toFixed(2) + 'px');
+    row.style.setProperty('--row-y', (y * 2).toFixed(2) + 'px');
+    row.style.setProperty('--action-x', actionX.toFixed(2) + 'px');
+    row.style.setProperty('--action-y', (y * 4).toFixed(2) + 'px');
+    row.dataset.dx = actionX.toFixed(2);
+    row.dataset.dy = (y * 4).toFixed(2);
+    if (row === magneticTrack) {
+      const shifts = [titleX, actionX];
+      magneticOffsets.forEach((label, index) => {
+        const shift = Math.round(shifts[index] * 10) / 10;
+        const text = (shift > 0 ? '+' : '') + shift + ' px';
+        if (label.textContent !== text) label.textContent = text;
+      });
+    }
+  }
+
   function resetRow(row) {
+    const position = row.dataset.vbcPosition;
+    if (position !== undefined) {
+      const fraction = Number(position);
+      applyRowMotion(row, fraction * 2 - 1, 0);
+      row.style.setProperty('--row-light-x', Number((fraction * 100).toFixed(2)) + '%');
+      row.style.setProperty('--row-light-y', '50%');
+      return;
+    }
     for (const key of ['--row-x','--row-y','--action-x','--action-y']) row.style.setProperty(key, '0px');
     row.dataset.dx = row.dataset.dy = '0';
   }
@@ -58,20 +95,32 @@
     row.addEventListener('focus', () => resetRow(row));
     row.addEventListener('pointermove', event => {
       if (!canMove() || event.pointerType === 'touch') return;
-      // Bounds are always measured on the stationary link, never the moving copy.
+      // Measure the stationary row before moving its text.
       const box = row.getBoundingClientRect();
-      const x = Math.max(-1, Math.min(1, (event.clientX - box.left) / box.width * 2 - 1));
-      const y = Math.max(-1, Math.min(1, (event.clientY - box.top) / box.height * 2 - 1));
-      row.style.setProperty('--row-x', (x * 4).toFixed(2) + 'px');
-      row.style.setProperty('--row-y', (y * 2).toFixed(2) + 'px');
-      row.style.setProperty('--action-x', (x * 7).toFixed(2) + 'px');
-      row.style.setProperty('--action-y', (y * 4).toFixed(2) + 'px');
-      row.style.setProperty('--row-light-x', (event.clientX - box.left) + 'px');
-      row.style.setProperty('--row-light-y', (event.clientY - box.top) + 'px');
-      row.dataset.dx = (x * 7).toFixed(2);
-      row.dataset.dy = (y * 4).toFixed(2);
+      if (!box.width || !box.height) return;
+      const left = event.clientX - box.left;
+      const top = event.clientY - box.top;
+      const x = Math.max(-1, Math.min(1, left / box.width * 2 - 1));
+      const y = Math.max(-1, Math.min(1, top / box.height * 2 - 1));
+      applyRowMotion(row, x, y);
+      row.style.setProperty('--row-light-x', left + 'px');
+      row.style.setProperty('--row-light-y', top + 'px');
     });
     for (const event of ['pointerleave','pointercancel','blur']) row.addEventListener(event, () => resetRow(row));
+  }
+
+  for (const group of document.querySelectorAll('[data-vbc-positions]')) {
+    const row = document.getElementById(group.dataset.vbcPositions);
+    if (!row) continue;
+    const options = group.querySelectorAll('button');
+    group.addEventListener('click', event => {
+      const button = event.target.closest('button');
+      if (!button) return;
+      for (const option of options) option.setAttribute('aria-pressed', String(option === button));
+      row.dataset.vbcPosition = button.value;
+      resetRow(row);
+    });
+    group.hidden = false;
   }
 
   const light = document.getElementById('pointer-light');
@@ -153,6 +202,19 @@
   });
   document.fonts.ready.then(positionMarker);
   document.addEventListener('home-language-change', () => requestAnimationFrame(positionMarker));
-  selectTab(0, false, false);
+  if (sample) {
+    const sampleButtons = [...sample.querySelectorAll('button')];
+    sample.hidden = false;
+    sample.closest('details').addEventListener('toggle', positionMarker);
+    sample.addEventListener('click', event => {
+      const selected = event.target.closest('button');
+      if (!selected) return;
+      for (const button of sampleButtons) button.setAttribute('aria-pressed', String(button === selected));
+      positionMarker();
+    });
+  }
+  const section = new URLSearchParams(location.search).get('section');
+  const initialTab = section === 'vbc' ? tabs.findIndex(tab => tab.id === 'tab-vbc') : 0;
+  selectTab(Math.max(0, initialTab), false, false);
   configure();
 })();

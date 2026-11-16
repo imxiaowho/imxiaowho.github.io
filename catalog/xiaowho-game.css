@@ -1,0 +1,33 @@
+/* The actual PNG alpha supplies the silhouette, not a blend/filter workaround. */
+:root{--xiaowho-rise:30px}
+.mascot-sprite{position:relative;display:block;flex:none;aspect-ratio:838/1082;overflow:hidden}
+.mascot-sprite img{display:block;position:absolute;width:136.754177%;height:126.802218%;max-width:none;left:-15.393795%;top:-13.863216%;user-select:none}
+.brand:hover .brand-mascot{animation:xiaowho-hello 620ms cubic-bezier(.16,1,.3,1) both}
+.xiaowho-settings{border-top:1px solid var(--line);padding-top:13px;margin-top:14px}
+.xiaowho-settings h3{font-size:14px;font-weight:600;line-height:1.5;margin:0 0 8px}
+.xiaowho-settings .xiaowho-play-label{display:flex;align-items:center;gap:8px;font-size:12px;min-height:34px}
+.xiaowho-settings input{accent-color:var(--accent);margin:0;width:15px;height:15px}
+.xiaowho-settings>p{font-size:12px;line-height:1.65;color:var(--muted);margin:5px 0 9px}
+.xiaowho-game-tools{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.xiaowho-game-tools>span{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.xiaowho-game-tools>button{font-size:12px;min-height:36px;padding:6px 12px;color:var(--teal);background:var(--tint);border-color:var(--line)}
+.element-grid{padding-top:var(--xiaowho-rise);row-gap:42px}
+.element-card{overflow:visible}
+.element-open{overflow:hidden;border-radius:inherit}
+.element-open:focus-visible{border-radius:inherit}
+.xiaowho-hideout{position:absolute;top:calc(-1 * var(--xiaowho-rise));z-index:3;display:block;width:54px;height:44px;min-height:0;padding:0;border:0;background:transparent;border-radius:6px;overflow:visible;isolation:isolate}
+.xiaowho-hideout[hidden]{display:none}
+.xiaowho-hideout:hover:not(:disabled){background:transparent}
+.xiaowho-peek-window{position:absolute;inset:0 0 auto;height:var(--xiaowho-rise);display:flex;align-items:flex-start;justify-content:center;overflow:hidden;pointer-events:none}
+.xiaowho-hideout .mascot-sprite{width:30px;transform:translateY(2px) rotate(-2deg);transform-origin:50% 90%;pointer-events:none}
+.xiaowho-hideout[data-state=peeking] .mascot-sprite{animation:xiaowho-peek 760ms cubic-bezier(.16,1,.3,1) both}
+.xiaowho-hideout:hover .mascot-sprite{rotate:-7deg;transition:rotate 180ms ease}
+.xiaowho-hideout[data-state=leaving] .mascot-sprite{animation:xiaowho-hide 220ms ease-in both}
+.xiaowho-hideout[data-state=caught] .mascot-sprite{animation:xiaowho-caught 440ms cubic-bezier(.16,1,.3,1) both}
+@keyframes xiaowho-peek{0%{transform:translateY(105%) rotate(6deg)}58%{transform:translateY(-1px) rotate(-6deg)}78%{transform:translateY(1px) rotate(3deg)}100%{transform:translateY(2px) rotate(-2deg)}}
+@keyframes xiaowho-hide{to{transform:translateY(105%) rotate(8deg)}}
+@keyframes xiaowho-caught{0%,100%{transform:translateY(2px) rotate(-2deg)}35%{transform:translateY(-4px) rotate(-9deg)}70%{transform:translateY(1px) rotate(6deg)}}
+@keyframes xiaowho-hello{30%{transform:rotate(-9deg) translateY(-2px)}65%{transform:rotate(6deg)}100%{transform:none}}
+@media(max-height:560px){.pointer-panel{max-height:calc(100dvh - 82px);overflow-y:auto}}
+@media(prefers-reduced-motion:reduce){.brand:hover .brand-mascot,.xiaowho-hideout .mascot-sprite{animation:none!important;transition:none!important;rotate:none}}
+@media print{.xiaowho-hideout,.xiaowho-settings{display:none!important}}

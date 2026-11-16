@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f2f0e9">
+  <title>STILL / 影像随笔 · 比例与裁切</title>
+  <link rel="stylesheet" href="preview.css?v=027d0e440f"><script src="preview.js?v=8a7e0e50da" defer></script>
+<link rel="stylesheet" href="../../compact.css?v=71075f8b47"><script src="../../compact.js?v=2f8f5ff4f8" defer></script><link rel="stylesheet" href="../../../catalog/pointer.css?v=d92459312e"><script src="../../../catalog/pointer.js?v=6a5aca2cbe" defer></script><link rel="stylesheet" href="../../../catalog/site-fonts.css?v=8d6074b2b9"></head>
+<body>
+<main><article class="editorial" aria-label="STILL 摄影编辑场景">
+  <header class="masthead"><a href="#top" class="journal-brand" aria-label="STILL 影像随笔首页">still<span>/</span></a><span class="journal-name">影像随笔 · 光与空间</span><a class="studio-link" href="#composition">进入构图室 <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a></header>
+  <section class="editorial-intro" id="top" aria-labelledby="scene-title"><h1 id="scene-title">A quieter<br><span>perspective.</span></h1><div class="intro-note"><p>光落在墙上，时间慢下来。<br>换一个画幅，重看同一个瞬间。</p><a href="#composition">留白，也是一种构图 <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14m-5-5 5 5 5-5"/></svg></a></div></section>
+  <section class="composition" id="composition" aria-label="照片构图室">
+    <figure class="photograph"><div class="image-mat"><div class="image-window" id="image-window"><img id="photo" src="assets/quiet-coast.jpg" width="1536" height="1024" alt="虚构的海岸建筑：暖砂岩墙与门洞、橄榄树及远处平静的海面，用于比较不同画幅下的取景"><div class="thirds" id="thirds" aria-hidden="true" hidden><i></i><i></i><i></i><i></i></div></div></div><figcaption><div><strong>沿海的一瞬</strong><span>An imagined coast</span></div><span class="frame-label" id="frame-label">16:9 / LANDSCAPE</span></figcaption></figure>
+    <aside class="composition-desk" aria-labelledby="desk-title">
+      <div class="desk-heading"><h2 id="desk-title">你的取景。</h2><span>Make it yours.</span></div>
+      <fieldset class="format-options"><legend>画幅</legend><div class="format-buttons">
+        <button type="button" data-ratio="3 / 2" aria-pressed="false"><svg viewBox="0 0 38 38" aria-hidden="true"><rect x="4" y="9" width="30" height="20"/></svg><span>原幅<small>3:2</small></span></button>
+        <button type="button" data-ratio="16 / 9" aria-pressed="true"><svg viewBox="0 0 38 38" aria-hidden="true"><rect x="3" y="10" width="32" height="18"/></svg><span>横幅<small>16:9</small></span></button>
+        <button type="button" data-ratio="1 / 1" aria-pressed="false"><svg viewBox="0 0 38 38" aria-hidden="true"><rect x="7" y="7" width="24" height="24"/></svg><span>方形<small>1:1</small></span></button>
+        <button type="button" data-ratio="4 / 5" aria-pressed="false"><svg viewBox="0 0 38 38" aria-hidden="true"><rect x="9" y="5" width="20" height="28"/></svg><span>竖版<small>4:5</small></span></button>
+      </div></fieldset>
+      <div class="fit-field"><label for="fit">画面如何进入画框</label><select id="fit"><option value="cover">铺满画面 / Cover</option><option value="contain">保留全貌 / Contain</option></select></div>
+      <div class="focus-field"><label for="focal">水平取景 <output id="focal-value" for="focal">65%</output></label><input id="focal" type="range" min="0" max="100" value="65"><div class="range-ends" aria-hidden="true"><span>向左</span><span>向右</span></div><p id="focus-note">竖版裁切时，移动焦点看见门洞与树。</p></div>
+      <div class="desk-actions"><label class="grid-toggle"><input id="grid" type="checkbox">三分线</label><button id="reset" type="button">重置构图 <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8a6 6 0 1 1 0 5M4 3v5h5"/></svg></button></div>
+      <p class="composition-state" id="composition-state" role="status">横幅 16:9 · 铺满画面</p>
+    </aside>
+  </section>
+  <footer class="editorial-footer"><p>画幅是选择，<br><strong>画面是感受。</strong></p><div><span>STILL / A COMPOSITION STUDY</span><p>独立原创页面场景 · 摄影为 AI 生成的虚构影像</p></div></footer>
+</article><details class="composition-code"><summary>带走这幅构图的参数</summary><pre><code id="composition-code">aspect-ratio: 16 / 9;
+object-fit: cover;
+object-position: 65% 50%;</code></pre><p>用你自己的素材再检查一次主体；铺满画框，也会裁掉画面。</p></details></main>
+</body></html>

@@ -1,0 +1,13 @@
+{
+  "asset": "elements/visual/visual-0005/assets/quiet-coast.jpg",
+  "origin": "Original AI-generated fictional architectural photograph; built-in image_gen tool, 2026-11-08",
+  "source_png_sha256": "953aa4926ed01d0800f318a3c30ec239d08c5d4136a2ee1637250561a70679d9",
+  "sha256": "026b848888d67354dc3120f39ee04df687ee7bb8f00a3f26ee61ab5698e41906",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "conversion": "JPEG quality91, no resizing or compositional edit",
+  "prompt": "Create one premium editorial architectural photograph as a website image asset, not a UI mockup. Use-case photorealistic-natural. A quiet sculptural pale sandstone coastal house with a tall rectangular doorway and a small olive tree on the right third, above a calm sage-teal Mediterranean sea. Worn limestone foreground, a large sunlit plaster wall at left, long soft late-afternoon shadows, restrained natural sand/olive/chalk palette. Composition is a wide landscape 3:2 photograph with breathing room around all edges so landscape, square and portrait crops all feel intentional. The doorway and olive tree provide clear focal subjects toward x=65%. Real material texture, atmospheric horizon, analogue medium-format photography, refined travel journal art direction. No people, no logos, no typography, no borders, no collages, no rendered UI, no excessive orange color grade. Render at high quality as a single photograph. This is fictional generated imagery for an independent frontend composition study.",
+  "embedded_provenance": "EXIF ImageDescription and UserComment exact prompt"
+}

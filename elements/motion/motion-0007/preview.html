@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>纸面点阵波纹</title>
+  <link rel="stylesheet" href="../../scenes.css?v=01000ffa17">
+  <link rel="stylesheet" href="paper.css?v=97c56914df">
+  <script src="../../../catalog/paper-field.js?v=1643dca883" defer></script>
+  <script src="../../scene-lifecycle.js?v=45554bc73e" defer></script>
+  <link rel="stylesheet" href="../../compact.css?v=71075f8b47">
+  <script src="../../compact.js?v=2f8f5ff4f8" defer></script>
+  <link rel="stylesheet" href="../../../catalog/pointer.css?v=d92459312e">
+  <script src="../../../catalog/pointer.js?v=6a5aca2cbe" defer></script>
+<link rel="stylesheet" href="../../../catalog/site-fonts.css?v=8d6074b2b9"><style>
+.paper-static-hint { display: none; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .paper-live-hint { display: none; }
+  .paper-static-hint { display: block; }
+}
+</style></head>
+<body data-studio="motion-0007">
+  <main class="paper-study">
+    <header class="paper-mast"><strong>paper<span>/</span></strong><span>INTERACTIVE MATERIAL</span></header>
+    <section class="paper-playground" aria-label="纸面点阵波纹体验">
+      <header class="paper-heading">
+        <div><h1>局部响应，自然回弹</h1><p class="paper-live-hint">划过点阵，观察局部起伏；移开鼠标，让纸面回到平静。</p><p class="paper-static-hint">这里展示静止的纸纹和点阵。</p></div>
+        <button id="paper-motion" type="button" aria-pressed="false" hidden>底纹动效</button>
+      </header>
+      <div class="paper-surface" data-paper-surface>
+        <canvas id="paper-field" aria-hidden="true"></canvas>
+        <p class="paper-surface-hint paper-live-hint">在这里移动鼠标<span>纸纤维静止 · 点阵轻轻回弹</span></p><p class="paper-surface-hint paper-static-hint">纸纹与点阵</p>
+      </div>
+    </section>
+    <details class="paper-spec">
+      <summary>实现与静态后备</summary>
+      <p>纸纤维保持静止，只有指针附近的点发生位移。使用共用的弹性点阵引擎，局部画布独立响应。停止后结束重绘；触屏、减少动态偏好及手动关闭时保留静态底纹。</p>
+      <p>复用本页的纸面 CSS、catalog/paper-field.js、catalog/assets/paper-fiber.png，保留静态后备与开关。场景为独立原创，新的演示版本待逐项审阅。</p>
+    </details>
+  </main>
+</body>
+</html>

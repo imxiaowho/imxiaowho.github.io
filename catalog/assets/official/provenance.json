@@ -1,0 +1,20 @@
+{
+  "acquired_at": "2026-11-09T16:22:58+08:00",
+  "reference": "reviews/2026-11-09-official-site-rhythm-v2.md",
+  "files": [
+    {
+      "path": "catalog/assets/official/ink-field.webp",
+      "sha256": "9d2c754d328c555120afbad11006eb1a7b4e3db01bfe2adb5a06804ca7060260",
+      "source_url": "https://imxiaowho.github.io/assets/homepage-v0.16.0/assets/ink-v14/ink-field.webp",
+      "usage": "User-owned official-site brand/reference asset reused for the requested local integration; no new redistribution license inferred."
+    },
+    {
+      "path": "catalog/assets/official/xiaowho-head.svg",
+      "sha256": "6a07998cde8f5be1441f0892e01e407f543a53d703984b0b3cc2a7e6ef0861de",
+      "source_url": "https://imxiaowho.github.io/",
+      "source_asset": "reviews/assets/2026-11-09-official-integration/xiaowho-simple-head-plate-v1.png",
+      "modification": "Official head plate embedded as data PNG; original official homepage eye/brow path geometry retained with light paper coloring; no external resource dependency. This derived SVG is not byte-identical to the homepage markup.",
+      "usage": "User-authorized local personal-site brand integration; no independent redistribution permission inferred."
+    }
+  ]
+}

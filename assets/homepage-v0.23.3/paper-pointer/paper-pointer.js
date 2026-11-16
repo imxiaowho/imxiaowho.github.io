@@ -121,9 +121,12 @@
         found = label; rect = box; break;
       }
     }
+    // Make the fixed anchor measurable before converting viewport coordinates.
+    setState('paperPointerReady', 'true');
     if (found) {
+      const origin = pointer.getBoundingClientRect();
       if (activeLabel !== found || activeText !== found.textContent) configureCopy(found);
-      pointer.style.transform = `translate3d(${point.x}px,${point.y}px,0)`;
+      aperture.style.transform = `translate3d(${point.x - origin.left}px,${point.y - origin.top}px,0)`;
       copy.style.width = `${rect.width}px`; copy.style.height = `${rect.height}px`;
       copy.style.transform = `translate3d(${radius + (rect.left - point.x) * zoom}px,${radius + (rect.top - point.y) * zoom}px,0) scale(${zoom})`;
     } else {
@@ -131,8 +134,6 @@
     }
     const lens = String(!!found);
     if (body.dataset.paperPointerLens !== lens) body.dataset.paperPointerLens = lens;
-    // Readiness applies only to the optional clipped text; the native cursor stays visible.
-    setState('paperPointerReady', 'true');
     // Magnetic row text settles for180ms. Follow only this bounded transition,
     // measuring the moving label instead of freezing its entry rectangle.
     if (host?.matches('.project-row') && now < settleUntil) frame = requestAnimationFrame(paint);

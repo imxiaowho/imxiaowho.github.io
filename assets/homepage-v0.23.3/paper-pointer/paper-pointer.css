@@ -1,7 +1,7 @@
 /* Browser-owned cursor position; the DOM overlay contains only clipped text. */
 [data-lens-label]{display:inline-block;max-width:100%}
-#paper-pointer{position:fixed;left:0;top:0;width:0;height:0;pointer-events:none;z-index:10000;display:none;will-change:transform}
-.paper-pointer-aperture{position:absolute;left:-12px;top:-12px;width:24px;height:24px;overflow:hidden;border-radius:50%;opacity:0;transition:opacity 0ms ease-out}
+#paper-pointer{position:fixed;left:0;top:0;width:0;height:0;pointer-events:none;z-index:10000;display:none}
+.paper-pointer-aperture{position:absolute;left:-12px;top:-12px;width:24px;height:24px;overflow:hidden;border-radius:50%;opacity:0;will-change:transform;transition:opacity 0ms ease-out}
 #paper-pointer-copy{display:block;position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
 body[data-paper-pointer-lens=true] .paper-pointer-aperture{opacity:1;transition-duration:120ms;transition-delay:40ms}
 @media(hover:hover) and (pointer:fine){

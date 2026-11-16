@@ -1,0 +1,163 @@
+/* Let each scene cast its own light and soft shadow onto the reading area. */
+body[data-treehouse-times][data-art-layout="contained"] .world-illustration {
+  display: grid;
+  place-items: center;
+  container-type: inline-size;
+}
+
+.scene-vignette {
+  position: relative;
+  width: min(100%, calc(var(--art-frame-height, 840px) * 2 / 3));
+  aspect-ratio: 2 / 3;
+  isolation: isolate;
+}
+
+.scene-plate {
+  --scene-air: 141 132 114;
+  --scene-glow: 199 169 116;
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.scene-plate[data-scene="dawn"] {
+  --scene-air: 121 146 152;
+  --scene-glow: 170 181 155;
+}
+
+.scene-plate[data-scene="dusk"] {
+  --scene-air: 181 133 81;
+  --scene-glow: 214 160 86;
+}
+
+.scene-plate[data-scene="night"] {
+  --scene-air: 108 128 158;
+  --scene-glow: 198 150 85;
+}
+
+.scene-vignette.is-switching .scene-plate {
+  mix-blend-mode: plus-lighter;
+}
+
+.scene-plate::before,
+.scene-plate::after {
+  content: "";
+  position: absolute;
+}
+
+.scene-plate::before {
+  z-index: -1;
+  inset: 18px 0 -18px;
+  background: var(--scene-image, none) center / 100% 100% no-repeat;
+  mask-image: linear-gradient(transparent 82%, #000 92%, transparent);
+  filter: grayscale(.65) brightness(.72) blur(4px);
+  opacity: .14;
+}
+
+.scene-plate::after {
+  z-index: -2;
+  inset: auto 50% -74px;
+  width: min(88cqi, 440px);
+  height: 136px;
+  translate: -50% 0;
+  background: radial-gradient(ellipse closest-side at 50% 51%, rgb(var(--scene-air) / .17), transparent),
+    radial-gradient(ellipse closest-side at 48% 40%, rgb(var(--scene-glow) / .12), transparent);
+}
+
+.scene-plate img {
+  position: absolute;
+  inset: 0;
+}
+
+.scene-lantern[hidden] {
+  display: none;
+}
+
+.scene-lantern {
+  position: absolute;
+  z-index: 1;
+  top: 43%;
+  left: 48%;
+  translate: -50% -50%;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: auto;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.scene-lantern:hover {
+  background: radial-gradient(circle, rgb(252 203 123 / .35), transparent 68%);
+}
+
+.scene-lantern:focus-visible {
+  outline: 1px solid #635237;
+  outline-offset: 2px;
+  background: radial-gradient(circle, rgb(252 203 123 / .4), transparent 70%);
+}
+
+.scene-announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 901px) {
+  .scene-vignette {
+    --reading-gap: 64px;
+    --letterbox: max(0px, calc(50cqi - var(--art-frame-height) / 3));
+    --shadow-offset: calc(var(--letterbox) + var(--reading-gap) + 76px);
+  }
+
+  .scene-plate::before {
+    inset: -12px calc(-1 * var(--shadow-offset)) 12px var(--shadow-offset);
+    mask-image: linear-gradient(90deg, transparent 59%, #000 81%, rgb(0 0 0 / .36) 94%, transparent),
+      linear-gradient(transparent 4%, #000 14% 34%, transparent 50%);
+    mask-composite: intersect;
+    filter: grayscale(.65) brightness(.72) blur(6px);
+    opacity: .14;
+  }
+
+  .scene-plate::after {
+    inset: -2% calc(-128px - var(--shadow-offset)) 40% 43%;
+    width: auto;
+    height: auto;
+    translate: none;
+    background: radial-gradient(ellipse closest-side at 54% 48%, rgb(var(--scene-air) / .17), transparent),
+      radial-gradient(ellipse closest-side at 39% 66%, rgb(var(--scene-glow) / .11), transparent);
+  }
+}
+
+@media screen and (901px <= width <= 1200px) {
+  .scene-vignette { --reading-gap: 40px; }
+}
+
+@media screen and (max-width: 900px) {
+  body[data-treehouse-times][data-art-layout="contained"] .world-illustration {
+    --art-frame-height: min(280px, 34svh);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body[data-treehouse-times][data-art-layout="contained"] .world-illustration {
+    --art-frame-height: min(240px, 30svh);
+  }
+}
+
+@media print {
+  .scene-vignette { --art-frame-height: 280px; }
+  .scene-plate::before,
+  .scene-plate::after,
+  .scene-lantern {
+    display: none;
+  }
+}

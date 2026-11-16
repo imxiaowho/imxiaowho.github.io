@@ -1,0 +1,61 @@
+/* One semantic type scale after legacy module styles. Local fonts keep offline use stable. */
+:root{
+  --font-ui:"Segoe UI","Microsoft YaHei UI","Microsoft YaHei","PingFang SC",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  --font-code:"Cascadia Code",Consolas,"SFMono-Regular",Menlo,monospace;
+  --text-caption:12px;--text-secondary:13px;--text-body:14px;--text-card:15px;
+  --text-section:20px;--text-page:24px;--text-metric:26px;
+  --weight-regular:400;--weight-medium:500;--weight-strong:600;
+}
+:root body{font-family:var(--font-ui);font-size:var(--text-body);font-weight:var(--weight-regular);line-height:1.75;letter-spacing:0}
+:root body :is(button,input,select,textarea){font-family:var(--font-ui);letter-spacing:0}
+:root body :is(strong,b,h1,h2,h3,h4){font-weight:var(--weight-strong)}
+:root body :is(.content h1,.access-card h1){font-size:var(--text-page);line-height:1.4;letter-spacing:0}
+:root body :is(.content h2,.content .audit-page h2,.content .audit-prompt-card h2,.collection-page-heading h2,.desk-head h2,.collection-launch h2,dialog h2){font-size:var(--text-section);font-weight:var(--weight-strong);line-height:1.5;letter-spacing:0}
+:root body :is(.content h3,.content .task-card h3,.content .queue-item h3,.content .history-row h3,.content .audit-empty h3,.work-card h3,.work-card .review-task-title,.source-event.incoming-soft h3,.collection-mode h3,dialog h3,dialog h4){font-size:var(--text-card);font-weight:var(--weight-strong);line-height:1.6;letter-spacing:0}
+:root body :is(.column-head h3,.business-board .column-head h3){font-size:var(--text-body);line-height:1.5}
+/* Readable prose, including dialogs rendered outside the main content. */
+:root body :is(.content p,dialog p,.work-card p,.task-dialog .task-description,.task-description,.message p,.summary-box,.automation-prose,.audit-prompt-help,.communication-help,.collection-mode-description,.task-summary,.handoff-note p){font-size:var(--text-body);font-weight:var(--weight-regular);line-height:1.75}
+:root body :is(.page-heading p,.desk-head p,.audit-page .audit-prompt-card>p){font-size:var(--text-body);line-height:1.75}
+:root body :is(.helper,.content .helper,.desk-empty,.content .desk-empty,.collection-notes,.collection-review-status,.collection-gap p,.meeting-context,.meeting-export-controls,.testing-guide p,.monitor-module p,.history-main p,.task-summary,.batch-confirmation,.batch-closure-note,.batch-closure-note p,.work-drag-proposal,.work-drag-proposal p){font-size:var(--text-secondary);line-height:1.75}
+:root body :is(.content li,dialog li,td,th){font-size:var(--text-secondary);line-height:1.75}
+:root body :is(th,summary){font-weight:var(--weight-medium)}
+/* Same control rhythm across modules, with a compact secondary button size. */
+:root body :is(.button,.content .button,dialog .button,input,select,textarea,.content input,.content select,.content textarea,.task-actions select){font-size:var(--text-body);font-weight:var(--weight-regular);line-height:1.5}
+:root body :is(.button,.content .button,dialog .button){font-weight:var(--weight-medium);min-height:38px;height:auto;white-space:normal}
+:root body :is(.button.small,.content .button.small,dialog .button.small,.incoming-action-buttons .button,.column-select-all){font-size:var(--text-secondary);line-height:1.5;min-height:34px;height:auto}
+:root body :is(label,.content label,.task-dialog label,.collection-mode label,.communication-shortcut label,.test-export-controls label){font-size:var(--text-secondary);font-weight:var(--weight-medium);line-height:1.6}
+:root body :is(.desk-tools>summary,.audit-legacy-records>summary,.desk-incoming summary,.collection-launch summary,.collection-optional>summary,.monitor-advanced>summary){font-size:var(--text-body);line-height:1.6}
+/* Captions stay useful: no 8–11px business text. Never resize motion glyphs. */
+:root body :is(.content small,dialog small,.tag,.content .tag,.task-id,.card-source,.content .card-source,.card-created,.content .card-created,.card-bottom,.content .card-bottom,.work-card small,.history-meta,.history-meta small,.source-path,.artifact-row small,.incoming-sequence,.incoming-file-state,.incoming-intent,.incoming-route small,.incoming-route strong,.section-label,.breadcrumb,.connection,.metric-label,.metric-caption,.desk-stat span,.collection-source-chips span,.collection-review-status span,.collection-evidence li p,.work-drag-grip,.card-executor .executor-caption,.card-executor .executor-status){font-family:var(--font-ui);font-size:var(--text-caption);font-weight:var(--weight-regular);line-height:1.65;letter-spacing:0}
+:root body :is(.work-card .work-source,.case-task span,.case-task small,.full-history p,.source-card p){font-size:var(--text-caption);line-height:1.65}
+:root body :is(.tag,.column-count,.nav-count){font-weight:var(--weight-medium)}
+:root body :is(.task-id,.card-created,.history-meta,.incoming-sequence,.column-count,.nav-count,.metric-number,.desk-stat strong,.collection-mode-number){font-variant-numeric:tabular-nums}
+:root body :is(.column-count,.nav-count){font-size:var(--text-caption);line-height:1.5}
+:root body :is(.metric-number,.desk-stat strong,.collection-mode-number){font-size:var(--text-metric);line-height:1.25;font-weight:var(--weight-strong)}
+:root body .card-executor strong{font-size:var(--text-section);line-height:1.5}
+:root body :is(.work-source,.source-path,.card-source,.history-main h3,.work-card h3,dialog h2,td){overflow-wrap:anywhere}
+/* Shell labels follow the same scale while portraits/icons keep their dimensions. */
+:root body :is(.sidebar .sidebar-group .nav-item,.sidebar .nav-item,.sidebar-more .nav-item,.sidebar .nav-text strong){font-size:var(--text-body);font-weight:var(--weight-medium);line-height:1.5;letter-spacing:0}
+:root body :is(.sidebar .nav-item.active,.sidebar .nav-item.active .nav-text strong){font-weight:var(--weight-strong)}
+:root body :is(.sidebar .brand small,.sidebar .nav-text small,.sidebar-group h2,.sidebar-more summary,.sidebar .side-note,.sidebar .side-note p,.sidebar .profile,.sidebar .profile small,.sidebar .workspace-label,.sidebar .workspace-label span,.sidebar #release){font-size:var(--text-caption);font-weight:var(--weight-regular);line-height:1.65;letter-spacing:0}
+:root body :is(#workspace-switch,.workspace-menu button){font-family:var(--font-ui);font-size:var(--text-body);font-weight:var(--weight-strong);line-height:1.5}
+:root body .section-kicker{font-size:var(--text-caption);line-height:1.5;letter-spacing:.06em;font-weight:var(--weight-medium)}
+:root body :is(.toast,.xiaowho-greeting){font-family:var(--font-ui);font-size:var(--text-secondary);font-weight:var(--weight-medium);line-height:1.65}
+/* These pre surfaces contain prose/prompt exports, not syntax-highlighted source. */
+:root body :is(pre,#preview-body,.audit-legacy-records pre){font-family:var(--font-ui);font-size:var(--text-body);font-weight:var(--weight-regular);line-height:1.85;letter-spacing:0;tab-size:4;white-space:pre-wrap;overflow-wrap:anywhere}
+:root body :is(code,pre code,kbd,samp){font-family:var(--font-code);font-size:var(--text-secondary);line-height:1.7;font-weight:var(--weight-regular)}
+@media(max-width:760px){
+  :root body .sidebar .sidebar-group .nav-item{font-size:var(--text-secondary);line-height:1.5;min-height:42px}
+  :root body .sidebar .nav-text strong{font-size:var(--text-secondary)}
+  :root body :is(.task-actions,.desk-head .actions,.work-actions){flex-wrap:wrap}
+  :root body .task-actions .button{max-width:100%}
+}
+:root body .work-card.delivery-knowledge .card-meta>.tag:first-child,
+:root body .work-card.delivery-html .card-meta>.tag:first-child,
+:root body .delivery-label{font-family:var(--font-ui);font-size:var(--text-caption);font-weight:var(--weight-medium);line-height:1.65}
+/* Secondary surfaces found during the rendered-page review. */
+:root body :is(details,legend,.question-reference,.waiting-note,.empty-column,.list-end,.role-card p,.process p){font-size:var(--text-secondary);line-height:1.75}
+:root body :is(.eyebrow,.source-card span,.source-card strong,.audit-scope span,.batch-bar span,.automation-switch span,.closure-reopen-controls .toolbar strong,.message-heading,.message .meta,.status-label,.role-card small,footer,footer span){font-family:var(--font-ui);font-size:var(--text-caption);font-weight:var(--weight-regular);line-height:1.65;letter-spacing:0}
+:root body :is(.content .tag,.task-dialog .tag){font-weight:var(--weight-medium)}
+
+:root body :where(summary){font-size:var(--text-secondary);line-height:1.75}

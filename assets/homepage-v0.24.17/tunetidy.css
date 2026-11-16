@@ -1,0 +1,23 @@
+/* Noto Sans SC subset. License: ../../catalog/assets/fonts/OFL-notosanssc.txt. */
+@font-face {
+  font-family: "Xiaowho TuneTidy Sans";
+  src: url("tunetidy-sans.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  unicode-range: U+4EA7, U+4EFB, U+4F4E, U+4F53, U+4FDD, U+52A1, U+5316, U+5360, U+53D8, U+53EA, U+5408, U+5426, U+544A, U+54EA, U+5B9E, U+5BF9, U+5DF2, U+5E76, U+5EFA, U+5F15, U+5F53, U+5F85, U+62A5, U+660E, U+671F, U+6838, U+6C42, U+7269, U+7559, U+76D8, U+786E, U+78C1, U+79FB, U+7ECF, U+7ED3, U+8981, U+8BA4, U+8BDD, U+91CD, U+95F4, U+9645, U+9664, U+9669, U+98CE, U+9ED8;
+}
+
+.tunetidy-row {
+  font-family: "Xiaowho TuneTidy Sans", "Xiaowho Sans", "Microsoft YaHei", sans-serif;
+}
+
+#skill-tunetidy { scroll-margin-block-start: 24px; }
+
+@media (max-width: 600px) {
+  body[data-home-design="index"][data-art-layout="contained"] .tunetidy-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

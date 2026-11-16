@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>语义色与主题 · 可交互示例</title><link rel="stylesheet" href="../../scenes.css?v=01000ffa17"><script src="../../scene-lifecycle.js?v=45554bc73e" defer></script><link rel="stylesheet" href="../../compact.css?v=71075f8b47"><script src="../../compact.js?v=2f8f5ff4f8" defer></script><link rel="stylesheet" href="../../../catalog/pointer.css?v=d92459312e"><script src="../../../catalog/pointer.js?v=6a5aca2cbe" defer></script><link rel="stylesheet" href="../../../catalog/site-fonts.css?v=8d6074b2b9"></head>
+<body data-scene="themes" data-studio="visual-0003"><main>
+<section id="sample" class="planner semantic-preview" aria-label="语义颜色预览">
+ <header class="semantic-heading"><span>项目工作区</span><span class="theme-name">浅色主题</span></header>
+ <div class="semantic-layout"><section class="semantic-work">
+  <h1>颜色有明确分工</h1><p class="semantic-intro">强调色引导操作，状态色说明结果。更换颜色，观察整组元素一起响应。</p>
+  <ul class="semantic-tasks"><li><span class="task-mark done" aria-hidden="true"></span><span>整理设计参考</span><span class="task-state done">已完成</span></li><li><span class="task-mark active" aria-hidden="true"></span><span>完善页面细节</span><span class="task-state active">进行中</span></li><li><span class="task-mark error" aria-hidden="true"></span><span>重新检查资源</span><span class="task-state error">需修复</span></li></ul>
+  <button id="action" type="button" class="scene-action">查看当前强调色<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></button>
+  <p id="feedback" role="status"></p>
+ </section><aside class="semantic-tokens" aria-label="当前语义色值"><h2>当前色板</h2><dl>
+  <div><dt><i class="token-swatch accent" aria-hidden="true"></i>强调色</dt><dd id="token-accent"></dd></div>
+  <div><dt><i class="token-swatch sheet" aria-hidden="true"></i>背景色</dt><dd id="token-sheet"></dd></div>
+  <div><dt><i class="token-swatch text" aria-hidden="true"></i>正文色</dt><dd id="token-text"></dd></div>
+  <div><dt><i class="token-swatch success" aria-hidden="true"></i>成功色</dt><dd id="token-success"></dd></div>
+  <div><dt><i class="token-swatch danger" aria-hidden="true"></i>错误色</dt><dd id="token-danger"></dd></div>
+ </dl><p class="semantic-contrast">按钮文字对比度<strong id="accent-contrast"></strong><span>文字颜色随强调色自动调整</span></p></aside></div>
+</section>
+<section class="scene-inspector" aria-label="调整颜色与主题"><button id="theme" type="button" aria-pressed="false">切换深色主题</button><label class="color-control" for="accent">强调色<input id="accent" type="color" value="#2c6b60"></label></section>
+</main><script>
+'use strict';
+const sample=document.getElementById('sample'),theme=document.getElementById('theme'),accent=document.getElementById('accent');
+function luminance(hex){const c=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return c[0]*.2126+c[1]*.7152+c[2]*.0722;}
+function update(){
+ const hex=accent.value,l=luminance(hex),white=1.05/(l+.05),black=(l+.05)/.05,on=white>=black?'#ffffff':'#000000',ratio=Math.max(white,black);
+ sample.style.setProperty('--accent',hex);sample.style.setProperty('--on-accent',on);
+ const css=getComputedStyle(sample);
+ for(const role of ['accent','sheet','text','success','danger'])document.getElementById('token-'+role).textContent=css.getPropertyValue('--'+role).trim();
+ document.getElementById('accent-contrast').textContent=ratio.toFixed(2)+' : 1';
+ document.getElementById('feedback').textContent='当前强调色 '+hex+'，按钮文字对比度 '+ratio.toFixed(2)+' : 1。';
+ document.querySelector('.theme-name').textContent=sample.classList.contains('dark')?'深色主题':'浅色主题';
+}
+theme.addEventListener('click',()=>{const dark=sample.classList.toggle('dark');theme.setAttribute('aria-pressed',String(dark));theme.textContent=dark?'切换浅色主题':'切换深色主题';update();});
+accent.addEventListener('input',update);document.getElementById('action').addEventListener('click',update);update();
+</script></body></html>

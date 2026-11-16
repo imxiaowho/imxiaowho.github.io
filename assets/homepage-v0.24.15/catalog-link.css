@@ -1,0 +1,26 @@
+/* Noto Sans SC and Noto Serif SC. Licenses ship with the catalog. */
+@font-face {
+  font-family: "Xiaowho Catalog Serif";
+  src: url("catalog-link-serif.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+4E2A, U+4EBA;
+}
+
+@font-face {
+  font-family: "Xiaowho Catalog Sans";
+  src: url("catalog-link-sans.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  unicode-range: U+4F53, U+4F8B, U+6761, U+793A, U+9A8C;
+}
+
+#vbc-catalog {
+  font-family: "Xiaowho Catalog Sans", "Xiaowho Sans", "Microsoft YaHei", sans-serif;
+}
+
+#vbc-catalog .vbc-term {
+  font-family: "Xiaowho Catalog Serif", "Xiaowho Serif", serif;
+}

@@ -1,0 +1,5 @@
+/* One additional native-looking link; existing workspace buttons are unchanged. */
+.workspace-menu .ops-switch-link{display:flex;align-items:center;gap:9px;padding:10px;border:0;border-radius:6px;color:var(--sidebar-ink);font-size:14px;font-weight:600;line-height:1.5;text-align:left}
+.workspace-menu .ops-switch-link:hover{background:var(--sidebar-hover)}
+.workspace-menu .ops-switch-link img{width:28px;height:28px;flex:0 0 28px;object-fit:contain}
+.ops-switch-glyph{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;flex:none;border-radius:7px;background:#ad3943;color:#fffaf7;font-size:13px;font-weight:600}

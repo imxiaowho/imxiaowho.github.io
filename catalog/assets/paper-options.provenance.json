@@ -1,0 +1,39 @@
+{
+  "origin": "Three original procedural transparent raster textures drawn for in-page comparison.",
+  "seed": 2026111402,
+  "materials": [
+    {
+      "asset": "catalog/assets/paper-cotton.png",
+      "size": [
+        360,
+        360
+      ],
+      "tile_css_px": 180,
+      "sha256": "b0acd2524bc0124b10383dd4e39362892c4c6cb4f4c282245c947535ff4f63ec",
+      "bytes": 23045,
+      "process": "Seeded fine granular cotton pulp without long fibers."
+    },
+    {
+      "asset": "catalog/assets/paper-grid.png",
+      "size": [
+        432,
+        432
+      ],
+      "tile_css_px": 216,
+      "sha256": "7b2801a9c438e49a3a74f4f88099dfbbed614b1948a8de1cbb8d52391dfa4953",
+      "bytes": 1815,
+      "process": "Faint 18px print ruling with slightly stronger divisions every 72px."
+    },
+    {
+      "asset": "catalog/assets/paper-linen.png",
+      "size": [
+        432,
+        432
+      ],
+      "tile_css_px": 216,
+      "sha256": "e82fd64c4fbda619efdde83554b461f5abd4d91ea5f2b57f543f536ef5faa503",
+      "bytes": 25815,
+      "process": "Fine diagonal twill ridges, cross threads and seeded micrograin."
+    }
+  ]
+}

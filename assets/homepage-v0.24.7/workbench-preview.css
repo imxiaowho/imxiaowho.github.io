@@ -1,0 +1,63 @@
+.work:has(#panel-workbench:not([hidden])) .project-panel[hidden] {
+  display: none !important;
+}
+
+#workbench-project {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  text-align: start;
+}
+
+#workbench-project:hover h2 {
+  color: var(--accent);
+}
+
+.workbench-preview {
+  --preview-viewport-width: 1185;
+  --preview-viewport-height: 870;
+  --caption-height: 44px;
+}
+
+.workbench-preview .preview-caption {
+  min-height: var(--caption-height);
+  font-size: 13px;
+}
+
+.work:has(#panel-workbench:not([hidden])) ~ #company-preview {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  main:has(#panel-workbench:not([hidden])) {
+    min-height: 0 !important;
+  }
+
+  .workbench-preview .preview-screen {
+    height: clamp(420px, 66svh, 620px);
+    aspect-ratio: auto;
+  }
+
+  .workbench-preview iframe {
+    width: 100%;
+    height: 100%;
+    transform: none;
+  }
+}
+
+@media (hover: none) {
+  .workbench-preview[data-state="closed"] {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  [data-nav-version="5"] .category-tabs {
+    gap: 4px;
+  }
+
+  [data-nav-version="5"] .category-tabs button {
+    font-size: clamp(12px, 3.5vw, 15px);
+  }
+}

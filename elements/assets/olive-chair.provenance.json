@@ -1,0 +1,12 @@
+{
+  "asset": "elements/assets/olive-chair.jpg",
+  "origin": "Original fictional design asset generated with built-in image_gen on2026-11-08",
+  "prompt": "Original high-end design editorial photograph, landscape 3:2, a single sculptural dark olive green bent-plywood lounge chair with a continuous curved seat and a folded natural linen throw, on a warm chalk studio floor, pale sage plaster wall, soft daylight from left, generous negative space, quiet tactile material detail, sophisticated furniture magazine art direction. No people, no letters, no logos, no frame, no collage, no UI. This is a fictional product concept image for original frontend examples; do not depict a famous branded chair.",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "source_png_sha256": "09addaff7b0a1806d534fb1b7edd67f76c34a31bc594788f3674eb36c5d2584e",
+  "sha256": "ef5c364d4921689abc3dd203ce4da6f992e7238161137d140ea62331269c02b0",
+  "conversion": "JPEG91, no resizing or compositional edit; exact prompt and origin embedded in EXIF"
+}

@@ -1,0 +1,21 @@
+{
+  "asset": "catalog/assets/paper-fiber.png",
+  "origin": "Original procedural RGBA raster authored for this project; no third-party image copied",
+  "dimensions": [
+    512,
+    512
+  ],
+  "display_tile_css_px": [
+    256,
+    256
+  ],
+  "seed": 20261108,
+  "process": "Seeded micro-grain and short toroidally wrapped paper fibers; Python standard-library PNG encoding",
+  "sha256": "a8fc7312c7e5ea2636cea083b1312ce0cf1a4ceebc66aef7a16bf6e0b4662ae0",
+  "reference_direction": {
+    "url": "https://xianxie6.github.io/frontend-effects/",
+    "locator": "Previously acquired first-screen screenshot: warm printed-paper surface and subdued dot field",
+    "distinction": "Own green-tinted paper raster and CSS point layer; no copied code or source image"
+  },
+  "scope": "Shared catalog body across gallery, dictionary, favorites, sources and sample reader; sample documents retain their independent surfaces"
+}

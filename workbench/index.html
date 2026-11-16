@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN" data-workspace="ts">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#292720">
+  <title>xiaowho 的工作台 · TS / KS</title>
+  <link rel="stylesheet" href="/workbench/styles.css">
+  <link rel="stylesheet" href="/workbench/delivery.css">
+  <link rel="stylesheet" href="/workbench/xiaowho.css?v=0.24.18">
+  <link rel="stylesheet" href="/workbench/workdrag.css">
+  <link rel="stylesheet" href="/workbench/typography.css">
+  <link rel="stylesheet" href="/workbench/ops-switch.css?v=0.24.18">
+  <script src="/workbench/review.js" defer></script>
+  <script src="/workbench/automation.js" defer></script>
+  <script src="/workbench/collection.js" defer></script>
+  <script src="/workbench/operations.js" defer></script>
+  <script src="/workbench/closures.js" defer></script>
+  <script src="/workbench/enhancements.js" defer></script>
+  <script src="/workbench/knowledge.js" defer></script>
+  <script src="/workbench/delivery.js" defer></script>
+  <script src="/workbench/xiaowho.js" defer></script>
+  <script src="/workbench/workdrag.js" defer></script>
+  <script src="/workbench/app.js" defer></script>
+  <script src="/workbench/ops-switch.js" defer></script>
+  <link rel="icon" href="/favicon.ico?v=1">
+  <link rel="stylesheet" href="/workbench/desktop.css?v=0.24.6">
+  <link rel="stylesheet" href="/assets/homepage-v0.24.13/workbench-demo.css">
+  <script src="/workbench/desktop.js"></script>
+  <script src="/workbench/demo-samples.js"></script>
+  <script src="/workbench/demo-api.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><button class="brand-mark" id="xiaowho-buddy" type="button" aria-label="和 xiaowho 打个招呼"><img id="workspace-mark" data-xiaowho-portrait src="/workbench/marks/xiaowho-yellow.png" alt="xiaowho · TS 黄色围巾"></button><span class="xiaowho-greeting" id="xiaowho-greeting" role="status" aria-live="polite" hidden></span><div class="workspace-brand"><button id="workspace-switch" type="button" aria-label="工作空间" aria-expanded="false" aria-controls="workspace-menu"><span id="workspace-switch-label">TS · TrimSteer</span><span class="workspace-chevron" aria-hidden="true">⌄</span></button><div id="workspace-menu" class="workspace-menu" hidden><button type="button" data-workspace-option="ts" aria-pressed="true"><img src="/workbench/marks/xiaowho-yellow.png" alt=""><span>TS · TrimSteer</span><span class="workspace-check" aria-hidden="true">✓</span></button><button type="button" data-workspace-option="ks" aria-pressed="false"><img src="/workbench/marks/xiaowho-blue.png" alt=""><span>KS · KeelSteer</span><span class="workspace-check" aria-hidden="true">✓</span></button><a href="/workbench/ops.html" class="ops-switch-link"><img src="/workbench/marks/xiaowho-red.png" alt=""><span>运营协同</span></a></div><small>xiaowho 的工作台</small></div></div>
+      <div class="workspace-label"><span id="release">DEMO / 3.1.42</span></div>
+      <nav aria-label="主导航" id="navigation"><section class="sidebar-group"><h2>常用工作</h2><button type="button" data-view="communication" class="nav-item nav-quick "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z M4 14h5l1 3h4l1-3h5"/></svg></span><span class="nav-text"><strong>沟通模块</strong><small>来件 · 交接 · 回件</small></span><span class="nav-count" id="communication-count">0</span></button><button type="button" data-view="automation" class="nav-item nav-quick "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z M8 4v5h8V4 M8 15h8"/></svg></span><span class="nav-text"><strong>采集模块</strong><small>指令 · 报告 · 处理</small></span><span class="nav-count" id="automation-count">0</span></button><button type="button" data-view="testing" class="nav-item nav-quick"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6 M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3 M8 15h8"/></svg></span><span class="nav-text"><strong>测试模块</strong><small>清单 · 执行 · 复核</small></span><span class="nav-count" id="testing-count">0</span></button><button type="button" data-view="audit" class="nav-item nav-quick "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z M9 11l2 2 4-4 M9 17h6"/></svg></span><span class="nav-text"><strong>审计模块</strong><small>委托 · 发现 · 复核</small></span><span class="nav-count" id="audit-count">0</span></button><button type="button" data-view="delivery" class="nav-item nav-quick"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v14H4z M8 7V3h8v4 M9 12l3 3 5-5"/></svg></span><span class="nav-text"><strong>交付模块</strong><small>报告 · 反哺 · HTML</small></span><span class="nav-count" id="delivery-count">0</span></button></section><section class="sidebar-group"><h2>任务与记录</h2><button type="button" data-view="attention" class="nav-item "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z M4 14h5l1 3h4l1-3h5"/></svg></span><span class="nav-label-text">待我处理</span><span class="nav-count" id="attention-count">0</span></button><button type="button" data-view="board" class="nav-item active"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z M4 9h16 M9 9v11 M14 9v11"/></svg></span><span class="nav-label-text">任务流转</span><span class="nav-count" id="task-count">0</span></button><button type="button" data-view="history" class="nav-item "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9a8 8 0 1 1 0 6 M4 4v5h5 M12 8v5l3 2"/></svg></span><span class="nav-label-text">工作记录</span><span class="nav-count" id="history-count">0</span></button><button type="button" data-view="library" class="nav-item "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 3a7 7 0 1 1 0 14 7 7 0 0 1 0-14 M16 16l5 5"/></svg></span><span class="nav-label-text">资料检索</span></button></section><details class="sidebar-more" id="sidebar-more"><summary><span class="more-lines" aria-hidden="true">☰</span>更多<span class="more-chevron" aria-hidden="true">⌄</span></summary><button type="button" data-view="inbox" class="nav-item  "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z M4 14h5l1 3h4l1-3h5"/></svg></span><span class="nav-text"><strong>来件记录</strong></span></button><button type="button" data-view="cases" class="nav-item "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h5v5H4z M15 14h5v5h-5z M9 8h8v6"/></svg></span><span class="nav-label-text">事项链</span></button><button type="button" data-view="sync" class="nav-item "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8a8 8 0 0 1 14-3l2 2 M20 3v4h-4 M20 16a8 8 0 0 1-14 3l-2-2 M4 21v-4h4"/></svg></span><span class="nav-label-text">同步与异常</span><span class="nav-count" id="sync-count">0</span></button><button type="button" data-view="team" class="nav-item "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6 M3 19v-4a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v4 M17 4a3 3 0 0 1 0 6 M18 12a4 4 0 0 1 3 4v3"/></svg></span><span class="nav-label-text">团队与流程</span></button><button type="button" data-view="trash" class="nav-item "><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16 M9 6V3h6v3 M6 6l1 15h10l1-15 M10 10v7 M14 10v7"/></svg></span><span class="nav-label-text">垃圾箱</span><span class="nav-count" id="trash-count">0</span></button><button type="button" data-view="knowledge" class="nav-item"><span class="nav-icon" aria-hidden="true">◇</span><span class="nav-label-text">知识维护</span></button></details></nav>
+      <div class="side-note"><span class="live-dot"></span>本地协同 · 按需处理<p>采集指令与审计提示词手动复制；报告交给本线 知识库维护 Agent，按卡片确认流转。</p></div>
+      <div class="profile"><img class="avatar xiaowho-profile" data-xiaowho-portrait src="/workbench/marks/xiaowho-yellow.png" alt="xiaowho 头像"><div>陈震<small>项目负责人 · 当前操作人</small></div></div>
+    </aside>
+    <main>
+      <header class="topbar"><div class="breadcrumb"><span id="workspace-name">TrimSteer</span> <span>/</span> <span id="breadcrumb-current">任务总览</span></div><div class="topbar-right"><span id="connection" class="connection">正在连接</span><button id="refresh" class="icon-button" aria-label="刷新数据">↻</button></div></header>
+      <div class="content">
+        <section class="page-heading"><div><div class="eyebrow">TS WORKSPACE</div><h1 id="page-title">让每一次交接都有着落。</h1><p id="page-subtitle">看清待交接、正在处理和已经闭环的任务，以及下一步由谁接手。</p></div><button class="button primary" id="new-task">＋ 新建任务</button></section>
+        <section id="prepared-output" class="panel prepared-output" hidden aria-live="polite"><strong id="prepared-output-title"></strong><p id="prepared-output-note" class="helper"></p><div class="source-event-actions"><button type="button" class="button primary small" id="prepared-copy">复制已准备内容</button><button type="button" class="button small" id="prepared-preview">查看全文</button><button type="button" class="button small subtle" id="prepared-dismiss">关闭提示</button></div></section>
+        <section id="metrics" class="metrics" aria-label="项目概况"></section>
+        <section id="workspace" aria-live="polite"></section>
+        <footer>采集闭环后归档至已处置，协同记录存于本机。<span>TRIMSTEER · 少一些传话，多一些推进</span></footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="workspace-dialog" class="form-dialog"><h2>切换工作空间</h2><p class="helper">当前有打开的表单或选中任务。切换会清空选择和未保存输入，请先确认。</p><div class="form-actions"><button id="cancel-workspace" class="button" type="button">保留当前工作空间</button><button id="confirm-workspace" class="button primary" type="button">确认切换</button></div></dialog>
+  <dialog id="create-dialog" class="form-dialog"><form id="create-form">
+    <div class="dialog-heading"><div><div class="eyebrow">NEW TASK</div><h2>把下一步交给明确的人</h2></div><button type="button" class="icon-button" data-close aria-label="关闭">×</button></div>
+    <label>任务名称<input name="title" required maxlength="160" placeholder="例如：核验 Codex 账单中的缓存计费差异"></label>
+    <div class="form-row"><label>任务类型<select name="kind" id="create-kind"></select></label><label>负责角色<select name="owner" id="create-owner"></select></label></div>
+    <label>任务说明<textarea name="description" rows="4" maxlength="12000" placeholder="背景、要解决的问题、预期产物，以及完成标准"></textarea></label>
+    <p class="helper" id="audit-create-hint" hidden>全库审计请使用左侧“知识库审计”，范围沿用当前工作空间。</p>
+    <details class="auxiliary-section"><summary>可选补充：参与者、父任务和资料</summary>
+    <fieldset><legend>参与角色</legend><div id="participants" class="checkboxes"></div></fieldset>
+    <label>关联父任务（可选）<select name="parent_id" id="create-parent"></select></label>
+    <label id="meeting-toggle-field" hidden><span><input type="checkbox" id="create-meeting">开启周期复盘（需要时再选）</span><small>本次审计沟通直接使用左侧“知识库审计”的复制按钮，无需创建任务。</small></label>
+    <fieldset id="meeting-fields" hidden><legend>沟通范围与授权</legend>
+      <div class="form-row"><label>先发言方<select id="meeting-speaker"><option value="pi">知识库维护 Agent</option><option value="wb">WB</option></select></label><label>最多沟通轮数<input id="meeting-rounds" type="number" min="1" max="20" value="3"></label></div>
+      <label>预期产物<textarea id="meeting-outputs" maxlength="2000" rows="2">共识、分歧、交付适用边界、待验证事项、后续负责人及依据路径。</textarea></label>
+      <label>补充议题依据 / 工作记录路径<textarea id="meeting-agenda" maxlength="2000" rows="2" placeholder="没有选资料时必填；知识库维护 Agent 据此核实本周期实际入库变化。"></textarea></label>
+      <label class="meeting-authority"><input id="meeting-authorized" type="checkbox">我授权双方在本次议题和轮次上限内沟通，每次仍由我手动交接。</label>
+    </fieldset>
+    <fieldset id="create-reference-picker"><legend id="create-reference-label">关联资料 · 最多 50 份</legend>
+      <div class="period-presets" id="period-presets"><button class="button small" type="button" data-period="week">上周</button><button class="button small" type="button" data-period="month">上月</button><button class="button small" type="button" data-period="7">近 7 天</button><button class="button small" type="button" data-period="30">近 30 天</button><button class="button small" type="button" data-period="custom">自定义</button></div>
+      <label>日期依据<select id="reference-basis"><option value="all">全部已登记资料</option><option value="completed">研究闭环日期 · 入库成果需 知识库维护 Agent 核实</option><option value="report">文件名中的报告日期</option><option value="intake">平台首次收录日期</option></select></label>
+      <div class="form-row" id="reference-dates" hidden><label>开始日期<input type="date" id="reference-start"></label><label>结束日期（含当天）<input type="date" id="reference-end"></label></div>
+      <p class="helper" id="reference-period-note">只筛选已登记资料，不扫描知识库或历史归档目录。</p>
+      <div class="form-row"><label>搜索资料<input id="reference-search" type="search" placeholder="文件名或任务编号"></label><label>资料来源<select id="reference-source"></select></label></div>
+      <div class="period-presets"><button class="button small" id="reference-select-all" type="button">全选当前结果</button><button class="button small" id="reference-clear-visible" type="button">取消当前结果</button><button class="button small" id="reference-clear" type="button">清空已选</button></div>
+      <p class="helper" id="reference-count" aria-live="polite"></p>
+      <div class="reference-list" id="reference-list"></div>
+      <details id="reference-selected"><summary>已选资料清单</summary><div id="reference-selected-list"></div></details>
+    </fieldset>
+    </details>
+    <p class="helper">审计请使用左侧专用入口。普通任务创建后，打开卡片按提示交接；不再需要时可移入垃圾箱。</p>
+    <div class="form-actions"><button type="button" class="button" data-close>取消</button><button type="submit" class="button primary">创建任务</button></div>
+  </form></dialog>
+  <dialog id="task-dialog" class="task-dialog"><div id="task-detail"></div></dialog>
+  <dialog id="case-dialog" class="task-dialog"><div id="case-detail"></div></dialog>
+  <dialog id="triage-dialog" class="form-dialog"><form id="triage-form">
+    <div class="dialog-heading"><div><div class="eyebrow">INCOMING MESSAGE</div><h2>判读来件</h2></div><button type="button" class="icon-button" data-close aria-label="关闭">×</button></div>
+    <p id="triage-title" class="task-description"></p>
+    <p id="triage-reason" class="helper"></p>
+    <input id="triage-event" type="hidden">
+    <label id="triage-audit-sender-field" hidden>确认发件角色<select id="triage-audit-sender"></select></label>
+    <label>确认收件角色<select id="triage-recipient" required></select></label>
+    <label id="triage-discussion-field" hidden>沟通类型<select id="triage-discussion-type"><option value="product">产品沟通</option><option value="temporary">临时沟通</option></select></label>
+    <label>处理方式<select id="triage-resolution" required></select></label>
+    <label id="triage-audit-rounds-field" hidden>新建审计沟通卡的轮次上限<input id="triage-audit-rounds" type="number" min="1" max="10" value="3"><small class="helper">关联已有沟通卡时，沿用原卡轮次。</small></label>
+    <p id="triage-note" class="helper"></p>
+    <div class="form-actions"><button type="button" class="button" data-close>取消</button><button type="submit" class="button primary">确认处理</button></div>
+  </form></dialog>
+  <dialog id="preview-dialog" class="preview-dialog"><div class="dialog-heading"><h2 id="preview-title">资料预览</h2><button class="icon-button" data-close aria-label="关闭">×</button></div><p id="preview-note" class="helper"></p><pre id="preview-body"></pre></dialog>
+  <div id="toast" role="status" class="toast" hidden></div>
+<dialog id="audit-recovery" class="form-dialog"><form id="audit-recovery-form">
+    <div class="dialog-heading"><h2>核实审计执行情况</h2><button type="button" class="icon-button" data-close aria-label="关闭">×</button></div>
+    <p id="audit-recovery-id" class="helper"></p><p>先打开原执行会话核对历史结果。此次只记录核实情况；已经提交的审计不会自动重发。</p>
+    <label>核实说明<textarea id="audit-recovery-note" rows="3" maxlength="2000" required></textarea></label>
+    <label><span><input id="audit-recovery-stopped" type="checkbox" required>我已核实原执行 Agent 未开始或已经停止</span></label>
+    <div class="form-actions"><button type="button" class="button" data-close>取消</button><button id="audit-recovery-submit" type="submit" class="button primary">保留结果并结束核实</button></div>
+  </form></dialog>
+  <dialog id="task-trash" class="form-dialog"><form id="task-trash-form">
+    <div class="dialog-heading"><h2>撤销任务，移入垃圾箱</h2><button type="button" class="icon-button" data-close aria-label="关闭">×</button></div>
+    <h3 id="task-trash-title"></h3><p id="task-trash-files" class="helper"></p>
+    <p>这项工作将退出待办，可以恢复到原状态。已有结果、资料链接和操作历史保留。</p>
+    <p class="helper">撤销平台任务不会停止外部 Agent；已手动启动的执行请先结束。运行中或待核实的自动批次须先处理执行情况。</p>
+    <label>撤销原因（选填）<input id="task-trash-reason" maxlength="1000" placeholder="误建、不再需要或另行处理"></label>
+    <div class="form-actions"><button type="button" class="button" data-close>保留任务</button><button type="submit" class="button primary" id="task-trash-submit">确认撤销并移入垃圾箱</button></div>
+  </form></dialog>
+  <dialog id="automation-confirmation" class="form-dialog"><form id="automation-confirmation-form">
+    <div class="dialog-heading"><h2>确认本批次并归档</h2><button type="button" class="icon-button" data-close aria-label="关闭">×</button></div>
+    <p id="automation-confirmation-id" class="helper"></p>
+    <p>确认后，本批待确认任务会进入“闭环记录”，关联采集原件从本线“待处置”移入“已处置”。</p>
+    <p class="helper">共享原件等最后一张关联卡闭环后归档；已归档原件须核验内容后登记。原回报、处理结论和执行历史继续保留。确认不会重新提交执行。</p>
+    <div id="automation-confirmation-list"></div>
+    <div id="automation-confirmation-result" role="status" aria-live="polite"></div>
+    <div class="form-actions"><button type="button" class="button" data-close>关闭</button><button class="button primary" id="automation-confirmation-submit" type="submit" disabled>我已确认回报，闭环并归档本批</button></div>
+  </form></dialog>
+  <dialog id="automation-recovery" class="form-dialog"><form id="automation-recovery-form">
+    <div class="dialog-heading"><h2>核实后转回手动</h2><button type="button" class="icon-button" data-close aria-label="关闭">×</button></div>
+    <p id="automation-recovery-id" class="helper"></p>
+    <p class="helper">先打开原执行会话，确认原执行 Agent 未启动或已经停止。记录保留，系统不会自动重发已经尝试的报告。</p>
+    <label>核实说明<textarea id="automation-recovery-note" maxlength="2000" required rows="3"></textarea></label>
+    <label><span><input id="automation-recovery-stopped" type="checkbox" required>我已核实原执行 Agent 未启动或已经停止</span></label>
+    <div class="form-actions"><button type="button" class="button" data-close>取消</button><button class="button primary" type="submit">保留记录并转回手动</button></div>
+  </form></dialog>
+  <dialog id="automation-removal" class="form-dialog"><form id="automation-removal-form">
+    <div class="dialog-heading"><h2>删除异常卡片</h2><button type="button" class="icon-button" data-close aria-label="关闭">×</button></div>
+    <p id="automation-removal-id" class="helper"></p>
+    <p>这张异常卡片将移出执行列表，可以在“已删除异常卡片”中恢复。</p>
+    <p class="helper">原任务、采集原件和执行历史保留。删除或恢复卡片不会重新落库，也不会关闭任务。</p>
+    <div class="form-actions"><button type="button" class="button" data-close>取消</button><button class="button primary" type="submit">确认删除卡片</button></div>
+  </form></dialog>
+  <dialog id="closure-reopen-dialog" class="form-dialog"><form id="closure-reopen-form">
+    <div class="dialog-heading"><h2>撤回闭环 · 恢复进行中</h2><button type="button" class="icon-button" data-close aria-label="关闭">×</button></div>
+    <p id="closure-reopen-count"></p>
+    <p class="helper">只恢复所列卡片的处理状态。原件保留在归档目录；已有回报、闭环结论、知识库内容与沟通轮次保留。不会启动 Agent 或重新落库。</p>
+    <ul id="closure-reopen-list" class="closure-reopen-list"></ul>
+    <label>纠正原因<input id="closure-reopen-reason" maxlength="2000" required></label>
+    <div class="form-actions"><button type="button" class="button" data-close>保留闭环</button><button type="submit" id="closure-reopen-submit" class="button primary">确认撤回闭环</button></div>
+  </form></dialog>
+</body>
+</html>
