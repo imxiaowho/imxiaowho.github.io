@@ -1,0 +1,14 @@
+/* Keep the recovery action alongside the failed page status. */
+.sau-reader figure img[data-art-state="error"] {
+  display: none;
+}
+
+.sau-reader figure:has(img[data-art-state="error"]) .sau-art-status {
+  position: static;
+  padding-block: 10px;
+}
+
+#sau-retry-art:not([hidden]) {
+  display: block;
+  margin-inline: auto;
+}

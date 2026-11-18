@@ -9,7 +9,7 @@
 
 ## Repository
 
-This repository contains the published static site. The current snapshot is v0.24.20. Vercel serves the live site, and GitHub Pages redirects the original `imxiaowho.github.io` URLs to the corresponding paths on `imxiaowho.org`.
+This repository contains the published static site. The current snapshot is v0.24.21. Vercel serves the live site, and GitHub Pages redirects the original `imxiaowho.github.io` URLs to the corresponding paths on `imxiaowho.org`.
 
 For a local static preview, run this command from the repository root.
 
