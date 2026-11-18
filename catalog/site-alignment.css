@@ -194,7 +194,55 @@ main { padding: 30px 0 0; }
 .element-card:hover { background: color-mix(in srgb, var(--surface) 50%, transparent); }
 .element-card .element-open { min-width: 0; min-height: 90px; gap: 16px; padding: 10px 10px 10px 0; color: var(--ink); text-decoration: none; }
 .element-card .pattern { border-radius: 4px; }
-.element-card .element-open > .pattern { width: clamp(106px, 15vw, 150px); height: 68px; min-height: 68px; }
+.element-card .element-open > .pattern {
+  --cover-scale: .56;
+  width: clamp(106px, 15vw, 150px);
+  height: 68px;
+  min-height: 68px;
+}
+.element-card .element-open > .pattern .mini-stage {
+  transform: translate(-50%, -50%) scale(var(--cover-scale));
+}
+.element-open > .pattern[data-effect=typing] :is(.mini-typing, .mini-type-foot) {
+  color: var(--ink);
+}
+.element-open > .pattern[data-effect=paper] {
+  pointer-events: auto;
+  background-color: var(--specimen-paper);
+  background-image: radial-gradient(circle, #967659 .65px, transparent .9px), var(--paper-texture);
+  background-size: 17px 17px, var(--paper-tile-size);
+  background-position: 8px 8px, 0 0;
+}
+.element-open > .pattern[data-effect=paper].paper-preview-ready {
+  background: var(--specimen-paper) var(--paper-texture) 0 0 / var(--paper-tile-size);
+}
+/* Center the annotation inside the small paper preview at its actual size. */
+.element-open > .pattern[data-effect=paper] .mini-paper-note {
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: 3px 6px;
+  text-align: center;
+  transform: none;
+}
+.element-open > .pattern[data-effect=paper] .mini-paper-note > i,
+.element-open > .pattern[data-effect=paper] .paper-note-narrow { display: none; }
+.element-open > .pattern[data-effect=paper] .paper-note-wide {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.2;
+}
+.element-open > .pattern[data-effect=paper] .paper-note-wide b {
+  margin-block-start: 2px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 650;
+  text-wrap: balance;
+}
 .element-text h3 { color: var(--ink); font: 580 21px/1.35 var(--font-brand); }
 .element-text p { color: var(--muted); font-size: 14px; line-height: 1.55; }
 .element-open:hover .row-arrow, .index-row:hover .row-arrow { color: var(--ink); }
@@ -398,6 +446,7 @@ main { padding: 30px 0 0; }
 @media (max-width: 900px) {
   .app-header, main, .app-footer { width: calc(100% - 48px); }
   .home-layout { padding-top: 9px; }
+  .element-card .element-open > .pattern { --cover-scale: .45; }
   .subject-rail { margin: 0 0 4px; padding: 0; }
   .subject-rail h2 { display: none; }
   .mobile-domain { margin: 0; font-size: 13px; }
@@ -439,8 +488,13 @@ main { padding: 30px 0 0; }
   .featured-heading .paper-preview-toggle { min-height: 44px; margin-top: 0; }
   .featured-element > .pattern { order: 2; grid-column: 1 / -1; min-height: 44px; height: 44px; }
   .element-card .element-open { min-height: 76px; padding-block: 6px; gap: 9px; }
-  .element-card .element-open > .pattern { width: clamp(65px, 21vw, 100px); height: 50px; min-height: 50px; }
-  .element-card .pattern .mini-stage { transform: translate(-50%, -50%) scale(.37); }
+  .element-card .element-open > .pattern {
+    --cover-scale: .35;
+    width: clamp(65px, 21vw, 100px);
+    height: 50px;
+    min-height: 50px;
+  }
+  .element-open > .pattern[data-effect=paper] .paper-note-wide b { font-size: 11px; }
   .element-text h3 { font-size: 17px; }
   .element-text p { font-size: 13px; line-height: 1.48; }
   .element-open > .row-arrow, .featured-heading .row-arrow { display: none; }
@@ -468,7 +522,7 @@ main { padding: 30px 0 0; }
   .result-heading { gap: 5px; }
   .site-practices summary { padding-inline-start: 0; }
   .featured-heading h3 { font-size: 18px; }
-  .element-card .pattern .mini-stage { transform: translate(-50%, -50%) scale(.30); }
+  .element-card .element-open > .pattern { --cover-scale: .30; }
   /* On the narrowest screens the independent runs keep their use cases in the guide. */
   .preview-layout:has(.preview-shell) > .quick-reference { display: none; }
 }
