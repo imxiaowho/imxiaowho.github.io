@@ -1,0 +1,30 @@
+.sau-lookup {
+  margin-block: 8px;
+}
+
+.sau-issues {
+  --sau-issue-height: 46px;
+  max-block-size: calc(3 * (var(--sau-issue-height) + 1px) + 1px);
+  overflow-y: auto;
+  border-block-end: 1px solid var(--sau-rule);
+  scrollbar-width: thin;
+  scrollbar-color: #887867 #f2e9db;
+}
+
+.sau-issues li:last-child {
+  border-block-end: 0;
+}
+
+.sau-issue-option {
+  min-block-size: var(--sau-issue-height);
+}
+
+.sau-actions {
+  gap: 8px;
+  margin-top: 12px;
+}
+
+#sau-issue-title,
+#sau-reader-title {
+  text-wrap: balance;
+}
