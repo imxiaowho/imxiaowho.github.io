@@ -28,26 +28,63 @@
     entryTimer = setTimeout(finishEntry, 700);
   }
   const replay = document.getElementById('replay-entry');
-  replay?.addEventListener('click', () => {
-    document.getElementById('pointer-panel')?.hidePopover(); entry();
+  const panel = document.getElementById('pointer-panel');
+  const trigger = document.getElementById('pointer-toggle');
+  const paperToggle = document.getElementById('catalog-paper-motion');
+  if (typeof panel.showPopover === 'function') {
+    panel.hidden = false;
+    trigger.hidden = false;
+    panel.addEventListener('toggle', () => {
+      trigger.setAttribute('aria-expanded', String(panel.matches(':popover-open')));
+    });
+  }
+  replay.addEventListener('click', () => {
+    panel.hidePopover();
+    trigger.focus({preventScroll: true});
+    entry();
   });
   document.addEventListener('visibilitychange', () => { if (document.hidden) finishEntry(); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') finishEntry(); });
   function configureEntry() {
-    if (replay) { replay.disabled = reduced.matches; replay.textContent = reduced.matches ? '载入动画：跟随系统静态' : '重播载入动画'; }
+    replay.disabled = reduced.matches;
     if (reduced.matches) finishEntry();
   }
-  reduced.addEventListener('change', configureEntry); configureEntry();
-  const panel = document.getElementById('pointer-panel'), trigger = document.getElementById('pointer-toggle');
-  panel?.addEventListener('toggle', () => trigger?.setAttribute('aria-expanded', String(panel.matches(':popover-open'))));
+  reduced.addEventListener('change', configureEntry);
+  configureEntry();
+
+  const paperPreference = 'vbc.paper-motion.v1';
+  let paperEnabled = false;
+  try { paperEnabled = localStorage.getItem(paperPreference) === 'on'; } catch { /* Session preference. */ }
+  const background = window.VBCPaperField.create(document.getElementById('paper-field'), {
+    allowed: () => paperEnabled,
+    onEnabled(enabled, hasPointer, isReduced) {
+      document.documentElement.classList.toggle('paper-wave-ready', enabled);
+      paperToggle.disabled = !hasPointer || isReduced;
+      paperToggle.setAttribute('aria-pressed', String(enabled));
+      paperToggle.textContent = isReduced ? '纸面随系统静止' : !hasPointer ? '纸面在触屏静止' : '纸面动效';
+    },
+  });
+  paperToggle.addEventListener('click', () => {
+    paperEnabled = !paperEnabled;
+    try { localStorage.setItem(paperPreference, paperEnabled ? 'on' : 'off'); } catch { /* Session preference. */ }
+    background?.configure();
+  });
+
   function mount(container) {
     cleanup();
     const disposers = [];
-    container.querySelectorAll('.element-card').forEach(card => {
+    container.querySelectorAll('.element-card[data-element]').forEach(card => {
       const art = card.querySelector('.pattern'), canvas = art.querySelector('.mini-paper-canvas');
       const paperToggle = card.querySelector('.paper-preview-toggle');
       let paperQuiet = false;
-      const field = canvas && window.VBCPaperField?.create(canvas, { local: true, target: card, step: 17, radius: 90, push: 13, limit: 4, duration: 1100, allowed: () => !paperQuiet,
-        onEnabled: enabled => { art.classList.toggle('paper-preview-ready', enabled); if (paperToggle) { paperToggle.disabled = reduced.matches || !fine.matches; paperToggle.setAttribute('aria-pressed', String(paperQuiet || reduced.matches)); paperToggle.textContent = reduced.matches ? '跟随系统静态' : !fine.matches ? '触屏静态' : '减少动态'; } } });
+      const field = canvas && window.VBCPaperField?.create(canvas, { local: true, target: art, step: 17, radius: 90, push: 13, limit: 4, duration: 1100, allowed: () => !paperQuiet,
+        onEnabled: (enabled, hasPointer, isReduced) => {
+          art.classList.toggle('paper-preview-ready', enabled);
+          if (!paperToggle) return;
+          paperToggle.disabled = !hasPointer || isReduced;
+          paperToggle.setAttribute('aria-pressed', String(enabled));
+          paperToggle.textContent = isReduced ? '点阵随系统静止' : !hasPointer ? '点阵在触屏静止' : '点阵动效';
+        } });
       const togglePaper = () => { paperQuiet = !paperQuiet; field?.configure(); };
       paperToggle?.addEventListener('click', togglePaper);
       const typing = art.querySelector('[data-typing-text]'), typingText = typing?.querySelector('span');
@@ -76,7 +113,7 @@
       };
       const enter = event => { if (event.pointerType !== 'touch' && fine.matches) { pointerInside = true; update(); } };
       const leave = () => { pointerInside = false; update(); };
-      const focus = event => { focusing = event.target.matches(':focus-visible'); update(); };
+      const focus = event => { focusing = event.target.matches('.element-open:focus-visible'); update(); };
       const blur = event => { if (!card.contains(event.relatedTarget)) { focusing = false; update(); } };
       const move = event => {
         if (!active || art.dataset.effect !== 'tilt' && art.dataset.effect !== 'ripple') return;
@@ -92,5 +129,5 @@
     });
     cleanup = () => disposers.forEach(dispose => dispose());
   }
-  window.VBCUI = { mount, unmount: () => cleanup(), ready: finishEntry };
+  window.VBCUI = { mount, unmount: () => { cleanup(); cleanup = () => {}; } };
 })();

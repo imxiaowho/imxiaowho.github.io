@@ -1,4 +1,29 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5ede1"><title>前端词典 · imxiaowho</title><link rel="stylesheet" href="catalog.css?v=3715023688"><script src="data.js?v=1d5c4a3e66" defer></script><script src="covers.js?v=bc3a43f26c" defer></script><link rel="stylesheet" href="gallery.css?v=05fee8fe43"><link rel="stylesheet" href="pointer.css?v=d92459312e"><link rel="stylesheet" href="ui-motion.css?v=8a83e7fd75"><script src="paper-field.js?v=1643dca883" defer></script><script src="pointer.js?v=6a5aca2cbe" defer></script><script src="ui-motion.js?v=0d61d61fc4" defer></script><script src="xiaowho-game.js?v=9579138ed1" defer></script><script src="vbc-effects.js?v=c446f570ef" defer></script><script src="catalog-home.js?v=370b270b94" defer></script><script src="catalog.js?v=266c480d0b" defer></script><link rel="stylesheet" href="printroom.css?v=34a696e3f9"><link rel="stylesheet" href="xiaowho-game.css?v=f6058980b6"><link rel="stylesheet" href="site-fonts.css?v=8d6074b2b9"><link rel="stylesheet" href="quiet-sequence.css?v=e3715bbceb"><link rel="icon" href="assets/official/xiaowho-head.svg" type="image/svg+xml"><link rel="stylesheet" href="vbc-example.css?v=55023313c1"><link rel="stylesheet" href="site-alignment.css?v=6844bd7b69">
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5ede1">
+  <title>前端词典 · imxiaowho</title>
+  <link rel="icon" href="assets/official/xiaowho-head.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="catalog.css?v=3715023688">
+  <link rel="stylesheet" href="gallery.css?v=05fee8fe43">
+  <link rel="stylesheet" href="pointer.css?v=d92459312e">
+  <link rel="stylesheet" href="ui-motion.css?v=8a83e7fd75">
+  <link rel="stylesheet" href="printroom.css?v=34a696e3f9">
+  <link rel="stylesheet" href="xiaowho-game.css?v=f6058980b6">
+  <link rel="stylesheet" href="quiet-sequence.css?v=e3715bbceb">
+  <link rel="stylesheet" href="vbc-example.css?v=55023313c1">
+  <link rel="stylesheet" href="site-alignment.css?v=10c4dea23a">
+  <script src="data.js?v=1d5c4a3e66" defer></script>
+  <script src="covers.js?v=bc3a43f26c" defer></script>
+  <script src="paper-field.js?v=1643dca883" defer></script>
+  <script src="pointer.js?v=6a5aca2cbe" defer></script>
+  <script src="ui-motion.js?v=e8a1aa3341" defer></script>
+  <script src="xiaowho-game.js?v=2853b4738f" defer></script>
+  <script src="vbc-effects.js?v=c446f570ef" defer></script>
+  <script src="catalog-home.js?v=761a2c4856" defer></script>
+  <script src="catalog.js?v=0f67b6f832" defer></script>
   <meta name="description" content="陈震的个人前端词典。按词条查找，直接体验主页交互和可复用的前端示例。">
   <link rel="canonical" href="https://imxiaowho.org/catalog/">
   <meta property="og:type" content="website">
@@ -9,15 +34,125 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-</head><body>
-<canvas id="paper-field" aria-hidden="true"></canvas><a class="skip" href="#main">跳到主要内容</a>
-<header class="app-header"><a class="brand" href="../" aria-label="imxiaowho 个人主页"><img class="official-mascot" src="assets/official/xiaowho-head.svg" alt="" width="252" height="252"><strong class="brand-wordmark">imxiaowho.</strong></a><div class="header-actions"><button class="quiet" id="pointer-toggle" title="指针样式与 xiaowho 捉迷藏" type="button" popovertarget="pointer-panel" aria-controls="pointer-panel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v16l4.5-4.2 3.4 6 2.8-1.5-3.4-6 6.2-.8z"/></svg>指针</button><a href="https://github.com/imxiaowho" target="_blank" rel="noopener noreferrer">GitHub</a></div></header><nav class="site-nav" aria-label="网站导航"><a href="../?section=vbc">回到主页词典</a><a href="#home" aria-current="page">前端词典</a><select id="paper-options" class="paper-options" aria-label="底纹预览" hidden>
-  <option value="cotton">素纹纸</option>
-  <option value="grid">淡格稿纸</option>
-  <option value="linen">斜纹布纸</option>
-  <option value="index">暖索引纸</option>
-</select></nav><section id="pointer-panel" class="pointer-panel" popover aria-labelledby="pointer-heading"><h2 id="pointer-heading">指针与小玩法</h2><fieldset class="pointer-options"><legend class="sr-only">指针样式</legend><label><input type="radio" name="pointer-style" value="system"><svg viewBox="0 0 24 28" aria-hidden="true"><path class="cursor-system" d="M4 2v20l5-5 4 8 3-1.6-4-8 7-.8z"/></svg><span>系统箭头<small>熟悉的原生指针</small></span></label><label><input type="radio" name="pointer-style" value="arrow"><svg viewBox="0 0 24 28" aria-hidden="true"><path class="cursor-arrow" d="M4 2v20l5-5 4 8 3-1.6-4-8 7-.8z"/></svg><span>细箭头<small>简洁、准确</small></span></label><label><input type="radio" name="pointer-style" value="ring"><svg viewBox="0 0 24 28" aria-hidden="true"><circle cx="12" cy="14" r="8"/><path d="M8 14h8m-4-4v8"/></svg><span>圆环<small>带中心准星</small></span></label><label><input type="radio" name="pointer-style" value="spring"><svg viewBox="0 0 24 28" aria-hidden="true"><circle cx="12" cy="14" r="8"/><circle cx="12" cy="14" r="2.5" fill="currentColor"/></svg><span>圆点同步<small>小点与圆圈同心</small></span></label></fieldset><p>选择会保存在此浏览器。触屏使用系统指针。</p><button id="replay-entry" type="button">重播载入动画</button><section class="xiaowho-settings" aria-labelledby="xiaowho-game-title"><h3 id="xiaowho-game-title">xiaowho 捉迷藏</h3><label class="xiaowho-play-label"><input id="xiaowho-play" type="checkbox" aria-describedby="xiaowho-game-hint" checked>让 xiaowho 出来玩</label><p id="xiaowho-game-hint">偶尔从卡片上沿探头，点到我就换个地方。</p><div class="xiaowho-game-tools"><span id="xiaowho-found" role="status">找到 0 次</span><button id="xiaowho-rehide" type="button">再躲一次</button></div></section></section><div id="entry-overlay" class="entry-overlay" aria-hidden="true"><div class="entry-sign"><img class="entry-mascot" src="assets/official/xiaowho-head.svg" width="30" height="30" alt=""><strong class="brand-wordmark">imxiaowho.</strong><span class="entry-label">前端词典</span></div></div><main id="main" tabindex="-1"><section id="home" aria-label="词典首页"><div class="home-heading"><div><h1>前端词典</h1><p>收集参考，拆解交互，积累可复用的做法。</p></div><p id="inventory" class="sr-only"></p></div><div class="search-tools"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><label class="sr-only" for="search">搜索名称、别名或效果</label><input id="search" type="search" placeholder="搜索名称、别名或效果" autocomplete="off"><kbd aria-hidden="true">/</kbd><button id="clear-search" type="button" aria-label="清空关键词" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12m0-12L6 18"/></svg></button></div></div><div class="dictionary-tools"><div id="content-tabs" class="tabs" role="tablist" aria-label="内容类型"></div><button class="quiet" id="favorites-toggle" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>收藏 <span id="saved-count">0</span></button></div><div class="home-layout"><aside class="subject-rail"><h2>主题</h2><nav id="subjects" aria-label="按主题筛选"></nav><label class="mobile-domain" for="domain-select">主题<select id="domain-select"></select></label></aside><div class="results-area"><div class="result-heading"><h2 id="results-title" tabindex="-1">元素</h2><span id="result-count" role="status"></span></div><details class="site-practices"><summary>小谁主页里的做法</summary><div class="site-practices-links"><a href="#term-0057" data-detail="term-0057">鼠标跟随聚光灯</a><a href="#term-0058" data-detail="term-0058">磁吸悬停</a><a href="#term-0059" data-detail="term-0059">文字放大镜</a><a href="#term-0060" data-detail="term-0060">栏目指示线滑动</a><a href="#term-0061" data-detail="term-0061">同页展开</a></div></details><div id="results"></div></div></div><nav id="pagination" class="pagination home-pagination" aria-label="结果分页"></nav><details id="more-tools" class="secondary-tools"><summary>更多筛选与浏览</summary><div><label class="approval-filter" hidden><input id="approved" type="checkbox">已批准</label><button id="random" class="quiet" type="button">随机查看</button></div></details></section><section id="detail" hidden aria-label="词典详情"><nav class="breadcrumb" aria-label="当前位置"><button id="back-home" type="button">返回词典</button><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 5 5 5-5 5"/></svg><span id="breadcrumb-title"></span></nav><article id="reader" tabindex="-1"></article></section></main>
-<footer class="app-footer"><span>© 2026 陈震 <span id="updated" class="sr-only"></span></span><span>前端词典</span><button id="paper-motion" class="quiet" type="button" aria-pressed="false" hidden>底纹动效</button></footer><div id="app-status" class="app-status" role="status" aria-live="polite"></div><noscript><p>请启用 JavaScript 以浏览词条和交互示例。</p></noscript>
+</head>
+<body>
+  <canvas id="paper-field" aria-hidden="true"></canvas>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="app-header">
+    <a class="brand" href="../" aria-label="imxiaowho 个人主页">
+      <img class="official-mascot" src="assets/official/xiaowho-head.svg" alt="" width="32" height="32">
+      <strong class="brand-wordmark">imxiaowho.</strong>
+    </a>
+    <div class="header-actions">
+      <a id="homepage-vbc" href="../?section=vbc">
+        <svg class="catalog-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+        主页词典
+      </a>
+      <button class="quiet" id="pointer-toggle" type="button" popovertarget="pointer-panel" aria-controls="pointer-panel" aria-expanded="false" hidden>
+        <svg class="catalog-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h7m4 0h5M4 16h3m4 0h9"/><circle cx="13" cy="8" r="2"/><circle cx="9" cy="16" r="2"/></svg>
+        偏好
+      </button>
+      <select id="paper-options" class="paper-options" aria-label="底纹预览" hidden>
+        <option value="cotton">素纹纸</option>
+        <option value="grid">淡格稿纸</option>
+        <option value="linen">斜纹布纸</option>
+        <option value="index">暖索引纸</option>
+      </select>
+    </div>
+  </header>
+  <section id="pointer-panel" class="pointer-panel" popover aria-labelledby="pointer-heading" hidden>
+    <h2 id="pointer-heading">阅读偏好</h2>
+    <h3>指针样式</h3>
+    <fieldset class="pointer-options"><legend class="sr-only">指针样式</legend><label><input type="radio" name="pointer-style" value="system"><svg viewBox="0 0 24 28" aria-hidden="true"><path class="cursor-system" d="M4 2v20l5-5 4 8 3-1.6-4-8 7-.8z"/></svg><span>系统箭头<small>熟悉的原生指针</small></span></label><label><input type="radio" name="pointer-style" value="arrow"><svg viewBox="0 0 24 28" aria-hidden="true"><path class="cursor-arrow" d="M4 2v20l5-5 4 8 3-1.6-4-8 7-.8z"/></svg><span>细箭头<small>简洁、准确</small></span></label><label><input type="radio" name="pointer-style" value="ring"><svg viewBox="0 0 24 28" aria-hidden="true"><circle cx="12" cy="14" r="8"/><path d="M8 14h8m-4-4v8"/></svg><span>圆环<small>带中心准星</small></span></label><label><input type="radio" name="pointer-style" value="spring"><svg viewBox="0 0 24 28" aria-hidden="true"><circle cx="12" cy="14" r="8"/><circle cx="12" cy="14" r="2.5" fill="currentColor"/></svg><span>圆点同步<small>小点与圆圈同心</small></span></label></fieldset><p class="preference-note">偏好保存在当前浏览器。触屏使用原生指针。</p>
+  <div class="motion-settings">
+    <button id="catalog-paper-motion" class="quiet" type="button" aria-pressed="false">纸面动效</button>
+    <button id="replay-entry" class="quiet" type="button">重播开场</button>
+  </div><section class="xiaowho-settings" aria-labelledby="xiaowho-game-title"><h3 id="xiaowho-game-title">小谁捉迷藏</h3><label class="xiaowho-play-label"><input id="xiaowho-play" type="checkbox" aria-describedby="xiaowho-game-hint">开启捉迷藏</label><p id="xiaowho-game-hint">小谁会在示例上沿等你找到。</p><div class="xiaowho-game-tools"><span id="xiaowho-found" role="status">找到 0 次</span><button id="xiaowho-rehide" type="button">再躲一次</button></div></section>
+  </section>
+  <div id="entry-overlay" class="entry-overlay" aria-hidden="true">
+    <div class="entry-sign">
+      <img class="entry-mascot" src="assets/official/xiaowho-head.svg" alt="" width="30" height="30">
+      <strong class="brand-wordmark">imxiaowho.</strong>
+      <span class="entry-label">前端词典</span>
+    </div>
+  </div>
+  <main id="main" tabindex="-1">
+    <section id="home" aria-labelledby="catalog-title">
+      <div class="home-heading">
+        <div>
+          <h1 id="catalog-title">前端词典</h1>
+          <p>查设计与交互术语，试用示例，找到接入方法。</p>
+        </div>
+        <div class="search-tools" hidden>
+          <div class="search-box">
+            <svg class="catalog-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+            <label class="sr-only" for="search">搜索词名、别名或效果</label>
+            <input id="search" type="search" placeholder="搜索词名、别名或效果" autocomplete="off">
+            <kbd aria-hidden="true">/</kbd>
+            <button id="clear-search" type="button" aria-label="清空关键词" hidden>
+              <svg class="catalog-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12m0-12L6 18"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="browse" hidden>
+        <div class="dictionary-tools">
+          <div id="content-tabs" class="tabs catalog-tabs" role="tablist" aria-label="内容类型"></div>
+          <button class="quiet" id="favorites-toggle" type="button" aria-pressed="false">
+            <svg class="catalog-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>
+            收藏 <span id="saved-count">0</span>
+          </button>
+        </div>
+        <div class="home-layout">
+          <aside class="subject-rail">
+            <h2>主题</h2>
+            <nav id="subjects" aria-label="按主题筛选"></nav>
+            <label class="mobile-domain" for="domain-select">主题<select id="domain-select"></select></label>
+          </aside>
+          <div class="results-area">
+            <div class="result-heading">
+              <h2 id="results-title" tabindex="-1">示例</h2>
+              <span id="result-count" role="status"></span>
+            </div>
+            <details class="site-practices">
+              <summary>主页里的五个交互</summary>
+              <div class="site-practices-links">
+                <a href="#term-0057" data-detail="term-0057">鼠标跟随聚光灯</a>
+                <a href="#term-0058" data-detail="term-0058">磁吸悬停</a>
+                <a href="#term-0059" data-detail="term-0059">文字放大镜</a>
+                <a href="#term-0060" data-detail="term-0060">栏目指示线滑动</a>
+                <a href="#term-0061" data-detail="term-0061">同页展开</a>
+              </div>
+            </details>
+            <div id="results"></div>
+            <nav id="pagination" class="pagination home-pagination" aria-label="结果分页"></nav>
+            <div id="more-tools" class="secondary-tools">
+              <label class="approval-filter" hidden><input id="approved" type="checkbox">已批准</label>
+              <button id="random" class="quiet" type="button">随机条目</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="index-error" class="empty" hidden>
+        <p>词典索引未能载入。请刷新页面后重试。</p>
+      </div>
+      <noscript><p class="empty">此词典需要 JavaScript。你也可以在<a href="../?section=vbc">个人主页查看交互说明</a>。</p></noscript>
+    </section>
+    <section id="detail" aria-label="词典详情" hidden>
+      <nav class="breadcrumb" aria-label="当前位置">
+        <a id="back-home" href="#home">
+          <svg class="catalog-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+          返回词典
+        </a>
+      </nav>
+      <article id="reader" tabindex="-1" aria-labelledby="entry-title"></article>
+    </section>
+  </main>
+  <footer class="app-footer">
+    <span>© 2026 陈震</span>
+    <a href="https://github.com/imxiaowho">GitHub</a>
+  </footer>
+  <div id="app-status" class="app-status" role="status"></div>
 <template id="catalog-example-spotlight">
 <div class="vbc-example">
                     <div class="project-row vbc-example-track vbc-spotlight-track" id="vbc-spotlight-track" data-vbc-position="0.5" aria-hidden="true">
@@ -80,4 +215,5 @@
                     </details>
                   </div>
 </template>
-</body></html>
+</body>
+</html>

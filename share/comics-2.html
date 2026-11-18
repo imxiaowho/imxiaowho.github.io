@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="assets/homepage-v0.23.3/style.css?v=19">
   <link rel="stylesheet" href="assets/homepage-v0.23.3/refined-home.css?v=4">
   <link rel="stylesheet" href="assets/homepage-v0.23.3/paper-pointer/paper-pointer.css?v=5">
-  <script src="assets/homepage-v0.24.22/locale.js" defer></script>
+  <script src="assets/homepage-v0.24.23/locale.js" defer></script>
   <script src="catalog/vbc-effects.js?v=c446f570ef" defer></script>
   <script src="assets/homepage-v0.24.18/home-ui.js" defer></script>
   <script src="assets/homepage-v0.24.19/atmosphere.js" defer></script>
@@ -37,7 +37,7 @@
   <script src="assets/homepage-v0.24.18/skills-results.js" defer></script>
   <link rel="stylesheet" href="assets/homepage-v0.23.6/vbc.css?v=4">
   <link rel="stylesheet" href="assets/homepage-v0.24.16/vbc-links.css">
-  <script src="assets/homepage-v0.24.16/vbc.js" defer></script>
+  <script src="assets/homepage-v0.24.23/vbc.js" defer></script>
   <link rel="stylesheet" href="assets/homepage-v0.24.1/scene-paper.css?v=2">
   <link rel="stylesheet" href="assets/homepage-v0.24.7/workbench-preview.css">
   <script src="assets/homepage-v0.24.18/workbench-preview.js" defer></script>
@@ -49,6 +49,7 @@
   <script src="assets/homepage-v0.24.18/about.js" defer></script>
   <script src="assets/homepage-v0.24.18/arrival.js" defer></script>
   <link rel="stylesheet" href="assets/homepage-v0.24.18/audit-fixes.css">
+  <link rel="stylesheet" href="assets/homepage-v0.24.23/vbc.css">
   <link rel="stylesheet" href="assets/homepage-v0.24.21/reader-recovery.css">
   <link rel="stylesheet" href="assets/homepage-v0.24.22/classmates-link.css">
   <link rel="preload" href="assets/homepage-v0.24.19/motion-tip-sans.woff2" as="font" type="font/woff2" crossorigin>
@@ -286,10 +287,11 @@
           <a class="project-row vbc-row" id="vbc-catalog" href="./catalog/" hreflang="zh-CN">
             <span class="row-copy">
               <span class="vbc-term" data-lens-label data-i18n="vbc.catalog.title">个人前端词典</span>
-              <span class="vbc-summary" data-i18n="vbc.catalog.summary">查词条、体验示例，找可复用的前端做法。</span>
+              <span class="vbc-summary" data-i18n="vbc.catalog.summary">查设计与交互术语，试用示例，找到接入方法。</span>
             </span>
-            <span class="row-action" data-lens-label data-i18n="vbc.catalog.open">打开词典</span>
+            <span class="row-action"><span data-lens-label data-i18n="vbc.catalog.open">打开词典</span><svg class="vbc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
+          <h2 class="vbc-collection-heading" data-i18n="vbc.collection">主页里的交互</h2>
           <ul class="vbc-list">
             <li>
               <details class="vbc-entry" id="vbc-spotlight" name="vbc-motion">
@@ -316,7 +318,7 @@
                   <div class="vbc-note-actions">
                     <a class="vbc-dictionary-link" href="./catalog/#term-0057" hreflang="zh-CN"><span data-lens-label data-i18n="vbc.dictionary.entry">查看词条</span></a>
                     <div class="vbc-uses">
-                      <span data-i18n="vbc.used">站内出处</span>
+                      <span data-i18n="vbc.used">用在</span>
                       <a href="./"><span data-lens-label>OPC</span></a>
                       <a href="./?section=skills"><span data-lens-label>Skills</span></a>
                     </div>
@@ -338,7 +340,7 @@
                   <span class="row-action vbc-close" data-lens-label data-i18n="vbc.close">收起</span>
                 </summary>
                 <div class="vbc-note">
-                  <p data-i18n="vbc.magnetic-hover.note">移过示范条，或点下面的位置。虚线标着原位，两个数值显示标题和操作文字各移动了多少。</p>
+                  <p data-i18n="vbc.magnetic-hover.note">移动指针或选一个位置。虚线框标出原位，数字显示横向位移。</p>
                   <div class="vbc-example">
                     <div class="project-row vbc-example-track vbc-magnetic-track" id="vbc-magnetic-track" data-vbc-position="0.5">
                       <div class="vbc-magnetic-guide">
@@ -359,7 +361,7 @@
                   <div class="vbc-note-actions">
                     <a class="vbc-dictionary-link" href="./catalog/#term-0058" hreflang="zh-CN"><span data-lens-label data-i18n="vbc.dictionary.entry">查看词条</span></a>
                     <div class="vbc-uses">
-                      <span data-i18n="vbc.used">站内出处</span>
+                      <span data-i18n="vbc.used">用在</span>
                       <a href="./"><span data-lens-label>OPC</span></a>
                       <a href="./?section=skills"><span data-lens-label>Skills</span></a>
                     </div>
@@ -395,7 +397,7 @@
                   <div class="vbc-note-actions">
                     <a class="vbc-dictionary-link" href="./catalog/#term-0059" hreflang="zh-CN"><span data-lens-label data-i18n="vbc.dictionary.entry">查看词条</span></a>
                     <div class="vbc-uses">
-                      <span data-i18n="vbc.used">站内出处</span>
+                      <span data-i18n="vbc.used">用在</span>
                       <a href="./?section=skills"><span data-lens-label>Skills</span></a>
                       <a href="./?section=comics"><span data-lens-label data-i18n="vbc.comics">世界小剧场</span></a>
                     </div>
@@ -411,7 +413,7 @@
                 <summary class="project-row vbc-row">
                   <span class="row-copy">
                     <span class="vbc-term" data-lens-label data-i18n="vbc.tab-marker.title">栏目指示线滑动</span>
-                    <span class="vbc-summary" data-i18n="vbc.tab-marker.summary">切换栏目时，指示线滑到新位置并随文字变宽或变窄。</span>
+                    <span class="vbc-summary" data-i18n="vbc.tab-marker.summary">切换栏目时，下划线滑到新标签并对齐文字宽度。</span>
                   </span>
                   <span class="row-action vbc-open" data-lens-label data-i18n="vbc.open">体验</span>
                   <span class="row-action vbc-close" data-lens-label data-i18n="vbc.close">收起</span>
@@ -458,7 +460,7 @@
                   <div class="vbc-note-actions">
                     <a class="vbc-dictionary-link" href="./catalog/#term-0061" hreflang="zh-CN"><span data-lens-label data-i18n="vbc.dictionary.entry">查看词条</span></a>
                     <div class="vbc-uses">
-                      <span data-i18n="vbc.used">站内出处</span>
+                      <span data-i18n="vbc.used">用在</span>
                       <a href="./?section=skills"><span data-lens-label>Skills</span></a>
                     </div>
                     <button class="vbc-copy" type="button" data-vbc-copy hidden>

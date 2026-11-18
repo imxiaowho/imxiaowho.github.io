@@ -5,9 +5,9 @@
   const toggle = $('xiaowho-play'), shuffle = $('xiaowho-rehide');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const preference = 'vbc.xiaowho-hide-and-seek.v1';
-  let enabled = true, found = 0, gallery = null, cards = [], pet = null;
+  let enabled = false, found = 0, gallery = null, cards = [], pet = null;
   let current = null, previous = '', timer = 0, phase = 'hidden', observer = null;
-  try { enabled = localStorage.getItem(preference) !== 'off'; } catch { /* Session-only choice. */ }
+  try { enabled = localStorage.getItem(preference) === 'on'; } catch { /* Session-only choice. */ }
 
   function clearTimer() { clearTimeout(timer); timer = 0; }
   function editing() {
@@ -15,13 +15,13 @@
   }
   function available() {
     return enabled && gallery?.isConnected && pet && !$('home').hidden && !document.hidden && document.hasFocus()
-      && !$('pointer-panel').matches(':popover-open') && !editing();
+      && $('pointer-toggle').getAttribute('aria-expanded') !== 'true' && !editing();
   }
   function updateSettings() {
     if (toggle) toggle.checked = enabled;
     $('xiaowho-found').textContent = '找到 ' + found + ' 次';
     $('xiaowho-game-hint').textContent = !enabled ? '已关闭，随时可以叫我出来。' : !cards.length ? '切回元素页，就能找到我。'
-      : reduced.matches ? '减少动态：静静待着，找到后再换位置。' : '偶尔从卡片上沿探头，点到我就换个地方。';
+      : reduced.matches ? '小谁会静静等着，找到后再换位置。' : '小谁会从示例上沿探头，找到后会换个地方。';
     if (shuffle) shuffle.disabled = !enabled || !cards.length;
   }
   function restoreFocus() {
@@ -81,7 +81,7 @@
     hideNow(); observer?.disconnect(); observer = null; gallery = null; cards = []; pet = null; updateSettings();
   }
   function mount(container) {
-    unmount(); gallery = container; cards = [...container.querySelectorAll('.element-card')];
+    unmount(); gallery = container; cards = [...container.querySelectorAll('.element-card[data-element]')];
     if (!cards.length) { updateSettings(); return; }
     pet = document.createElement('button'); pet.type = 'button'; pet.className = 'xiaowho-hideout';
     pet.hidden = true; pet.title = '找到我啦？';
@@ -106,9 +106,8 @@
     hideNow(); $('pointer-panel').hidePopover(); $('pointer-toggle').focus({ preventScroll: true }); queue(800, true);
   });
   $('pointer-panel').addEventListener('toggle', () => {
-    if ($('pointer-panel').matches(':popover-open')) hideNow(); else queue(1000, true);
+    if ($('pointer-toggle').getAttribute('aria-expanded') === 'true') hideNow(); else if (!timer) queue(1000, true);
   });
-  addEventListener('vbc-view-change', unmount);
   addEventListener('blur', hideNow);
   addEventListener('focus', () => { if (!current) queue(1200, true); });
   document.addEventListener('visibilitychange', () => { if (document.hidden) hideNow(); else queue(1500, true); });

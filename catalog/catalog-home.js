@@ -12,7 +12,7 @@
   };
 
   function original(id, canonical = false) {
-    const link = new URL(canonical ? 'https://imxiaowho.org/?section=vbc' : document.querySelector('.site-nav a').href);
+    const link = new URL(canonical ? 'https://imxiaowho.org/?section=vbc' : document.getElementById('homepage-vbc').href);
     link.hash = anchors[effects.get(id)];
     return link.href;
   }
