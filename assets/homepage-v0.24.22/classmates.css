@@ -1,0 +1,298 @@
+@font-face {
+  font-family: "Xiaowho Sans";
+  src: url("classmates/sans.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Xiaowho Serif";
+  src: url("classmates/serif.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f8f8f5;
+  --card: #fbf8f1;
+  --ink: #242421;
+  --muted: #565047;
+  --rule: #d2c8b9;
+  --accent: #762e23;
+  --sans: "Xiaowho Sans", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --serif: "Xiaowho Serif", "Noto Serif SC", "Songti SC", SimSun, serif;
+  font-family: var(--sans);
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  width: min(1160px, calc(100% - clamp(32px, 7vw, 112px)));
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: linear-gradient(#f8f8f5d6, #f8f8f5d6), url("../homepage-v0.24.18/cotton-paper-512.webp");
+  line-height: 1.65;
+}
+
+a, button { touch-action: manipulation; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+h1, h2, p { margin: 0; }
+
+[hidden],
+html[lang="en"] [data-copy-locale="zh"],
+html[lang="zh-CN"] [data-copy-locale="en"] { display: none; }
+
+.classmates-skip {
+  position: absolute;
+  inset: 12px auto auto 16px;
+  z-index: 1;
+  padding: 8px 12px;
+  color: var(--paper);
+  background: var(--ink);
+  transform: translateY(-150%);
+}
+
+.classmates-skip:focus { transform: none; }
+
+.classmates-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  flex-wrap: wrap;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.classmates-wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+  font: 650 clamp(26px, 3.1vw, 34px) / 1.2 var(--serif);
+  letter-spacing: -.04em;
+}
+
+.classmates-wordmark span { color: var(--accent); }
+
+.classmates-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 20px);
+}
+
+.classmates-back, #language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 14px;
+}
+
+.classmates-back { text-decoration: none; }
+
+#language-toggle[hidden] { display: none; }
+
+#language-toggle {
+  min-width: 44px;
+  padding-inline: 4px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.classmates-back:hover, #language-toggle:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.classmates-intro {
+  margin: clamp(36px, 5.6vw, 76px) 0 clamp(24px, 3.4vw, 44px);
+}
+
+.classmates-series {
+  color: var(--accent);
+  font: 600 clamp(16px, 1.8vw, 21px) / 1.4 var(--serif);
+}
+
+.classmates-intro h1 {
+  margin: 8px 0 10px;
+  font: 600 clamp(42px, 6vw, 78px) / 1.12 var(--serif);
+  letter-spacing: -.03em;
+}
+
+.classmates-intro h1 + p {
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: clamp(15px, 1.8vw, 17px);
+  text-wrap: pretty;
+}
+
+.classmates-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.classmate {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  box-shadow: 0 4px 9px #5947320d;
+  scroll-margin-top: 14px;
+  --portrait-paper: #efdcd1;
+}
+
+.classmate:target { border-color: var(--accent); }
+#ace { --portrait-paper: #dce5e7; }
+#tsuruko { --portrait-paper: #e9e3e3; }
+#tara { --portrait-paper: #e8e5cd; }
+#misha { --portrait-paper: #e8e2d6; }
+
+.classmate-portrait {
+  aspect-ratio: 1 / 1.08;
+  min-width: 0;
+  overflow: hidden;
+  padding: 10px 8px 0;
+  background: linear-gradient(155deg, #fff8eb9e, transparent 65%), var(--portrait-paper);
+}
+
+.classmate-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.classmate-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 14px 9px 0;
+}
+
+.classmate-copy h2 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  font: 650 26px / 1.35 var(--serif);
+}
+
+.classmate-copy h2 [lang="en"] {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+html[lang="en"] .classmate-copy h2 [lang="en"] {
+  order: -1;
+  color: var(--ink);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+html[lang="en"] .classmate-copy h2 [lang="zh-CN"] {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.classmate-origin {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.classmate-story {
+  margin: 10px 0 13px;
+  font-size: 15px;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.classmate-issue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid var(--rule);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.classmate-issue:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.classmates-footer {
+  margin-top: clamp(30px, 6vw, 74px);
+  padding: 17px 0 26px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 1090px) {
+  .classmates-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 670px) {
+  .classmates-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .classmates-header { gap: 4px; padding-block: 11px; }
+  .classmates-wordmark { font-size: clamp(22px, 6.7vw, 26px); }
+  .classmates-actions { gap: 6px; }
+  .classmates-intro { margin-top: 30px; }
+  .classmates-intro h1 { font-size: 40px; }
+  .classmates-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+
+  .classmate {
+    grid-template: 1fr / minmax(85px, 33%) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .classmate-portrait {
+    align-self: start;
+    aspect-ratio: 1 / 1.16;
+    padding: 6px 4px 0;
+  }
+  .classmate-copy { padding: 2px 4px 0 0; }
+  .classmate-copy h2 { font-size: 24px; }
+  .classmate-story { margin: 6px 0 8px; }
+}
+
+@media (max-width: 360px) {
+  .classmates-back { font-size: 13px; }
+}

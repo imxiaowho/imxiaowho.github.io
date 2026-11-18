@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Xiaowho Sans";
+  src: url("classmates/link.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+2192, U+8BA4;
+}
+
+.sau-heading--classmates {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(12px, 2vw, 22px);
+  align-items: end;
+}
+
+.sau-heading--classmates h2 { grid-column: 1 / -1; }
+
+.sau-classmates-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: var(--sau-accent);
+  font-size: 14px;
+  font-weight: 550;
+  white-space: nowrap;
+}
+
+.sau-classmates-link:hover { text-decoration: underline; }
