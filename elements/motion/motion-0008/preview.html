@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>捏一下 Xiaowho</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f5ec;
+      --ink: #25231e;
+      --muted: #625b4c;
+      --line: #d7ceba;
+      --ochre: #edcf68;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.6 "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: inherit; }
+    button { font: inherit; }
+    :focus-visible { outline: 2px solid #765322; outline-offset: 4px; }
+
+    .wrap { width: min(1184px, calc(100% - clamp(32px, 9vw, 128px))); margin-inline: auto; }
+    .masthead {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark { font: 700 25px/1 Georgia, serif; letter-spacing: -.055em; }
+    .prompt-link { padding-block: 12px; font-size: .875rem; text-underline-offset: .28em; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr);
+      align-items: center;
+      gap: clamp(28px, 6vw, 86px);
+      padding-block: clamp(40px, 7vh, 85px);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.2rem, 6.1vw, 5.7rem);
+      line-height: 1.08;
+      letter-spacing: -.075em;
+    }
+
+    h1 span { display: block; font: italic 500 1.08em/.98 Georgia, serif; letter-spacing: -.075em; }
+    .intro { margin: 28px 0 22px; max-width: 24em; font-size: clamp(1rem, 1.4vw, 1.12rem); }
+    .controls { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 15px; }
+    .button {
+      min-height: 46px;
+      padding: 8px 19px;
+      border: 1px solid #715928;
+      border-radius: 6px;
+      color: var(--ink);
+      background: var(--ochre);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .button:hover:enabled { background: #f3da82; }
+    .button:active:enabled { background: #dfbd52; }
+    .button:disabled { opacity: .56; cursor: default; }
+    .help { margin: 0; font-size: .8125rem; color: var(--muted); }
+
+    .stage { margin: 0; min-width: 0; border: 1px solid #c9b98d; border-radius: 13px; overflow: hidden; }
+    .surface {
+      position: relative;
+      height: clamp(390px, 41vw, 550px);
+      user-select: none;
+      background:
+        radial-gradient(ellipse at 47% 38%, #f8edc6c7, transparent 74%),
+        linear-gradient(#a3884423 1px, transparent 1px) center / 24px 24px,
+        linear-gradient(90deg, #a3884423 1px, transparent 1px) center / 24px 24px,
+        #f1e4b8;
+    }
+
+    .surface::before {
+      content: "";
+      position: absolute;
+      inset: auto 22% 12% 22%;
+      height: 12%;
+      background: radial-gradient(ellipse, #69533630, transparent 70%);
+      pointer-events: none;
+    }
+
+    .surface canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .surface canvas:focus-visible { outline-offset: -5px; }
+    #head { touch-action: none; }
+    #head[data-hover] { cursor: grab; }
+    #head[data-dragging] { cursor: grabbing; }
+    .script-note { position: absolute; inset: 0; display: grid; place-items: center; margin: 0 16px; }
+    .readout {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      gap: 9px;
+      padding: 9px 15px;
+      border-top: 1px solid #c9b98d;
+      background: #fcf8e7;
+      color: #534632;
+      font-size: .875rem;
+    }
+
+    .readout::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #8f7853; }
+    .readout[data-active]::before { background: #ad4d39; }
+
+    details { border-block: 1px solid var(--line); margin-bottom: 42px; scroll-margin-top: 16px; }
+    summary { padding-block: 15px; font-weight: 700; cursor: pointer; }
+    .transcript { max-width: 67ch; padding-bottom: 26px; }
+    .transcript ol { padding-inline-start: 1.5em; }
+    .transcript li + li { margin-top: .85em; }
+    .transcript .button { background: transparent; }
+    .transcript .button:hover { background: #f0e5c7; }
+    .copy-status { margin-inline-start: 8px; color: var(--muted); font-size: .875rem; }
+
+    @media (max-width: 760px) {
+      .masthead { min-height: 60px; }
+      .hero { grid-template-columns: 1fr; gap: 24px; padding-block: 30px; }
+      h1 { font-size: clamp(3.15rem, 10.8vw, 5rem); }
+      .intro { margin: 16px 0; }
+      .surface { height: clamp(302px, 91vw, 480px); }
+    }
+
+    :root[data-vbc-compact] .masthead,
+    :root[data-vbc-compact] .hero h1,
+    :root[data-vbc-compact] .hero .intro,
+    :root[data-vbc-compact] .controls .help,
+    :root[data-vbc-compact] #prompt { display: none; }
+    :root[data-vbc-compact] main.wrap { width: 100%; }
+    :root[data-vbc-compact] .hero {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: stretch;
+      gap: 7px;
+      padding: 10px;
+    }
+    :root[data-vbc-compact] .surface { height: clamp(225px, 45vw, 350px); }
+    :root[data-vbc-compact] .controls { justify-content: center; }
+  </style>
+  <script src="head-plate.js" defer></script>
+  <script src="pull.js" defer></script>
+</head>
+<body>
+  <header class="wrap masthead">
+    <span class="wordmark">Xiaowho</span>
+    <a class="prompt-link" id="prompt-link" href="#prompt">查看原提示词</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <h1 id="title">捏一下<span lang="en">Xiaowho</span></h1>
+        <p class="intro">按住脸颊往外拉。松手，它会弹回原位。</p>
+        <div class="controls">
+          <button class="button" type="button" id="bounce" disabled>弹一下</button>
+          <p class="help" id="keyboard-help">Tab 选中头像，方向键拉动。</p>
+        </div>
+      </div>
+
+      <figure class="stage">
+        <div class="surface" id="surface">
+          <canvas id="poster" aria-hidden="true" hidden></canvas>
+          <canvas id="head" aria-label="可拉动的 Xiaowho 头像" aria-describedby="keyboard-help" role="img" tabindex="0" hidden></canvas>
+          <noscript><p class="script-note">启用 JavaScript 后即可拖动头像。</p></noscript>
+        </div>
+        <figcaption class="readout" id="readout" role="status">等待加载</figcaption>
+      </figure>
+    </section>
+
+    <details id="prompt">
+      <summary>截图里的提示词</summary>
+      <div class="transcript">
+        <p class="help">截图署名 @气质花。第 4 条的少量遮挡已按上下文补全。</p>
+        <div id="prompt-text">
+          <p>实现一个可拉扯、会 Q 弹回位的交互大头照，重点做好局部面部变形和皮肤泛红：</p>
+          <ol>
+            <li>使用透明背景头像作为 WebGL 纹理，绘制在细分三角网格上。按下脸部时，记录鼠标对应的纹理坐标，作为固定抓取点；拖动时，让附近顶点随鼠标移动，影响随距离平滑衰减，形成柔软、有体积感的皮肤拉伸，避免整张图片平移、缩放或简单倾斜。</li>
+            <li>松手后使用带阻尼的弹簧模拟，让网格围绕原始位置回弹，轻微摆动后自然归位。支持快速拖拽、连续抓取和中途再次拉扯，避免网格翻折、裂缝或裁切。使用 pointer capture，确保鼠标移出头像后仍能完成拖拽。</li>
+            <li>只要实际发生拖拽变形，无论距离多短、动作多快，抓取点附近都要逐渐泛红，回弹时达到最红，再缓慢消退。每次新拖拽替换上一处红晕。红晕使用柔和渐变并保留皮肤纹理，在纹理坐标中计算，与面部一起变形，受头像透明度和皮肤区域遮罩限制，不能像浮在屏幕上的红色圆圈。</li>
+            <li>根据拉扯状态切换惊讶 O 型嘴、吃痛等表情。所有表情素材必须对齐并使用一致轮廓，切换不跳动。待机和普通鼠标移动不得触发红晕；松手、窗口失焦、切换标签页后都要正确清理交互状态。</li>
+          </ol>
+          <p>请实际测试快速短拉、长距离拉扯、连续拖拽及长时间待机，确认回弹稳定、红晕必现、头像不会消失或残留变形。</p>
+        </div>
+        <button class="button" id="copy-prompt" type="button">复制提示词</button>
+        <span class="copy-status" id="copy-status" role="status"></span>
+      </div>
+    </details>
+  </main>
+</body>
+</html>

@@ -16,7 +16,7 @@
   const disposition={'new-study':'新增实践 · 待审阅','existing-concept':'关联已有词条','related-concept':'相关机制','reference-pending':'待实践','scope-excluded':'超出网页范围'};
   const bookmark='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>';
   const summaries={'motion-0007':'鼠标附近的点阵轻轻散开，再逐渐回弹。','motion-0001':'一组元素依次错开出现。','visual-0008':'比较文字与背景的亮度差异。','visual-0005':'比较同一图像的不同宽高比例。'};
-  const order=['motion-0007','motion-0001','visual-0008','visual-0005','component-0004','layout-0001','component-0003','motion-0004'];
+  const order=['motion-0007','motion-0008','motion-0001','visual-0008','visual-0005','component-0004','layout-0001','component-0003','motion-0004'];
   elements.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):99)-(order.includes(b.id)?order.indexOf(b.id):99));
   modes.elements.items = [...elements, ...siteTerms];
   const linked = r => r.kind === 'element' ? [r] : (r.element_ids || []).map(id => records.get(id)).filter(Boolean);
