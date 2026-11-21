@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f5f1">
-  <meta name="description" content="陈震的工作台开发手记。五段经历，从自己传话、接入两条业务线，到试自动化、回到 WPS，再到每天用着改。">
+  <meta name="description" content="跟着五个小故事看看一张工作台怎么做出来。从传报告、分抽屉，到投错信、搬回 WPS 和每天用着改。">
   <link rel="canonical" href="https://imxiaowho.org/workbench-footsteps.html">
   <link rel="icon" href="/favicon.ico">
   <title>工作台的五段路 · imxiaowho</title>
@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="/assets/homepage-v0.23.3/paper-pointer/paper-pointer.css?v=5">
   <script src="/assets/homepage-v0.24.31/reading/reading.js" defer></script>
   <script src="/assets/homepage-v0.24.5/paper-pointer.js" defer></script>
+  <link rel="stylesheet" href="/assets/homepage-v0.24.35/reading/stories.css?v=2">
+  <script src="/assets/homepage-v0.24.35/reading/stories.js?v=2" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main-content"><span data-en="Skip to content">跳到正文</span></a>
@@ -37,182 +39,263 @@
       <a href="/?section=workbench"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 8h-11m4-4-4 4 4 4"/></svg><span data-lens-label data-en="Back to the workbench">返回工作台</span></a>
     </nav>
     <main id="main-content" tabindex="-1">
-
-    <div class="introduction">
-      <h1><span data-en="Five stages of a workbench">工作台的五段路</span></h1>
-      <p class="introduction-lead"><span data-en="I wanted fewer messages to relay. I ended up building a workbench.">我想少传几句话，结果做了一个工作台。</span></p>
-      <p class="series-date">2026.09.25 — 10.18</p>
-    </div><nav class="chapter-index" aria-label="五段目录" data-en-label="Chapter index"><ol><li><a href="#chapter-1" data-chapter-link><span class="index-number" aria-hidden="true">01</span><span class="index-term" data-lens-label><span data-en="Relay">传话</span></span><span class="index-date">09.25 — 09.30</span></a></li><li><a href="#chapter-2" data-chapter-link><span class="index-number" aria-hidden="true">02</span><span class="index-term" data-lens-label><span data-en="Two tracks">双线</span></span><span class="index-date">10.01 — 10.05</span></a></li><li><a href="#chapter-3" data-chapter-link><span class="index-number" aria-hidden="true">03</span><span class="index-term" data-lens-label><span data-en="Trials">尝试</span></span><span class="index-date">10.06 — 10.09</span></a></li><li><a href="#chapter-4" data-chapter-link><span class="index-number" aria-hidden="true">04</span><span class="index-term" data-lens-label><span data-en="Rollback">回退</span></span><span class="index-date">10.10 — 10.11</span></a></li><li><a href="#chapter-5" data-chapter-link><span class="index-number" aria-hidden="true">05</span><span class="index-term" data-lens-label><span data-en="Daily use">日常</span></span><span class="index-date">10.12 — 10.18</span></a></li></ol></nav>
-    <article class="chapter" id="chapter-1" aria-labelledby="title-1">
-      <div class="chapter-heading">
-        <p class="chapter-meta"><span class="chapter-number">01</span><span>09.25 — 09.30</span></p>
-        <h2 id="title-1" tabindex="-1"><span data-en="It turns out I was the messenger.">原来，传话的人一直是我。</span></h2>
-        <p class="chapter-lead"><span data-en="I wanted less to remember about who takes over next, and ">我想少记一点谁该接着做，也</span><strong><span data-en="no extra forms just to manage tasks">不想为了管理任务，再填一套表</span></strong><span data-en=".">。</span></p>
-        <p class="chapter-version"><span data-en="V1 · Handoffs &amp; archiving">V1 · 交接与归档</span></p>
+    <div class="story-opening">
+      <h1 data-en="Five stages of a workbench">工作台的五段路</h1>
+      <div class="opening-note">
+        <p data-en="I carried reports between windows every day. To save myself a few trips, I built a workbench.">我每天在几个窗口间传报告。为了少跑几趟，我做了个工作台。</p>
+        <p class="story-period"><time datetime="2026-09-25">2026.09.25</time> — <time datetime="2026-10-18">10.18</time></p>
       </div>
-      <figure class="chapter-art">
-        <img src="/assets/homepage-v0.24.31/reading/01-relay-960.webp"
-          srcset="/assets/homepage-v0.24.31/reading/01-relay-480.webp 480w, /assets/homepage-v0.24.31/reading/01-relay-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" fetchpriority="high" decoding="async"
+    </div>
+    <nav class="stage-route" aria-label="选择一段故事" data-en-label="Choose a stage">
+      <ol>
+        <li><a href="#chapter-1" data-stage-link>
+          <span class="stage-number" aria-hidden="true">01</span>
+          <span data-lens-label data-en="Passing notes">我来传话</span>
+        </a></li>
+        <li><a href="#chapter-2" data-stage-link>
+          <span class="stage-number" aria-hidden="true">02</span>
+          <span data-lens-label data-en="Two drawers">两只抽屉</span>
+        </a></li>
+        <li><a href="#chapter-3" data-stage-link>
+          <span class="stage-number" aria-hidden="true">03</span>
+          <span data-lens-label data-en="Misfiled mail">信投错了</span>
+        </a></li>
+        <li><a href="#chapter-4" data-stage-link>
+          <span class="stage-number" aria-hidden="true">04</span>
+          <span data-lens-label data-en="Moving back">搬家回来</span>
+        </a></li>
+        <li><a href="#chapter-5" data-stage-link>
+          <span class="stage-number" aria-hidden="true">05</span>
+          <span data-lens-label data-en="Daily use">用着再改</span>
+        </a></li>
+      </ol>
+    </nav>
+    <article class="story-sheet" id="chapter-1" aria-labelledby="title-1">
+      <div class="story-lead">
+        <p class="stage-date"><time datetime="2026-09-25">09.25</time> — <time datetime="2026-09-30">09.30</time></p>
+        <h2 class="story-title" id="title-1" tabindex="-1" data-en="I was the runner">跑腿的人是我</h2>
+        <p class="story-text" data-en="My assistants worked in separate windows. Whenever a report was ready, I copied it over and kept track of who should take it next and who still hadn't read it.">我的几个助手各自在不同的窗口里干活。一份报告做好了，我得复制过去，再记着该谁接手、谁还没看。</p>
+        <p class="story-text" data-en="My first task board made me enter everything twice. Later, the workbench made a card when a report arrived in a folder. I still handed it over and checked that it reached the next person.">我先做了张表，却要把同一件事记两遍。后来，新报告一进文件夹，工作台就建一张卡。我照旧自己交过去，确认对方收到了。</p>
+      </div>
+      <figure class="chapter-art story-art">
+        <img data-src="/assets/homepage-v0.24.31/reading/01-relay-960.webp"
+          data-srcset="/assets/homepage-v0.24.31/reading/01-relay-480.webp 480w, /assets/homepage-v0.24.31/reading/01-relay-960.webp 960w"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="背着黄挎包的墨点小谁抱着一沓纸，在三个对话窗口之间递送便签。"
           data-en-alt="Xiaowho, an ink drop with a yellow pouch, carries papers between three chat windows.">
+        <noscript><img src="/assets/homepage-v0.24.31/reading/01-relay-960.webp"
+          srcset="/assets/homepage-v0.24.31/reading/01-relay-480.webp 480w, /assets/homepage-v0.24.31/reading/01-relay-960.webp 960w"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          alt="背着黄挎包的墨点小谁抱着一沓纸，在三个对话窗口之间递送便签。"
+          data-en-alt="Xiaowho, an ink drop with a yellow pouch, carries papers between three chat windows."></noscript>
       </figure>
-      
-      <details class="chapter-notes">
+      <div class="story-hint">
+        <ol class="paper-trail" aria-label="一份报告怎么交出去" data-en-label="How a report is handed over">
+          <li><span data-en="Report arrives">报告来了</span></li>
+          <li><span data-en="Card appears">自动建卡</span></li>
+          <li><span data-en="I hand it over">我来交接</span></li>
+        </ol>
+      </div>
+      <details class="chapter-notes story-notes">
         <summary>
-          <span class="note-closed" data-lens-label><span data-en="Read this chapter">翻开这一段</span></span>
-          <span class="note-open" data-lens-label><span data-en="Close this chapter">收起这一段</span></span>
+          <span data-lens-label data-en="Read the original notes">翻看当时的笔记</span>
+          <span class="story-version" data-en="V1 · Handoffs and archiving">V1 · 交接与归档</span>
           <span class="disclosure-mark" aria-hidden="true"></span>
         </summary>
         <div class="chapter-copy">
-          <p><span data-en="At first, Pi maintained the knowledge base and WorkBuddy handled delivery. Other agents took turns collecting and testing. They worked in separate windows; everything between those windows was my job.">最开始，Pi 管知识库，WorkBuddy 做交付，采集和测试还会换着用其他 Agent。它们各自在窗口里干活，窗口之间的事，归我。</span></p>
-          <p><span data-en="I wanted a workbench showing who needed each report and what remained unread. The first version made me enter tasks twice, adding manual work. Later I connected the real folders and created cards for incoming reports, while still copying, handing off and confirming things myself.">我想做个工作台，看清报告该给谁、哪边还没读。结果第一版让我多录一遍任务，手动负担反而更大。后来先接上实际文件夹，新报告来了就建卡，复制交接和确认仍然由我做。</span></p>
-          <p><span data-en="Misplaced audit reports, hard-to-find batch controls and duplicate filenames mistaken for old tasks only surfaced through actual use.">再往后，审计报告放错目录、找不到批量按钮、同名文件被认成旧任务，这些问题都是用起来才碰到的。</span></p>
-          
+          <p data-en="Pi maintained the knowledge base. WorkBuddy handled delivery. Other assistants took turns collecting and testing.">Pi 管知识库，WorkBuddy 做交付。采集和测试会换着用别的助手。</p>
+          <p data-en="Daily use exposed misplaced audit reports and a batch handoff button I couldn't find. A new report with a reused filename could be mistaken for an old task.">用起来才发现，有的审计报告放错了文件夹，批量交接的按钮又难找。碰到同名文件，工作台还会把新报告认成旧任务。</p>
         </div>
       </details>
-      
+      <nav class="story-pager" aria-label="换一段读" data-en-label="Previous or next stage">
+        <a href="#chapter-2" class="story-next" data-stage-link><span data-lens-label data-en="Next · Two drawers">下一段 · 两只抽屉</span><span class="link-arrow" aria-hidden="true"></span></a>
+      </nav>
     </article>
-    <article class="chapter" id="chapter-2" aria-labelledby="title-2">
-      <div class="chapter-heading">
-        <p class="chapter-meta"><span class="chapter-number">02</span><span>10.01 — 10.05</span></p>
-        <h2 id="title-2" tabindex="-1"><span data-en="Once TS was running, I added KS.">TS 跑起来以后，我把 KS 也接进来。</span></h2>
-        <p class="chapter-lead"><span data-en="One platform, two business lines. The workflow could be shared, but ">同一个平台，两条业务线。用法可以一样，</span><strong><span data-en="their documents and tasks had to stay separate">资料和任务得各管各的</span></strong><span data-en=".">。</span></p>
-        <p class="chapter-version"><span data-en="V2 · TS + KS">V2 · TS + KS</span></p>
+    <article class="story-sheet" id="chapter-2" aria-labelledby="title-2" data-scene="reverse">
+      <div class="story-lead">
+        <p class="stage-date"><time datetime="2026-10-01">10.01</time> — <time datetime="2026-10-05">10.05</time></p>
+        <h2 class="story-title" id="title-2" tabindex="-1" data-en="One desk, two drawers">同一张桌，两只抽屉</h2>
+        <p class="story-text" data-en="Once the first project was up and running, I brought in a second. Both could share a way to hand over files and check results. Each kept its own files and tasks in its own drawer.">第一个项目跑起来以后，我把第二个也接进工作台。交资料、看回报，用同一套办法。两个项目的原件和任务各进各的抽屉。</p>
+        <p class="story-text" data-en="I started leaving a trail for each piece of work. I could look back to see where it came from, who took it on and where the results went. Gaps in the old records stayed blank.">我还给资料留下一串脚印。往回翻，就知道它从哪儿来、交给过谁、回报又去了哪儿。旧事没有记录的地方，就先留空。</p>
       </div>
-      <figure class="chapter-art">
+      <figure class="chapter-art story-art">
         <img data-src="/assets/homepage-v0.24.31/reading/02-two-lines-960.webp"
           data-srcset="/assets/homepage-v0.24.31/reading/02-two-lines-480.webp 480w, /assets/homepage-v0.24.31/reading/02-two-lines-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="墨点小谁站在两张工作台之间，把文件分别放进两侧的托盘。"
           data-en-alt="Xiaowho stands between two workbenches, filing papers in separate trays.">
         <noscript><img src="/assets/homepage-v0.24.31/reading/02-two-lines-960.webp"
           srcset="/assets/homepage-v0.24.31/reading/02-two-lines-480.webp 480w, /assets/homepage-v0.24.31/reading/02-two-lines-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="墨点小谁站在两张工作台之间，把文件分别放进两侧的托盘。"
           data-en-alt="Xiaowho stands between two workbenches, filing papers in separate trays."></noscript>
       </figure>
-      
-      <details class="chapter-notes">
+      <div class="story-hint">
+        <ul class="desk-trays" aria-label="两个项目各自的资料" data-en-label="Files and tasks for each project">
+          <li><b>TS</b><span data-en="Files and tasks">资料和任务</span></li>
+          <li><b>KS</b><span data-en="Files and tasks">资料和任务</span></li>
+        </ul>
+      </div>
+      <details class="chapter-notes story-notes">
         <summary>
-          <span class="note-closed" data-lens-label><span data-en="Read this chapter">翻开这一段</span></span>
-          <span class="note-open" data-lens-label><span data-en="Close this chapter">收起这一段</span></span>
+          <span data-lens-label data-en="Read the original notes">翻看当时的笔记</span>
+          <span class="story-version" data-en="V2 · TS and KS">V2 · TS 与 KS</span>
           <span class="disclosure-mark" aria-hidden="true"></span>
         </summary>
         <div class="chapter-copy">
-          <p><span data-en="I wanted to trace how something reached its current state. That led to linked activity records: where material came from, which tasks were assigned and who received the test results. Unrecorded historical links stayed unknown.">我想往回找一件事是怎么走到这里的，于是有了事项链：材料从哪里来，派过什么任务，测试回来以后又给了谁。没记过的旧关系，先留着不猜。</span></p>
-          <p><span data-en="KS folders resembled TS, but weren&#x27;t identical. I checked the actual directories before connecting them. The workflow was shared; tasks, databases and originals remained separate.">KS 的文件夹和 TS 很像，却不完全一样。核对实际目录以后，我才把它接进来。操作方式共用，任务、数据库和原件分别保留。</span></p>
-          <p><span data-en="I never used the &#x27;waiting for communication&#x27; workflow. External handoffs were the daily reality. I restored the ordinary three-column board and tucked away extra forms. Weekly reviews brought together that week&#x27;s relevant material.">“等待沟通”那套流程，我一次也没用过；真正每天在做的是外部交接。我让普通看板回到三列，收起多余的表单。要复盘一周的工作，就把那一周的相关资料带上。</span></p>
-          
+          <p data-en="The TS and KS folder structures looked similar. I checked the real folders before bringing in KS. Each line kept its task records, database and original files.">TS 和 KS 的目录看起来很像。核对了实际文件夹，我才接入 KS，两条线各自保留任务、数据库和原件。</p>
+          <p data-en="Handoffs between tools were the part I used every day. I restored the three-column board and put away extra forms. Weekly reviews brought in that week's relevant material.">每天用的是跨工具交接。普通看板回到三列，多余的表单收起来。复盘一周的工作时，把那一周相关的资料一起带上。</p>
         </div>
       </details>
-      
+      <nav class="story-pager" aria-label="换一段读" data-en-label="Previous or next stage">
+        <a href="#chapter-1" class="story-back" data-stage-link><span class="link-arrow link-arrow-back" aria-hidden="true"></span><span data-lens-label data-en="Previous · Passing notes">上一段 · 我来传话</span></a>
+        <a href="#chapter-3" class="story-next" data-stage-link><span data-lens-label data-en="Next · Misfiled mail">下一段 · 信投错了</span><span class="link-arrow" aria-hidden="true"></span></a>
+      </nav>
     </article>
-    <article class="chapter" id="chapter-3" aria-labelledby="title-3">
-      <div class="chapter-heading">
-        <p class="chapter-meta"><span class="chapter-number">03</span><span>10.06 — 10.09</span></p>
-        <h2 id="title-3" tabindex="-1"><span data-en="I tried letting the agents talk. It didn&#x27;t work out.">我想让它们自己聊，结果没走通。</span></h2>
-        <p class="chapter-lead"><span data-en="An API reply didn&#x27;t mean a task reached the right place. I decided to ">接口能回复，任务却未必投到正确位置。我决定</span><strong><span data-en="pause and return to manual coordination">先停下，回到人工协调</span></strong><span data-en=".">。</span></p>
-        <p class="chapter-version"><span data-en="V2.4 → V3.1.4">V2.4 → V3.1.4</span></p>
+    <article class="story-sheet" id="chapter-3" aria-labelledby="title-3">
+      <div class="story-lead">
+        <p class="stage-date"><time datetime="2026-10-06">10.06</time> — <time datetime="2026-10-09">10.09</time></p>
+        <h2 class="story-title" id="title-3" tabindex="-1" data-en="Stamped, then misfiled">盖了章，信还是送错了</h2>
+        <p class="story-text" data-en="I let the AI assistants try handing work to each other. The system said it got the report, but the assistant waiting for it couldn't find it.">我试着让几个 AI 助手自己交报告。系统说「收到了」，等报告的那个助手却找不到它。</p>
+        <p class="story-text" data-en="I checked where the messages actually went and paused the automatic handoffs. I went back to delivering each report myself.">我去查了消息实际落在哪儿，再停掉自动传话。报告还是由我交到该去的地方。</p>
       </div>
-      <figure class="chapter-art">
+      <figure class="chapter-art story-art">
         <img data-src="/assets/homepage-v0.24.31/reading/03-automation-960.webp"
           data-srcset="/assets/homepage-v0.24.31/reading/03-automation-480.webp 480w, /assets/homepage-v0.24.31/reading/03-automation-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="分信机已经吐出打勾的回执，方形标记的任务却落进了圆形格。小谁站在台旁，把投错的信取回来。"
           data-en-alt="The mail sorter has produced a checked receipt, but a square-marked card landed in the round-marked tray. Xiaowho retrieves the misplaced card by hand.">
         <noscript><img src="/assets/homepage-v0.24.31/reading/03-automation-960.webp"
           srcset="/assets/homepage-v0.24.31/reading/03-automation-480.webp 480w, /assets/homepage-v0.24.31/reading/03-automation-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="分信机已经吐出打勾的回执，方形标记的任务却落进了圆形格。小谁站在台旁，把投错的信取回来。"
           data-en-alt="The mail sorter has produced a checked receipt, but a square-marked card landed in the round-marked tray. Xiaowho retrieves the misplaced card by hand."></noscript>
       </figure>
-      
-      <details class="chapter-notes">
+      <div class="story-hint">
+        <div class="sorter" data-sorter="ready" role="group" aria-label="试玩分信机" data-en-label="Try the mail sorter" hidden>
+          <div class="sorter-controls">
+            <button class="sorter-button" type="button" aria-controls="sorter-outcome">
+              <span data-sorter-copy="ready" data-en="Post a letter">投一封信</span>
+              <span data-sorter-copy="misfiled" data-en="Move it to the square tray" hidden>放回方格</span>
+              <span data-sorter-copy="sorted" data-en="Start again" hidden>重新开始</span>
+            </button>
+            <p class="sorter-outcome" id="sorter-outcome" role="status" aria-atomic="true">
+              <span data-sorter-copy="ready" data-en="This letter has a square mark.">这封信带着方形记号。</span>
+              <span data-sorter-copy="misfiled" data-en="The machine stamped it. The letter landed in the round tray." hidden>盖了章，信却掉进了圆格。</span>
+              <span data-sorter-copy="sorted" data-en="Xiaowho put the letter in the square tray." hidden>小谁把信放回了方格。</span>
+            </p>
+          </div>
+          <div class="sorter-board" aria-hidden="true">
+            <span class="sorter-intake" data-en="Mail slot">投信口</span>
+            <span class="sorter-stamp"><i></i><span data-en="Received">已收信</span></span>
+            <span class="sorter-path"></span>
+            <div class="sorter-bins">
+              <div class="sorter-bin sorter-bin-square"><i></i><span data-en="Square tray">方格</span></div>
+              <div class="sorter-bin sorter-bin-round"><i></i><span data-en="Round tray">圆格</span></div>
+            </div>
+            <div class="sorter-carriage"><span class="sorter-letter"></span></div>
+          </div>
+        </div>
+        <p id="sorter-fallback" class="desk-note" data-en="The machine stamped the square-marked letter. It landed in the round tray. Xiaowho picked it up by hand.">分信机盖了章，方形的信却掉进圆格。小谁伸手把它拿了回来。</p>
+      </div>
+      <details class="chapter-notes story-notes">
         <summary>
-          <span class="note-closed" data-lens-label><span data-en="Read this chapter">翻开这一段</span></span>
-          <span class="note-open" data-lens-label><span data-en="Close this chapter">收起这一段</span></span>
+          <span data-lens-label data-en="Read the original notes">翻看当时的笔记</span>
+          <span class="story-version" data-en="V2.4 to V3.1.4">V2.4 到 V3.1.4</span>
           <span class="disclosure-mark" aria-hidden="true"></span>
         </summary>
         <div class="chapter-copy">
-          <p><span data-en="I started by automatically handing collection reports to Pi. Empty sessions went unrecognized, machine receipts displaced Chinese reports and the confirmation entry was hard to find. A seemingly simple handoff needed several patches.">我从把采集报告自动交给 Pi 开始试。空会话认不出来，机器回执又挤掉中文报告，做完以后还找不到确认入口。一段看似简单的移交，接着改了好几个补丁。</span></p>
-          <p><span data-en="Next I wanted agents to exchange messages and return a conclusion. With the integration then in place, some messages never reached the intended business workspace. After checking where execution actually happened, I stopped the automatic exchanges.">后来我想让 Agent 自动来回沟通，最后交给我一个结论。但按当时的接入方式，消息没有都进到预期的业务工作区。查过实际执行位置以后，我叫停了这套自动往返。</span></p>
-          <p><span data-en="The V3.0 release kept manual classification and batch handoffs. Clipboard contents became recoverable, with fewer repeated reminders. After a detour integrating the Mac, it handled collection only; I manually returned results to the original entry point.">正式发布的 V3.0 继续做人工分类和批量交接。剪贴板丢了能找回，同一件事别催我三遍；MAC 接入绕了一圈，最后先只负责采集，我手动交回原入口。</span></p>
-          
+          <p data-en="The first trial handed collection reports to Pi. Empty sessions went unrecognized, machine receipts pushed out the Chinese reports, and the confirmation control was hard to find.">最早试的是把采集报告自动交给 Pi。空会话认不出来，机器回执挤掉了中文报告，确认入口也难找。</p>
+          <p data-en="V3.0 kept manual sorting and batch handoffs. Clipboard contents became recoverable and repeated reminders were cut back. The Mac handled collection, and I returned the results to the original entry point myself.">正式发布的 V3.0 保留人工分类和批量交接。剪贴板丢了能找回，重复提醒少一些。Mac 先只负责采集，回收的结果由我交回原入口。</p>
         </div>
       </details>
-      
+      <nav class="story-pager" aria-label="换一段读" data-en-label="Previous or next stage">
+        <a href="#chapter-2" class="story-back" data-stage-link><span class="link-arrow link-arrow-back" aria-hidden="true"></span><span data-lens-label data-en="Previous · Two drawers">上一段 · 两只抽屉</span></a>
+        <a href="#chapter-4" class="story-next" data-stage-link><span data-lens-label data-en="Next · Moving back">下一段 · 搬家回来</span><span class="link-arrow" aria-hidden="true"></span></a>
+      </nav>
     </article>
-    <article class="chapter" id="chapter-4" aria-labelledby="title-4">
-      <div class="chapter-heading">
-        <p class="chapter-meta"><span class="chapter-number">04</span><span>10.10 — 10.11</span></p>
-        <h2 id="title-4" tabindex="-1"><span data-en="I tried moving away, then returned to WPS that evening.">换出去试了一圈，当晚又回了 WPS。</span></h2>
-        <p class="chapter-lead"><span data-en="The hardest part was ">我最受不了的是，</span><strong><span data-en="waiting for cloud content during handoffs">流转要等云端内容读回来</span></strong><span data-en=". Rolling back also had to preserve the day&#x27;s work.">。回退时，白天做过的事也得保住。</span></p>
-        <p class="chapter-version"><span data-en="V3.2.x → V3.1.x">V3.2.x → V3.1.x</span></p>
+    <article class="story-sheet" id="chapter-4" aria-labelledby="title-4" data-scene="reverse">
+      <div class="story-lead">
+        <p class="stage-date"><time datetime="2026-10-10">10.10</time> — <time datetime="2026-10-11">10.11</time></p>
+        <h2 class="story-title" id="title-4" tabindex="-1" data-en="I moved back that night">搬了家，当晚又搬回来</h2>
+        <p class="story-text" data-en="WPS cloud storage was getting tight. I copied the folders to Feishu and left the originals in place so I could come back.">WPS 的云盘快放不下了。我先把文件夹复制一份到飞书，原件留在原处，随时可以回来。</p>
+        <p class="story-text" data-en="When I tried to file the work away, I had to wait for files to come down from the cloud. That evening I moved back to WPS, bringing along everything I'd added, changed or archived that day.">真要归档的时候，得等云端把资料读回来。我当天晚上就搬回 WPS，还把白天新加、改过和收进档案的资料一起带上。</p>
       </div>
-      <figure class="chapter-art">
+      <figure class="chapter-art story-art">
         <img data-src="/assets/homepage-v0.24.31/reading/04-detour-960.webp"
           data-srcset="/assets/homepage-v0.24.31/reading/04-detour-480.webp 480w, /assets/homepage-v0.24.31/reading/04-detour-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="墨点小谁拉着装满档案盒的手推车，转向原来的文件柜。"
           data-en-alt="Xiaowho brings archive boxes back to the filing cabinet on a handcart.">
         <noscript><img src="/assets/homepage-v0.24.31/reading/04-detour-960.webp"
           srcset="/assets/homepage-v0.24.31/reading/04-detour-480.webp 480w, /assets/homepage-v0.24.31/reading/04-detour-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="墨点小谁拉着装满档案盒的手推车，转向原来的文件柜。"
           data-en-alt="Xiaowho brings archive boxes back to the filing cabinet on a handcart."></noscript>
       </figure>
-      
-      <details class="chapter-notes">
+      <div class="story-hint">
+        <ol class="paper-trail" aria-label="资料搬家的路线" data-en-label="The move and the way back">
+          <li><span data-en="WPS originals">WPS 原件</span></li>
+          <li><span data-en="Feishu copy">飞书副本</span></li>
+          <li><span data-en="Back to WPS">回到 WPS</span></li>
+        </ol>
+      </div>
+      <details class="chapter-notes story-notes">
         <summary>
-          <span class="note-closed" data-lens-label><span data-en="Read this chapter">翻开这一段</span></span>
-          <span class="note-open" data-lens-label><span data-en="Close this chapter">收起这一段</span></span>
+          <span data-lens-label data-en="Read the original notes">翻看当时的笔记</span>
+          <span class="story-version" data-en="V3.2.x back to V3.1.x">V3.2.x 回到 V3.1.x</span>
           <span class="disclosure-mark" aria-hidden="true"></span>
         </summary>
         <div class="chapter-copy">
-          <p><span data-en="I wanted to try more tools. With my WPS subscription expiring and cloud storage tight, I copied the existing folder structure to Feishu. I left the originals intact so I could roll back.">我想多试试工具，WPS 会员又快到期了，云盘空间也吃紧，就把原来的文件架构复制一份到飞书。原件先不动，不好用还能退回来。</span></p>
-          <p><span data-en="In practice, closing and archiving took too long. Cloud reads held a database write lock, duplicate filenames blocked whole sync batches, and an unprepared local mirror was mistaken for missing originals. After several fixes, I still asked to roll back that evening.">真用起来，闭环和归档等很久。这次适配里，云端读取占着数据库写锁，重名文件又会挡住整批同步；本地镜像没准备好，也被误判成原件不见了。修过几轮后，我还是在当天晚上要求回退。</span></p>
-          <p><span data-en="The rollback had to carry back new, updated and archived material while preserving tasks and history. Later I refined prompts, changed maintenance tools and added undo for cards I&#x27;d closed by mistake. The trial reached V3.2.4; work resumed on V3.1.x after returning to WPS.">退回去也得接回当天新增、更新和归档的材料，保留任务与历史。后面继续改提示词、换维护工具，也给我关错的卡片补了撤回入口。这次试用到了 V3.2.4，回到 WPS 后又沿 V3.1.x 继续。</span></p>
-          
+          <p data-en="My WPS subscription was nearly up and I wanted to try other tools. The trial reached V3.2.4. Cloud reads held up database writes, duplicate names stopped whole sync batches, and an unready local mirror was mistaken for missing originals.">我手上的 WPS 会员快到期了，也想试试别的工具。试用到了 V3.2.4。读取云端资料会卡住数据库写入，重名让整批同步停下，本地副本没准备好时又误报了原件丢失。</p>
+          <p data-en="I resumed work on V3.1.x and brought back tasks and their history too. Later, I revised the prompts and maintenance tools and added undo for cards I'd closed by mistake.">退回后继续沿 V3.1.x 做，任务和历史记录也要跟着回来。后来我改了提示词和维护工具，又给关错的卡片补了撤回。</p>
         </div>
       </details>
-      
+      <nav class="story-pager" aria-label="换一段读" data-en-label="Previous or next stage">
+        <a href="#chapter-3" class="story-back" data-stage-link><span class="link-arrow link-arrow-back" aria-hidden="true"></span><span data-lens-label data-en="Previous · Misfiled mail">上一段 · 信投错了</span></a>
+        <a href="#chapter-5" class="story-next" data-stage-link><span data-lens-label data-en="Next · Daily use">下一段 · 用着再改</span><span class="link-arrow" aria-hidden="true"></span></a>
+      </nav>
     </article>
-    <article class="chapter" id="chapter-5" aria-labelledby="title-5">
-      <div class="chapter-heading">
-        <p class="chapter-meta"><span class="chapter-number">05</span><span>10.12 — 10.18</span></p>
-        <h2 id="title-5" tabindex="-1"><span data-en="In the end, daily use had to guide the changes.">最后，还是得照我每天怎么用来改。</span></h2>
-        <p class="chapter-lead"><span data-en="Clarify roles, materials and where work gets handled. ">把岗位、资料和处理入口理清。</span><strong><span data-en="Unfinished and paused work">还没做完的、已经暂停的</span></strong><span data-en=" stayed in its recorded state.">，就先留在当时的状态。</span></p>
-        <p class="chapter-version"><span data-en="Through V3.1.23">到 V3.1.23</span></p>
+    <article class="story-sheet" id="chapter-5" aria-labelledby="title-5">
+      <div class="story-lead">
+        <p class="stage-date"><time datetime="2026-10-12">10.12</time> — <time datetime="2026-10-18">10.18</time></p>
+        <h2 class="story-title" id="title-5" tabindex="-1" data-en="One card at a time">做完一张，再拿下一张</h2>
+        <p class="story-text" data-en="I rearranged the workbench around things I did every day. I handed over one card at a time and waited for a reply before picking up the next. Running tests and looking at their results moved into the same place.">我把工作台照每天的用法重新摆了一遍。一次交接一张卡，等有回信再接下一张。常做的测试和看结果，也搬到同一个地方。</p>
+        <p class="story-text" data-en="I thought we had read the whole knowledge base. A closer check found only an outline and some of the text had been read. I paused the daily read-through and kept working with what had already been checked.">我原以为知识库读完了，一查才发现只看了目录和一部分正文。每天从头读的安排先暂停，继续用手头已经核过的资料。</p>
       </div>
-      <figure class="chapter-art">
+      <figure class="chapter-art story-art">
         <img data-src="/assets/homepage-v0.24.31/reading/05-workspace-960.webp"
           data-srcset="/assets/homepage-v0.24.31/reading/05-workspace-480.webp 480w, /assets/homepage-v0.24.31/reading/05-workspace-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="墨点小谁站在桌旁，手拿清单，把一页资料放进四个托盘中的一个。桌边摊着没收起的图纸。"
           data-en-alt="Beside the workbench, Xiaowho holds a checklist and adds a sheet to one of four trays. A drawing lies partly unrolled.">
         <noscript><img src="/assets/homepage-v0.24.31/reading/05-workspace-960.webp"
           srcset="/assets/homepage-v0.24.31/reading/05-workspace-480.webp 480w, /assets/homepage-v0.24.31/reading/05-workspace-960.webp 960w"
-          sizes="(max-width: 360px) 240px, (max-width: 680px) 280px, (max-width: 1000px) 42vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
+          sizes="(max-width: 360px) 240px, (max-width: 720px) 280px, (max-width: 1080px) 40vw, 420px" width="1536" height="1024" loading="lazy" decoding="async"
           alt="墨点小谁站在桌旁，手拿清单，把一页资料放进四个托盘中的一个。桌边摊着没收起的图纸。"
           data-en-alt="Beside the workbench, Xiaowho holds a checklist and adds a sheet to one of four trays. A drawing lies partly unrolled."></noscript>
       </figure>
-      
-      <details class="chapter-notes">
+      <div class="story-hint">
+        <p class="desk-note" data-en="Paused cards stay right where they were.">已经暂停的卡片，原样留在桌上。</p>
+      </div>
+      <details class="chapter-notes story-notes">
         <summary>
-          <span class="note-closed" data-lens-label><span data-en="Read this chapter">翻开这一段</span></span>
-          <span class="note-open" data-lens-label><span data-en="Close this chapter">收起这一段</span></span>
+          <span data-lens-label data-en="Read the original notes">翻看当时的笔记</span>
+          <span class="story-version" data-en="Through V3.1.23">记到 V3.1.23</span>
           <span class="disclosure-mark" aria-hidden="true"></span>
         </summary>
         <div class="chapter-copy">
-          <p><span data-en="Tools change; role names don&#x27;t have to. I kept &#x27;knowledge-base maintenance agent&#x27; as a stable role, then organized maintenance entry points, rules, navigation and records for both lines. This changed the structure, without re-researching every fact in the knowledge base.">工具会换，岗位名没必要跟着一起换。我把“知识库维护 Agent”固定下来，又整理两条线的维护入口、规则、导航和记录。这次改的是结构，库里的事实没有因此全部重做研究。</span></p>
-          <p><span data-en="Daily collection needs an understanding of what the knowledge base lacks, but daily full reading never finished. I&#x27;d thought it had been read; checking showed only structural checks and some text. I paused daily reading and planning, working from existing audit results instead.">每天采什么得先知道库里缺什么，但每日通读一直没完成。我原来以为已经读过，核对后才知道只是结构检查和部分正文。后来暂停了每日通读与规划，先拿已有审计结果做事。</span></p>
-          <p><span data-en="Communication changed to one card at a time, taking the next after a reply. Everyday modules needed to do real work, so test execution and result review moved into a dedicated testing area. These notes stop at V3.1.23; the workbench keeps evolving.">沟通改成一次处理一张卡，回件再接下一张。常用模块也得真能干活，最后把测试执行和回报研究放进独立测试区。这份日记先记到 V3.1.23，工作台还会继续改。</span></p>
-          <p class="closing"><span data-en="That&#x27;s where these notes pause.">这份日记先记到这里。</span> <span data-en="The workbench is evolving. More notes will follow.">工作台还在改，后面接着写。</span></p>
+          <p data-en="Knowledge-base maintenance became a stable role. The tool doing it could change. I organized both lines' maintenance entry points, rules, navigation and records.">「知识库维护」是固定的岗位，来做这件事的工具可以换。我整理了两条线的维护入口、规则、导航和记录。</p>
+          <p data-en="Deciding what to collect starts with knowing what's missing. Once the full read and planning were paused, I picked up from the existing audits. Unfinished and paused cards kept their recorded status.">每天要找什么，得先知道缺什么。通读和规划暂停后，我从已有审计接着做。没做完和暂停的卡片，都留在当时的状态。</p>
         </div>
       </details>
-      
-    </article><div class="journal-end"><a href="#top"><span data-lens-label data-en="Back to the beginning">回到开头</span></a></div>
+      <nav class="story-pager" aria-label="换一段读" data-en-label="Previous or next stage">
+        <a href="#chapter-4" class="story-back" data-stage-link><span class="link-arrow link-arrow-back" aria-hidden="true"></span><span data-lens-label data-en="Previous · Moving back">上一段 · 搬家回来</span></a>
+      </nav>
+    </article>
+    <div class="story-end">
+      <a href="/workbench-playground.html"><span data-lens-label data-en="Try the workbench demo">打开工作台演示</span><span class="link-arrow" aria-hidden="true"></span></a>
+    </div>
     </main>
     <footer class="reading-footer">
       <span><span data-en="© 2026 Chen Zhen / Xiaowho">© 2026 陈震 / 小谁</span></span>
