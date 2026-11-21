@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Five Stages Sans";
+  src: url("journal-sans.woff2") format("woff2");
+  font-weight: 400 650;
+  font-display: swap;
+}
+
+:root {
+  --sans: "Five Stages Sans", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --journal-copy-size: 1rem;
+  --journal-label-size: .875rem;
+  --journal-detail-size: .8125rem;
+}
+
+.story-opening h1, :lang(en) .story-opening h1, .story-title {
+  font-family: var(--sans);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.story-opening h1, :lang(en) .story-opening h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 650;
+}
+
+.story-title {
+  margin-block-end: 12px;
+  font-size: clamp(1.625rem, 2.8vw, 2.25rem);
+  font-weight: 600;
+}
+
+.opening-note, .story-text, .story-notes .chapter-copy {
+  font-size: var(--journal-copy-size);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.story-text, .story-notes .chapter-copy { max-width: 62ch; }
+
+.reading-actions button,
+.reading-nav,
+.stage-route a,
+:lang(en) .stage-route a,
+.story-notes summary,
+.story-pager a,
+.story-end a,
+.paper-trail li,
+.desk-trays li,
+.sorter-button,
+.sorter-outcome,
+.desk-note {
+  font-size: var(--journal-label-size);
+  line-height: 1.45;
+}
+
+.stage-route a, .story-notes summary, .desk-note { font-weight: 500; }
+.stage-route a[aria-current], .sorter-button { font-weight: 600; }
+.desk-note { font-family: var(--sans); }
+
+.stage-number, .story-period, .stage-date {
+  font: 500 var(--journal-detail-size)/1.45 var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+
+.reading-footer, .story-version {
+  font-size: var(--journal-detail-size);
+  line-height: 1.45;
+}
+
+.sorter-board { font-size: var(--journal-detail-size); line-height: 1.35; }
+.sorter-bin { height: 68px; }
+.sorter[data-sorter="misfiled"], .sorter[data-sorter="sorted"] { --letter-y: 77px; }
+
+@media (max-width: 360px) {
+  .stage-route a, :lang(en) .stage-route a {
+    padding-inline: 1px;
+    font-size: var(--journal-detail-size);
+  }
+}
