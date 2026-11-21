@@ -193,8 +193,12 @@
     configure();
   });
   document.fonts.ready.then(positionMarker);
+  function updateSectionTitle() {
+    if (categories[active] !== 'comics') updateTitle();
+  }
+  document.addEventListener('DOMContentLoaded', updateSectionTitle);
   document.addEventListener('home-language-change', () => {
-    updateTitle();
+    queueMicrotask(updateSectionTitle);
     requestAnimationFrame(positionMarker);
   });
   applyRoute('initial');

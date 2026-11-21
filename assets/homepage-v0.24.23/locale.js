@@ -114,7 +114,7 @@
       'tab.vbc': 'Dictionary',
       'vbc.catalog.title': 'Personal Frontend Dictionary',
       'vbc.catalog.summary': 'Look up design and interaction terms, try examples, and find implementation notes in Chinese.',
-      'vbc.catalog.open': 'Open dictionary',
+      'vbc.catalog.open': 'Open dictionary (Chinese)',
       'vbc.collection': 'Interactions on this site',
       'vbc.open': 'Try it',
       'vbc.close': 'Close',

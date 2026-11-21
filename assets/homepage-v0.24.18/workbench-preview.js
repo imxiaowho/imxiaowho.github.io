@@ -25,7 +25,7 @@
       description: 'Hand off tasks, review what came back, and confirm completion.',
       open: 'Preview workbench',
       close: 'Close preview',
-      full: 'Open full demo',
+      full: 'Open full demo (Chinese)',
       guide: 'Five steps that shaped the workbench (Chinese)',
       language: 'Chinese interface. Uses sample tasks in this browser.',
       frame: 'xiaowho’s workbench demo'
