@@ -75,6 +75,23 @@
   margin-block-start: 8px;
 }
 
+.about-character-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 19px;
+}
+
+.about-character-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: .24em;
+}
+
+.about-character-links a:hover { text-decoration-color: var(--accent); }
+
 .about-stage {
   position: relative;
   width: 100%;

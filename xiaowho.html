@@ -10,15 +10,12 @@
   <title>小谁的角色定妆 · imxiaowho</title>
   <link rel="stylesheet" href="/assets/homepage-v0.24.31/reading/reading.css">
   <link rel="stylesheet" href="/assets/homepage-v0.23.3/paper-pointer/paper-pointer.css?v=5">
-  <style>
-    .reading-nav .portrait-interaction-link {
-      margin-inline-start: auto;
-      color: var(--ink);
-      font-weight: 600;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/xiaowho-play/presentation.css">
   <script src="/assets/homepage-v0.24.31/reading/reading.js" defer></script>
   <script src="/assets/homepage-v0.24.5/paper-pointer.js" defer></script>
+  <script src="/assets/xiaowho-play/presentation.js" defer></script>
+  <script src="/elements/motion/motion-0008/head-plate.js" defer></script>
+  <script src="/elements/motion/motion-0008/pull.js?v=170c6e18e1" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main-content"><span data-en="Skip to content">跳到正文</span></a>
@@ -42,7 +39,7 @@
     </header>
     <nav class="reading-nav" aria-label="角色页导航" data-en-label="Character page navigation">
       <a href="/?section=about"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 8h-11m4-4-4 4 4 4"/></svg><span data-lens-label data-en="Back to About">返回关于</span></a>
-      <a class="portrait-interaction-link" href="/elements/motion/motion-0008/preview.html">
+      <a class="portrait-interaction-link" href="#pull">
         <span data-lens-label data-en="Pull Xiaowho">捏一下 Xiaowho</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11m-4-4 4 4-4 4"/></svg>
       </a>
@@ -73,6 +70,50 @@
           <p><span data-en="The pouch is full of tools and unfinished drafts. When Xiaowho finishes something, it folds the note twice, tucks it inside and gives the pouch a little pat.">包里塞着小工具和没写完的草稿。做完一件事，它会把纸条折两下，塞进包里，轻轻拍一下。</span></p>
         </section>
       </div>
+
+      <section class="character-play" id="pull" aria-labelledby="pull-title" tabindex="-1">
+        <div class="character-play-layout">
+          <div>
+            <h2 id="pull-title"><span data-en="Pull Xiaowho">捏一下 Xiaowho</span></h2>
+            <p class="character-play-intro" data-en="Drag a cheek outward, then let go to watch Xiaowho spring back.">按住脸颊往外拉。松手，它会弹回原位。</p>
+            <div class="character-play-actions">
+              <button class="character-play-button" id="bounce" type="button" disabled><span data-en="Bounce">弹一下</span></button>
+              <a id="prompt-link" href="#prompt" aria-controls="prompt" aria-expanded="false"><span data-en="Original prompt">原提示词</span></a>
+            </div>
+            <p class="character-play-help" id="keyboard-help" data-en="Focus the portrait and use the arrow keys to pull.">用 Tab 选中头像，再按方向键拉动。</p>
+          </div>
+          <figure class="character-play-stage">
+            <div class="character-play-surface" id="surface">
+              <canvas id="poster" aria-hidden="true" hidden></canvas>
+              <canvas id="head" aria-label="可拉动的 Xiaowho 头像" data-en-label="Draggable Xiaowho portrait" aria-describedby="keyboard-help" role="img" tabindex="0" hidden></canvas>
+              <noscript><p class="character-play-noscript">启用 JavaScript 后即可拖动头像。</p></noscript>
+            </div>
+            <span id="readout" hidden>等待加载</span>
+            <figcaption class="character-play-status" id="portrait-play-status" role="status">等待加载</figcaption>
+          </figure>
+        </div>
+        <details class="character-play-source" id="prompt">
+          <summary><span data-en="Original prompt and credit">原提示词与署名</span></summary>
+          <div class="character-play-transcript">
+            <p data-en="The screenshot is credited to @气质花. A few obscured words in item 4 were restored from context.">截图署名 @气质花。第 4 条的少量遮挡已按上下文补全。</p>
+            <div id="prompt-text" lang="zh-CN">
+              <p>实现一个可拉扯、会 Q 弹回位的交互大头照，重点做好局部面部变形和皮肤泛红：</p>
+              <ol>
+                <li>使用透明背景头像作为 WebGL 纹理，绘制在细分三角网格上。按下脸部时，记录鼠标对应的纹理坐标，作为固定抓取点；拖动时，让附近顶点随鼠标移动，影响随距离平滑衰减，形成柔软、有体积感的皮肤拉伸，避免整张图片平移、缩放或简单倾斜。</li>
+                <li>松手后使用带阻尼的弹簧模拟，让网格围绕原始位置回弹，轻微摆动后自然归位。支持快速拖拽、连续抓取和中途再次拉扯，避免网格翻折、裂缝或裁切。使用 pointer capture，确保鼠标移出头像后仍能完成拖拽。</li>
+                <li>只要实际发生拖拽变形，无论距离多短、动作多快，抓取点附近都要逐渐泛红，回弹时达到最红，再缓慢消退。每次新拖拽替换上一处红晕。红晕使用柔和渐变并保留皮肤纹理，在纹理坐标中计算，与面部一起变形，受头像透明度和皮肤区域遮罩限制，不能像浮在屏幕上的红色圆圈。</li>
+                <li>根据拉扯状态切换惊讶 O 型嘴、吃痛等表情。所有表情素材必须对齐并使用一致轮廓，切换不跳动。待机和普通鼠标移动不得触发红晕；松手、窗口失焦、切换标签页后都要正确清理交互状态。</li>
+              </ol>
+              <p>请实际测试快速短拉、长距离拉扯、连续拖拽及长时间待机，确认回弹稳定、红晕必现、头像不会消失或残留变形。</p>
+            </div>
+            <div class="character-play-actions">
+              <button class="character-play-button" id="copy-prompt" type="button"><span data-en="Copy prompt">复制提示词</span></button>
+              <span id="copy-status" hidden></span>
+              <span id="portrait-play-copy-status" role="status"></span>
+            </div>
+          </div>
+        </details>
+      </section>
 
     </main>
     <footer class="reading-footer">

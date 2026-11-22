@@ -4,6 +4,7 @@
   const english = {
     originTitle: 'Xiaowho',
     characterPortrait: 'See Xiaowho’s character portrait',
+    characterInteraction: 'Pull Xiaowho',
     originLine: 'A little idea popped up from a rough draft and became a fifteen-centimeter ink spirit. Its yellow bag is full of unfinished pages.',
     originAlt: 'Xiaowho steps off a draft sheet with its yellow bag.',
     nameTitle: 'Where the name came from',
