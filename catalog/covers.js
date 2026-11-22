@@ -32,7 +32,7 @@
     'motion-0004':['typing','<div class="mini-typing" data-typing-text="让文字有节奏"><span>让文字有节奏</span></div><small class="mini-type-foot">一字一拍</small>'],
     'motion-0005':['ripple','<div class="mini-ripple"><span>轻触一下</span><i></i></div>'],
     'motion-0006':['marquee','<div class="mini-marquee"><span>Type · Motion · Layout · </span><span>Type · Motion · Layout · </span></div><div class="mini-marquee-rule"></div>'],
-    'motion-0008':['xiaowho-pull','<img src="../elements/motion/motion-0008/cover.webp" alt="" loading="lazy" width="352" height="200" style="width:100%;height:100%;object-fit:cover">'],
+    'motion-0008':['xiaowho-pull','<img src="../elements/motion/motion-0008/cover.webp?v=de55c06900" alt="" loading="lazy" width="352" height="200" style="width:100%;height:100%;object-fit:cover">'],
     'motion-0007':['paper','<canvas class="mini-paper-canvas"></canvas><div class="mini-paper-note"><i></i><span class="paper-note-wide">轻轻一碰，<b>纸面就有回应。</b></span><span class="paper-note-narrow">移近 · 波动</span></div>']
   };
   window.VBC_COVERS=Object.fromEntries(Object.entries(patterns).map(([id,[effect,html]])=>[id,{effect,html}]));
