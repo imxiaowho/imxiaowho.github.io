@@ -234,10 +234,17 @@ async function start() {
   mask.drawImage(plate, 0, 0);
   const pixels = mask.getImageData(0, 0, plate.width, plate.height).data;
   const positions = rest.slice();
+  const flickOffsets = new Float32Array(rest.length);
+  // A low pivot lets the whole head compress with a small movement at the base.
+  for (let index = 0; index < rest.length; index += 2) {
+    flickOffsets[index] = (rest[index] - 0.48) * 0.105;
+    flickOffsets[index + 1] = (0.65 - rest[index + 1]) * 0.174;
+  }
   const scene = { width: 0, height: 0, side: 0 };
   let renderer;
   let held;
   let spring;
+  let flick;
   let blush;
   let stretch = 0;
   let painted = 0;
@@ -299,7 +306,7 @@ async function start() {
   }
 
   function findGrip(point) {
-    if (!stretch) return opaque(point) ? point : null;
+    if (!stretch && !flick) return opaque(point) ? point : null;
 
     // Pick on the displayed triangles so a new grab can land mid-rebound.
     for (let index = 0; index < triangles.length; index += 3) {
@@ -331,8 +338,8 @@ async function start() {
       weights[index] = 1 - smooth(unit(distance / pullRadius));
     }
     held = { anchor, point, origin: point, pointerId, weights, start: null,
-      previous: stretch ? positions.slice() : null, previousStretch: stretch, keys: new Set() };
-    spring = null;
+      previous: stretch || flick ? positions.slice() : null, previousStretch: stretch, keys: new Set() };
+    spring = flick = null;
     canvas.setAttribute('data-dragging', '');
     queueRender();
   }
@@ -399,7 +406,7 @@ async function start() {
 
   function reset() {
     const pointerId = held?.pointerId;
-    held = spring = blush = null;
+    held = spring = flick = blush = null;
     stretch = 0;
     positions.set(rest);
     canvas.removeAttribute('data-hover');
@@ -408,10 +415,34 @@ async function start() {
     queueRender();
   }
 
+  function deformFlick(now) {
+    flick.start ??= now;
+    const age = now - flick.start;
+    const duration = 330;
+    if (age >= duration) {
+      positions.set(rest);
+      flick = null;
+      return;
+    }
+    if (reducedMotion.matches) return;
+
+    // Brief contact compresses the head before a smaller free rebound.
+    const contact = 36;
+    const press = smooth(unit(age / contact));
+    const released = Math.max(0, age - contact);
+    const settle = 1 - smooth(unit((age - 250) / (duration - 250)));
+    const rebound = Math.exp(-released / 75) * Math.cos(released / 23) * settle;
+    for (let index = 0; index < positions.length; index++) {
+      const target = rest[index] + flickOffsets[index] * rebound;
+      positions[index] = flick.from[index] + (target - flick.from[index]) * press;
+    }
+  }
+
   function render(now) {
     frame = 0;
     if (!renderer) return;
     if (held && held.start !== null) deform(now);
+    if (flick) deformFlick(now);
     if (spring) {
       // Show the released shape for a frame, including a pull shorter than one refresh interval.
       spring.start ??= now;
@@ -441,9 +472,9 @@ async function start() {
 
     if (blush && blush.release !== null && redness === 0) blush = null;
     const label = held ? (held.start === null ? '可以往外拉' : '拉扯中')
-      : spring ? '回弹中' : blush ? '红晕在消退' : '等你来拉';
-    setStatus(label, Boolean(held || spring || blush));
-    if (spring || (blush && (blush.release !== null || now - blush.start < 370))) queueRender();
+      : flick ? '轻弹了一下' : spring ? '回弹中' : blush ? '红晕在消退' : '等你来拉';
+    setStatus(label, Boolean(held || spring || flick || blush));
+    if (spring || flick || (blush && (blush.release !== null || now - blush.start < 370))) queueRender();
   }
 
   canvas.addEventListener('pointerdown', (event) => {
@@ -509,11 +540,11 @@ async function start() {
 
   bounceButton.addEventListener('click', () => {
     if (held) return;
-    const point = [0.635, 0.66];
-    const now = performance.now();
-    grab(findGrip(point) ?? point, point);
-    move([point[0] + 0.192, point[1] + 0.066], now);
-    release(now);
+    spring = blush = null;
+    stretch = 0;
+    if (reducedMotion.matches) positions.set(rest);
+    flick = { from: positions.slice(), start: null };
+    queueRender();
   });
 
   window.addEventListener('blur', reset);
