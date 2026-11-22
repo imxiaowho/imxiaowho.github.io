@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-english-title="Xiaowho’s character portrait · imxiaowho">
+<html lang="zh-CN" data-english-title="Xiaowho character portrait · imxiaowho">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,7 @@
   <title>小谁的角色定妆 · imxiaowho</title>
   <link rel="stylesheet" href="/assets/homepage-v0.24.31/reading/reading.css">
   <link rel="stylesheet" href="/assets/homepage-v0.23.3/paper-pointer/paper-pointer.css?v=5">
-  <link rel="stylesheet" href="/assets/xiaowho-play/presentation.css">
+  <link rel="stylesheet" href="/assets/xiaowho-play/presentation.css?v=04d3977af1">
   <script src="/assets/homepage-v0.24.31/reading/reading.js" defer></script>
   <script src="/assets/homepage-v0.24.5/paper-pointer.js" defer></script>
   <script src="/assets/xiaowho-play/presentation.js" defer></script>
@@ -48,8 +48,8 @@
 
       <section class="character-intro" aria-labelledby="character-title">
         <div class="character-copy">
-          <h1 id="character-title"><span data-en="Xiaowho’s character portrait">小谁的角色定妆</span></h1>
-          <p><span data-en="Xiaowho lives in the margins of Chen Zhen’s drafts. When a question comes up, it leans in to take a look. If it finds a useful little tool, it tries it out and makes a note.">小谁住在陈震的草稿边上。碰到没想明白的事，它就凑过去看。试过一个好用的小工具，也会在本子上记一笔。</span></p>
+          <h1 id="character-title"><span data-en="Xiaowho character portrait">小谁的角色定妆</span></h1>
+          <p><span data-en="Xiaowho lives in the margins of Chen Zhen's drafts. When a question comes up, it leans in to take a look. If it finds a useful little tool, it tries it out and makes a note.">小谁住在陈震的草稿边上。碰到没想明白的事，它就凑过去看。试过一个好用的小工具，也会在本子上记一笔。</span></p>
         </div>
         <figure class="character-portrait">
           <img src="/assets/homepage-v0.24.31/reading/xiaowho-light.webp" width="640" height="960" decoding="async"
@@ -73,46 +73,44 @@
 
       <section class="character-play" id="pull" aria-labelledby="pull-title" tabindex="-1">
         <div class="character-play-layout">
-          <div>
+          <header class="character-play-heading">
             <h2 id="pull-title"><span data-en="Pull Xiaowho">捏一下 Xiaowho</span></h2>
-            <p class="character-play-intro" data-en="Drag a cheek outward, then let go to watch Xiaowho spring back.">按住脸颊往外拉。松手，它会弹回原位。</p>
-            <div class="character-play-actions">
-              <button class="character-play-button" id="bounce" type="button" disabled><span data-en="Bounce">弹一下</span></button>
-              <a id="prompt-link" href="#prompt" aria-controls="prompt" aria-expanded="false"><span data-en="Original prompt">原提示词</span></a>
-            </div>
-            <p class="character-play-help" id="keyboard-help" data-en="Focus the portrait and use the arrow keys to pull.">用 Tab 选中头像，再按方向键拉动。</p>
-          </div>
+            <p class="character-play-intro" data-en="Pull a cheek and let go to watch Xiaowho spring back.">按住脸颊往外拉，松手看它弹回原位。</p>
+          </header>
           <figure class="character-play-stage">
             <div class="character-play-surface" id="surface">
               <canvas id="poster" aria-hidden="true" hidden></canvas>
               <canvas id="head" aria-label="可拉动的 Xiaowho 头像" data-en-label="Draggable Xiaowho portrait" aria-describedby="keyboard-help" role="img" tabindex="0" hidden></canvas>
               <noscript><p class="character-play-noscript">启用 JavaScript 后即可拖动头像。</p></noscript>
             </div>
-            <span id="readout" hidden>等待加载</span>
-            <figcaption class="character-play-status" id="portrait-play-status" role="status">等待加载</figcaption>
+            <figcaption class="character-play-toolbar">
+              <div class="character-play-feedback">
+                <button class="character-play-button" id="bounce" type="button" disabled><span data-en="Bounce">弹一下</span></button>
+                <span id="readout" hidden>等待加载</span>
+                <span class="character-play-status" id="portrait-play-status" role="status">等待加载</span>
+              </div>
+              <a id="prompt-link" href="#prompt" aria-controls="prompt" aria-expanded="false"><span data-en="Prompt">互动提示词</span></a>
+            </figcaption>
           </figure>
-        </div>
-        <details class="character-play-source" id="prompt">
-          <summary><span data-en="Original prompt and credit">原提示词与署名</span></summary>
-          <div class="character-play-transcript">
-            <p data-en="The screenshot is credited to @气质花. A few obscured words in item 4 were restored from context.">截图署名 @气质花。第 4 条的少量遮挡已按上下文补全。</p>
-            <div id="prompt-text" lang="zh-CN">
-              <p>实现一个可拉扯、会 Q 弹回位的交互大头照，重点做好局部面部变形和皮肤泛红：</p>
+          <p class="character-play-help" id="keyboard-help" data-en="Press Tab to focus Xiaowho, then use the arrow keys to pull.">用 Tab 选中头像，再按方向键拉动。</p>
+          <details class="character-play-source" id="prompt">
+            <summary><span data-en="Interaction prompt">互动制作提示词</span></summary>
+            <div class="character-play-transcript" id="prompt-text">
+              <p data-en="Build the pull interaction on the Xiaowho character page. Use the transparent head artwork and keep the rounded curl, eyes, and brows at rest. Match the paper palette, typography, and buttons of the site.">在 Xiaowho 头像页实现「捏一下」互动。使用透明底大头素材，静止时保留小谁的圆弯钩和眉眼。页面沿用官网的纸面配色、字体和按钮。</p>
               <ol>
-                <li>使用透明背景头像作为 WebGL 纹理，绘制在细分三角网格上。按下脸部时，记录鼠标对应的纹理坐标，作为固定抓取点；拖动时，让附近顶点随鼠标移动，影响随距离平滑衰减，形成柔软、有体积感的皮肤拉伸，避免整张图片平移、缩放或简单倾斜。</li>
-                <li>松手后使用带阻尼的弹簧模拟，让网格围绕原始位置回弹，轻微摆动后自然归位。支持快速拖拽、连续抓取和中途再次拉扯，避免网格翻折、裂缝或裁切。使用 pointer capture，确保鼠标移出头像后仍能完成拖拽。</li>
-                <li>只要实际发生拖拽变形，无论距离多短、动作多快，抓取点附近都要逐渐泛红，回弹时达到最红，再缓慢消退。每次新拖拽替换上一处红晕。红晕使用柔和渐变并保留皮肤纹理，在纹理坐标中计算，与面部一起变形，受头像透明度和皮肤区域遮罩限制，不能像浮在屏幕上的红色圆圈。</li>
-                <li>根据拉扯状态切换惊讶 O 型嘴、吃痛等表情。所有表情素材必须对齐并使用一致轮廓，切换不跳动。待机和普通鼠标移动不得触发红晕；松手、窗口失焦、切换标签页后都要正确清理交互状态。</li>
+                <li data-en="Pulling. Anchor the grab point on the portrait mesh when the user holds a cheek. Move the nearby vertices with the pointer and gradually reduce the effect with distance. Capture the pointer so the pull continues outside the portrait. On release, use a damped spring to return the head to rest.">拖拽。按住脸颊时，在头像网格上固定抓点。周围顶点跟随指针移动，离抓点越远，形变越小。用指针捕获让拖动延续到头像外，松手后带阻尼回到原位。</li>
+                <li data-en="Blush. Once the head deforms, let a soft blush develop around the grab point. Keep it inside the head outline and let it move with the mesh. Let it peak during the rebound, then fade. Center each new blush on the new grab point.">红晕。拉出形变时，抓点附近慢慢泛红，颜色随网格变形并留在轮廓内。回弹时最红，随后淡去。下次拉动以新抓点为红晕中心。</li>
+                <li data-en="Bounce button. Compress the whole head vertically by 17.4% and widen it by 10.5% at peak contact. Let it bounce back and settle within about 330 ms. Keep the face its resting color throughout.">弹一下。按下按钮，整颗头像瞬间压扁再弹回。压扁最明显时，纵向收缩 17.4%，横向展开 10.5%，约 330 毫秒回稳。脸色全程保持原色。</li>
+                <li data-en="Controls and fallback. Support mouse, touch, and arrow keys. Check quick tugs, long pulls, re-grabs during a rebound, and repeated button presses. Reset on blur or when the tab is hidden. For reduced motion, the Bounce button gives status feedback. Show a still portrait if WebGL is unavailable.">操作与回退。支持鼠标、触屏和键盘方向键。检查快速短拉、长拉、回弹途中再抓和连续点按。窗口失焦或切换标签页时复位。启用减少动态时，「弹一下」用状态文字反馈。无 WebGL 时显示静态头像。</li>
               </ol>
-              <p>请实际测试快速短拉、长距离拉扯、连续拖拽及长时间待机，确认回弹稳定、红晕必现、头像不会消失或残留变形。</p>
             </div>
             <div class="character-play-actions">
               <button class="character-play-button" id="copy-prompt" type="button"><span data-en="Copy prompt">复制提示词</span></button>
               <span id="copy-status" hidden></span>
               <span id="portrait-play-copy-status" role="status"></span>
             </div>
-          </div>
-        </details>
+          </details>
+        </div>
       </section>
 
     </main>

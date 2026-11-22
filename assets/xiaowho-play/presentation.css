@@ -1,3 +1,29 @@
+/* Noto Serif SC and Noto Sans SC. License texts are in the site's fonts-ui-v6 assets. */
+@font-face {
+  font-family: "Xiaowho Portrait Serif";
+  src: url("portrait-serif.woff2?v=09df8f8d65") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Xiaowho Portrait Sans";
+  src: url("portrait-sans.woff2?v=250028b6b8") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+:root {
+  --serif: "Xiaowho Portrait Serif", "Songti SC", SimSun, Georgia, serif;
+  --sans: "Xiaowho Portrait Sans", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+body { font-size: 1rem; }
+
+.reading-nav svg { flex: none; }
+
+.character-copy p, .character-details p, .character-play-intro { text-wrap: pretty; }
+
 .reading-nav .portrait-interaction-link {
   margin-inline-start: auto;
   color: var(--ink);
@@ -15,18 +41,22 @@
 
 :root[data-theme="dark"] .character-play { --play-paper: #b4ab9b; }
 
-.character-play-layout {
-  display: grid;
-  grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
-  align-items: center;
-  gap: 24px clamp(26px, 6vw, 76px);
+.character-play:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
 }
 
-.character-play h2 { font-size: clamp(1.85rem, 3.35vw, 2.65rem); }
+.character-play-layout {
+  width: min(100%, 720px);
+  margin-inline: auto;
+}
+
+.character-play-heading { margin-block-end: 16px; }
+.character-play h2 { font-size: clamp(1.72rem, 2.9vw, 2.42rem); }
 
 .character-play-intro {
   max-width: 28em;
-  margin-block-start: 10px;
+  margin-block-start: 5px;
   color: var(--muted);
 }
 
@@ -51,13 +81,12 @@
 .character-play-button:hover:not(:disabled) { background: var(--paper); }
 .character-play-button:disabled { opacity: .56; cursor: default; }
 
-.character-play-help, .character-play-actions a, .character-play-status {
+.character-play-help, .character-play-toolbar a, .character-play-status {
   color: var(--muted);
   font-size: .83rem;
 }
 
 .character-play-help { margin-block-start: 8px; }
-.character-play-actions a { display: inline-flex; align-items: center; min-height: 44px; }
 
 .character-play-stage {
   min-width: 0;
@@ -85,24 +114,58 @@
 .character-play-surface #head[data-dragging] { cursor: grabbing; }
 .character-play-surface #head:focus-visible { outline: 2px solid #282b27; outline-offset: -5px; }
 
-.character-play-status {
-  min-height: 40px;
-  padding: 8px 12px;
+.character-play-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 7px 12px;
   border-block-start: 1px solid var(--rule);
   background: var(--paper);
 }
 
+.character-play-feedback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 10px;
+}
+
+.character-play-status { line-height: 1.4; }
+.character-play-toolbar a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-inline-start: auto;
+}
+
 .character-play-noscript { padding: 14px; color: #282b27; }
 
-.character-play-source { margin-block-start: 22px; }
+.character-play-source { margin-block-start: 14px; }
 .character-play-source:not([open]) { display: none; }
-.character-play-source summary { width: fit-content; font-weight: 600; }
+.character-play-source summary {
+  width: fit-content;
+  min-height: 44px;
+  padding-block: 8px;
+  font-weight: 600;
+}
 .character-play-transcript { max-width: 66ch; margin-block-start: 10px; }
-.character-play-transcript > p, .character-play-transcript ol { margin-block-end: 12px; }
-.character-play-transcript li + li { margin-block-start: 6px; }
+.character-play-transcript :is(p, li) { text-wrap: pretty; }
+.character-play-transcript ol { margin-block-start: 10px; padding-inline-start: 1.4em; }
+.character-play-transcript li + li { margin-block-start: 7px; }
 
 @media (max-width: 680px) {
   .character-play { padding-block: 25px 30px; }
-  .character-play-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .character-play-heading { margin-block-end: 12px; }
   .character-play-surface { height: clamp(245px, 72vw, 335px); }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .character-play-help {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
 }
