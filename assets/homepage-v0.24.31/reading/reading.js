@@ -5,17 +5,14 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   const languageButton = document.querySelector('#reading-language');
-  const themeButton = document.querySelector('#reading-theme');
   const lampButton = document.querySelector('#reading-lamp');
   const light = document.querySelector('.reading-light');
   const portrait = document.querySelector('[data-portrait]');
   const title = document.title;
   const options = new URLSearchParams(location.search);
   const languageKey = 'xiaowho.home-language.v1';
-  const themeKey = 'chen-reading-theme';
   const lampKey = 'xiaowho.home-paper.v1';
   let language = options.get('lang') || recall(languageKey);
-  let dark = (options.get('theme') || recall(themeKey)) === 'dark';
   let lampOn = recall(lampKey) !== 'off';
 
   function recall(key) {
@@ -35,10 +32,9 @@
 
   function applyPreferences() {
     const english = language === 'en';
+    const dark = root.dataset.theme === 'dark';
     root.lang = english ? 'en' : 'zh-CN';
-    root.dataset.theme = dark ? 'dark' : 'light';
     document.title = english ? root.dataset.englishTitle : title;
-    document.querySelector('meta[name="theme-color"]').content = dark ? '#252721' : '#f6f5f1';
     for (const { node, attribute, zh, en } of messages) {
       const value = english ? en : zh;
       if (attribute) node.setAttribute(attribute, value);
@@ -46,8 +42,6 @@
     }
     languageButton.querySelector('span').textContent = english ? '中文' : 'EN';
     languageButton.setAttribute('aria-label', english ? '切换为中文' : 'Switch to English');
-    themeButton.querySelector('span').textContent = dark ? (english ? 'Light' : '浅底') : (english ? 'Dark' : '深底');
-    themeButton.setAttribute('aria-pressed', String(dark));
     if (portrait) {
       const source = portrait.dataset[dark ? 'dark' : 'light'];
       if (portrait.getAttribute('src') !== source) portrait.src = source;
@@ -80,11 +74,7 @@
     save(languageKey, language);
     applyPreferences();
   });
-  themeButton.addEventListener('click', () => {
-    dark = !dark;
-    save(themeKey, dark ? 'dark' : 'light');
-    applyPreferences();
-  });
+  document.addEventListener('site-theme-change', applyPreferences);
   lampButton.addEventListener('click', () => {
     lampOn = !lampOn;
     save(lampKey, lampOn ? 'on' : 'off');
@@ -93,7 +83,6 @@
   applyPreferences();
   configureLight();
   languageButton.hidden = false;
-  themeButton.hidden = false;
 
   function loadArt(figure) {
     const img = figure.querySelector('img[data-src]');

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-workspace="ts">
+<html data-site-page="workbench" lang="zh-CN" data-workspace="ts">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,8 +30,11 @@
   <script src="/workbench/desktop.js"></script>
   <script src="/workbench/demo-samples.js"></script>
   <script src="/workbench/demo-api.js"></script>
+  <script src="/assets/site-paper/theme.js?v=1fef9ef7e7"></script>
+  <link rel="stylesheet" href="/assets/site-paper/theme.css?v=1414eeb17a">
 </head>
 <body>
+  <nav class="site-workbench-nav" aria-label="个人站"><a href="/?section=workbench">返回工作台</a><button class="site-theme-toggle" id="site-theme" type="button" data-site-theme-toggle aria-pressed="false" hidden><span data-site-theme-label>深底</span></button></nav>
   <div class="shell">
     <aside class="sidebar">
       <div class="brand"><button class="brand-mark" id="xiaowho-buddy" type="button" aria-label="和 xiaowho 打个招呼"><img id="workspace-mark" data-xiaowho-portrait src="/workbench/marks/xiaowho-yellow.png" alt="xiaowho · TS 黄色围巾"></button><span class="xiaowho-greeting" id="xiaowho-greeting" role="status" aria-live="polite" hidden></span><div class="workspace-brand"><button id="workspace-switch" type="button" aria-label="工作空间" aria-expanded="false" aria-controls="workspace-menu"><span id="workspace-switch-label">TS · TrimSteer</span><span class="workspace-chevron" aria-hidden="true">⌄</span></button><div id="workspace-menu" class="workspace-menu" hidden><button type="button" data-workspace-option="ts" aria-pressed="true"><img src="/workbench/marks/xiaowho-yellow.png" alt=""><span>TS · TrimSteer</span><span class="workspace-check" aria-hidden="true">✓</span></button><button type="button" data-workspace-option="ks" aria-pressed="false"><img src="/workbench/marks/xiaowho-blue.png" alt=""><span>KS · KeelSteer</span><span class="workspace-check" aria-hidden="true">✓</span></button><a href="/workbench/ops.html" class="ops-switch-link"><img src="/workbench/marks/xiaowho-red.png" alt=""><span>运营协同</span></a></div><small>xiaowho 的工作台</small></div></div>

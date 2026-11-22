@@ -6,9 +6,6 @@
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Preferences remain usable for this page. */ } };
   let language = query.get('lang') || read('chen-language', 'zh');
   language = language === 'en' ? 'en' : 'zh';
-  let theme = query.get('theme') || read('chen-reading-theme', 'light');
-  theme = theme === 'dark' ? 'dark' : 'light';
-  root.dataset.theme = theme;
   root.lang = language === 'en' ? 'en' : 'zh-CN';
   document.addEventListener('DOMContentLoaded', async () => {
     const script = document.querySelector('script[src*="site-preferences.js"]');
@@ -26,22 +23,12 @@
     controls.innerHTML = '<button type="button" id="language-toggle">EN</button>';
     const header = document.querySelector('header');
     header.append(controls);
-    let themeButton = document.querySelector('#theme-toggle, #theme');
-    if (!themeButton) {
-      themeButton = document.createElement('button');
-      themeButton.type = 'button'; themeButton.textContent = '◐';
-    }
-    controls.append(themeButton);
+    controls.append(document.getElementById('theme'));
     const languageButton = document.getElementById('language-toggle');
     function update() {
       root.lang = language === 'en' ? 'en' : 'zh-CN';
-      root.dataset.theme = theme;
       languageButton.textContent = language === 'en' ? '中文' : 'EN';
       languageButton.setAttribute('aria-label', language === 'en' ? 'Switch to Chinese' : 'Switch to English');
-      themeButton.setAttribute('aria-pressed', String(theme === 'dark'));
-      themeButton.setAttribute('aria-label', language === 'en' ? (theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode') : (theme === 'dark' ? '切换浅色阅读模式' : '切换深色阅读模式'));
-      const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.content = theme === 'dark' ? '#202420' : '#fcfcf9';
       const walker = document.createTreeWalker(document.documentElement, NodeFilter.SHOW_TEXT);
       while (walker.nextNode()) {
         const node = walker.currentNode;
@@ -66,7 +53,6 @@
       });
     }
     languageButton.addEventListener('click', () => { language = language === 'en' ? 'zh' : 'en'; save('chen-language', language); update(); window.dispatchEvent(new Event('resize')); });
-    themeButton.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; save('chen-reading-theme', theme); update(); });
     const observer = new MutationObserver(() => { observer.disconnect(); update(); observe(); });
     const observe = () => observer.observe(document.documentElement, {subtree:true, childList:true, characterData:true, attributes:true, attributeFilter:['aria-label', 'alt']});
     update(); observe();
