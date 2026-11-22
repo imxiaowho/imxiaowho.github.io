@@ -10,6 +10,13 @@
   <title>小谁的角色定妆 · imxiaowho</title>
   <link rel="stylesheet" href="/assets/homepage-v0.24.31/reading/reading.css">
   <link rel="stylesheet" href="/assets/homepage-v0.23.3/paper-pointer/paper-pointer.css?v=5">
+  <style>
+    .reading-nav .portrait-interaction-link {
+      margin-inline-start: auto;
+      color: var(--ink);
+      font-weight: 600;
+    }
+  </style>
   <script src="/assets/homepage-v0.24.31/reading/reading.js" defer></script>
   <script src="/assets/homepage-v0.24.5/paper-pointer.js" defer></script>
 </head>
@@ -33,8 +40,12 @@
         <button id="reading-theme" type="button" aria-pressed="false" hidden><span data-lens-label>深底</span></button>
       </div>
     </header>
-    <nav class="reading-nav" aria-label="返回上级" data-en-label="Back to parent section">
+    <nav class="reading-nav" aria-label="角色页导航" data-en-label="Character page navigation">
       <a href="/?section=about"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 8h-11m4-4-4 4 4 4"/></svg><span data-lens-label data-en="Back to About">返回关于</span></a>
+      <a class="portrait-interaction-link" href="/elements/motion/motion-0008/preview.html">
+        <span data-lens-label data-en="Pull Xiaowho">捏一下 Xiaowho</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11m-4-4 4 4-4 4"/></svg>
+      </a>
     </nav>
     <main id="main-content" tabindex="-1">
 
