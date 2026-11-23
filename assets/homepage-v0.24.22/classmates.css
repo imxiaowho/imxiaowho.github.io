@@ -22,8 +22,8 @@
   --muted: #565047;
   --rule: #d2c8b9;
   --accent: #762e23;
-  --sans: "Xiaowho Sans", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  --serif: "Xiaowho Serif", "Noto Serif SC", "Songti SC", SimSun, serif;
+  --sans: "Xiaowho Sans", "Site Sans Coverage", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --serif: "Xiaowho Serif", "Site Serif Coverage", "Noto Serif SC", "Songti SC", SimSun, serif;
   font-family: var(--sans);
   font-synthesis: none;
 }

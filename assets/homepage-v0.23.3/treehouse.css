@@ -8,7 +8,7 @@ body[data-home-design=index].treehouse-page .page{position:relative;width:min(64
 body[data-home-design=index].treehouse-page .intro{display:block;min-height:0;padding:40px 0 36px}
 body[data-home-design=index].treehouse-page .intro-description{padding-right:0}
 .treehouse-page .intro-copy{max-width:100%}
-.scene-nav{position:fixed;z-index:1001;top:0;left:0;right:0;height:42px;display:flex;align-items:center;gap:24px;padding:0 28px;border-bottom:1px solid #dedede;background:#fafafa;font-family:"Xiaowho Sans",sans-serif;font-size:13px}
+.scene-nav{position:fixed;z-index:1001;top:0;left:0;right:0;height:42px;display:flex;align-items:center;gap:24px;padding:0 28px;border-bottom:1px solid #dedede;background:#fafafa;font-family:"Xiaowho Sans", "Site Sans Coverage",sans-serif;font-size:13px}
 .scene-nav a{color:#555;padding:9px 0;text-decoration:none;text-underline-offset:6px;text-decoration-thickness:1px}
 .scene-nav a[aria-current=page]{color:#272727;text-decoration:underline}
 .scene-nav a:last-child{margin-left:auto}

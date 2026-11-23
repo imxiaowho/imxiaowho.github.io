@@ -2,19 +2,20 @@
 <html data-site-page="catalog" lang="zh-CN">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/site-type/coverage.css?v=5dfec76d10">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5ede1">
   <title>前端词典 · imxiaowho</title>
   <link rel="icon" href="assets/official/xiaowho-head.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="catalog.css?v=3715023688">
-  <link rel="stylesheet" href="gallery.css?v=05fee8fe43">
+  <link rel="stylesheet" href="catalog.css?v=d6a2982061">
+  <link rel="stylesheet" href="gallery.css?v=941be790e3">
   <link rel="stylesheet" href="pointer.css?v=d92459312e">
   <link rel="stylesheet" href="ui-motion.css?v=8a83e7fd75">
   <link rel="stylesheet" href="printroom.css?v=34a696e3f9">
   <link rel="stylesheet" href="xiaowho-game.css?v=f6058980b6">
   <link rel="stylesheet" href="quiet-sequence.css?v=e3715bbceb">
-  <link rel="stylesheet" href="vbc-example.css?v=55023313c1">
-  <link rel="stylesheet" href="site-alignment.css?v=9d8af3a67f">
+  <link rel="stylesheet" href="vbc-example.css?v=2029856da9">
+  <link rel="stylesheet" href="site-alignment.css?v=e9c419d714">
   <script src="data.js?v=5f298fd634" defer></script>
   <script src="covers.js?v=943d3ef8ea" defer></script>
   <script src="paper-field.js?v=1643dca883" defer></script>
@@ -35,14 +36,27 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <script src="/assets/site-paper/theme.js?v=1fef9ef7e7"></script>
-  <link rel="stylesheet" href="/assets/site-paper/theme.css?v=1414eeb17a">
+  <link rel="stylesheet" href="/assets/site-paper/theme.css?v=e18cb00b60">
 </head>
 <body>
   <canvas id="paper-field" aria-hidden="true"></canvas>
   <a class="skip" href="#main">跳到主要内容</a>
   <header class="app-header">
     <a class="brand" href="../" aria-label="imxiaowho 个人主页">
-      <img class="official-mascot" src="assets/official/xiaowho-head.svg" alt="" width="32" height="32">
+      <svg class="official-mascot site-brand-head" viewBox="0 0 256 256" width="32" height="32" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="site-brand-head-ivory" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feFlood flood-color="#f5efdf"/>
+            <feComposite in2="SourceAlpha" operator="in"/>
+          </filter>
+        </defs>
+        <image href="/assets/homepage-v0.23.3/assets/xiaowho-simple-head-plate-v1.png" width="256" height="256"/>
+        <g class="head-eyes" fill="#f7f3e7" stroke="none">
+          <path data-part="eye-left" d="M99.4 142.5C99.4 122.37 113.4 122.37 113.4 142.5C113.4 162.63 99.4 162.63 99.4 142.5Z"/>
+          <path data-part="eye-right" d="M131.7 137.7C131.7 118.5 145.1 118.5 145.1 137.7C145.1 156.9 131.7 156.9 131.7 137.7Z"/>
+        </g>
+        <g class="head-brows" fill="none" stroke="#f7f3e7" stroke-width="4" stroke-linecap="round"><path data-part="brow-left" d="M89 118Q97 108 105 109"/><path data-part="brow-right" d="M135 104Q146 103 153 114"/></g>
+      </svg>
       <strong class="brand-wordmark">imxiaowho.</strong>
     </a>
     <div class="header-actions">

@@ -25,7 +25,7 @@
   display: flex;
   align-items: baseline;
   gap: .085em;
-  font: 600 clamp(34px, 11vw, 70px) / 1.2 "Xiaowho Serif", Georgia, serif;
+  font: 600 clamp(34px, 11vw, 70px) / 1.2 "Xiaowho Serif", "Site Serif Coverage", Georgia, serif;
   letter-spacing: -.035em;
   transform-origin: left top;
 }

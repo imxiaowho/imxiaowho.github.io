@@ -59,7 +59,7 @@
 }
 /* Bridge the small gap from the trigger to the unfolded sheet. */
 .company-preview[data-state="open"]::before{content:"";position:absolute;inset:calc(-1 * var(--preview-gap)) 0 auto;height:var(--preview-gap)}
-.preview-caption{display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;min-height:var(--caption-height);padding:10px 0 0;font:400 11px/20px "Xiaowho Sans",sans-serif;color:var(--muted);text-decoration:none}
+.preview-caption{display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;min-height:var(--caption-height);padding:10px 0 0;font:400 11px/20px "Xiaowho Sans", "Site Sans Coverage",sans-serif;color:var(--muted);text-decoration:none}
 .preview-caption svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:1.1}
 .preview-caption:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .company-preview[data-state="open"] .preview-paper {
@@ -96,7 +96,7 @@
  .preview-caption{padding-top:6px}
 }
 body[data-home-design="index"][data-nav-version="5"] .reading-body>.site-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:0}
-.footer-motto{flex-basis:100%;font-family:"Xiaowho Serif",serif;font-size:16px;font-weight:500;line-height:1.65;color:var(--ink)}
+.footer-motto{flex-basis:100%;font-family:"Xiaowho Serif", "Site Serif Coverage",serif;font-size:16px;font-weight:500;line-height:1.65;color:var(--ink)}
 @media (prefers-reduced-motion: reduce) {
   .company-preview[data-state] .preview-paper { transition: none; }
   .company-preview[data-state] .preview-paper { transform: none; }

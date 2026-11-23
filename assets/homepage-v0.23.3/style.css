@@ -8,7 +8,7 @@
   --line: #cbc5b2;
   --accent: #68452e;
   --ease-out: cubic-bezier(.22,.61,.36,1);
-  font-family: "Xiaowho Sans", "Microsoft YaHei", sans-serif;
+  font-family: "Xiaowho Sans", "Site Sans Coverage", "Microsoft YaHei", sans-serif;
   font-synthesis: none;
   scrollbar-color: #acb5a3 var(--paper);
 }
@@ -31,7 +31,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .skip { position: fixed; top: -80px; left: 16px; padding: 10px 16px; background: var(--ink); color: var(--paper); z-index: 3; }
 .skip:focus { top: 12px; }
 .site-header { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 120px; padding-top: 32px; }
-.wordmark { font-family: "Xiaowho Serif", serif; font-size: 33px; font-weight: 650; letter-spacing: -.035em; line-height: 1.2; padding: 10px 0; }
+.wordmark { font-family: "Xiaowho Serif", "Site Serif Coverage", serif; font-size: 33px; font-weight: 650; letter-spacing: -.035em; line-height: 1.2; padding: 10px 0; }
 .wordmark span { color: var(--accent); }
 .brand-play { position: relative; display: inline-flex; align-items: center; }
 .brand-play .wordmark { position: relative; z-index: 2; }
@@ -52,7 +52,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .github-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--muted); }
 .github-link:hover { color: var(--ink); text-decoration: underline; }
 .intro { display: grid; grid-template-columns: minmax(0,1fr) 190px; gap: 38px; align-items: center; padding: 30px 0 34px; }
-.intro h1 { font-family: "Xiaowho Serif", serif; font-size: clamp(36px,3.8vw,48px); line-height: 1.5; font-weight: 650; letter-spacing: -.015em; text-wrap: balance; }
+.intro h1 { font-family: "Xiaowho Serif", "Site Serif Coverage", serif; font-size: clamp(36px,3.8vw,48px); line-height: 1.5; font-weight: 650; letter-spacing: -.015em; text-wrap: balance; }
 .intro h1:lang(zh-CN) { letter-spacing: .01em; }
 .intro h1 > span { display: block; }
 .intro-description { margin-top: 17px; max-width: 38em; font-size: 16px; color: var(--muted); }
@@ -74,7 +74,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .project-row:hover::before, .project-row:focus-visible::before, .project-row.is-picked::before { opacity: 1; }
 .project-row > div { min-width: 0; }
 .row-copy { transform: translate3d(var(--row-x,0px),var(--row-y,0px),0); transition: transform 180ms var(--ease-out); }
-.project-row h2 { font-family: "Xiaowho Serif", serif; font-size: 27px; font-weight: 600; line-height: 1.4; letter-spacing: -.015em; }
+.project-row h2 { font-family: "Xiaowho Serif", "Site Serif Coverage", serif; font-size: 27px; font-weight: 600; line-height: 1.4; letter-spacing: -.015em; }
 .project-row p { margin-top: 7px; font-size: 15px; color: var(--muted); text-wrap: pretty; }
 .row-action, .row-status { flex-shrink: 0; font-size: 14px; color: var(--accent); }
 .row-action { text-decoration: underline; text-decoration-thickness: 1px; transform: translate3d(var(--action-x,0px),var(--action-y,0px),0); transition: transform 180ms var(--ease-out); }

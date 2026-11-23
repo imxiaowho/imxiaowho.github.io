@@ -44,7 +44,7 @@ body[data-home-design="index"][data-art-layout="contained"] .vbc-row {
 }
 
 .vbc-term {
-  font-family: "Xiaowho Dictionary Serif", "Xiaowho Serif", serif;
+  font-family: "Xiaowho Dictionary Serif", "Xiaowho Serif", "Site Serif Coverage", serif;
   font-size: clamp(21px, 2vw, 25px);
   font-weight: 550;
   letter-spacing: -.015em;
@@ -307,7 +307,7 @@ body[data-home-design="index"][data-art-layout="contained"] .vbc-magnetic-track 
   border-radius: 3px;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Xiaowho Dictionary Serif", "Xiaowho Serif", serif;
+  font-family: "Xiaowho Dictionary Serif", "Xiaowho Serif", "Site Serif Coverage", serif;
   font-size: clamp(19px, 5vw, 23px);
   font-weight: 550;
   line-height: 1.38;

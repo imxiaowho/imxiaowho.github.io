@@ -23,7 +23,7 @@
   gap: 24px;
   padding-block: var(--about-chapter-inset) 28px;
   color: var(--ink);
-  font-family: "Xiaowho About Sans", "Xiaowho Sans", sans-serif;
+  font-family: "Xiaowho About Sans", "Xiaowho Sans", "Site Sans Coverage", sans-serif;
 }
 
 .about-paper :is(button, summary, input) {

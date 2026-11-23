@@ -28,8 +28,8 @@
   --selected-paper: #e9d9bf;
   --specimen-paper: #eee3d3;
   --ease-out: cubic-bezier(.22, .61, .36, 1);
-  --font-ui: "Xiaowho Sans", "Noto Sans SC", "PingFang SC", sans-serif;
-  --font-brand: "Xiaowho Serif", "Noto Serif SC", "Songti SC", serif;
+  --font-ui: "Xiaowho Sans", "Site Sans Coverage", "Noto Sans SC", "PingFang SC", sans-serif;
+  --font-brand: "Xiaowho Serif", "Site Serif Coverage", "Noto Serif SC", "Songti SC", serif;
 }
 
 [hidden] { display: none !important; }

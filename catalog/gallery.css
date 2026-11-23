@@ -68,8 +68,8 @@
 .mini-glass b{font-size:18px;font-weight:500}.mini-glass span{font-size:8px}
 .mini-fontpair{display:flex;gap:29px;align-items:center}
 .mini-fontpair>span{font-size:54px;line-height:1;display:flex;flex-direction:column;align-items:center}
-.mini-fontpair>span:nth-child(2){font-family:"Xiaowho Serif",serif;font-style:italic}
-.mini-fontpair small{font-family:"Xiaowho Sans",sans-serif;font-size:9px;font-style:normal;color:#506d59;margin-top:10px}
+.mini-fontpair>span:nth-child(2){font-family:"Xiaowho Serif", "Site Serif Coverage",serif;font-style:italic}
+.mini-fontpair small{font-family:"Xiaowho Sans", "Site Sans Coverage",sans-serif;font-size:9px;font-style:normal;color:#506d59;margin-top:10px}
 .mini-grid-lines{display:grid;grid-template-columns:repeat(3,47px);gap:6px;padding:6px;border:1px dashed #8eaa9870;border-radius:5px}
 .mini-grid-lines i{height:35px;border-radius:3px;background:#b6c9b7}
 .mini-grid-lines i:nth-child(even){background:#658c70}

@@ -14,7 +14,7 @@ body[data-home-design="index"][data-nav-version="5"] .reading-body>main{padding-
 [data-nav-version="5"] .reading-body>.site-footer{padding:12px 0 0}
 body[data-home-design="index"][data-nav-version="5"] .project-panel{min-height:0}
 [data-nav-version="5"] .profile-copy{padding:26px 0 28px;max-width:38em}
-[data-nav-version="5"] .profile-copy h2{font-family:"Xiaowho Serif",serif;font-size:29px;font-weight:550;line-height:1.4;letter-spacing:-.015em;margin:0 0 14px}
+[data-nav-version="5"] .profile-copy h2{font-family:"Xiaowho Serif", "Site Serif Coverage",serif;font-size:29px;font-weight:550;line-height:1.4;letter-spacing:-.015em;margin:0 0 14px}
 [data-nav-version="5"] .profile-copy p{font-size:14px;line-height:1.9;color:var(--muted);max-width:36em;margin:0}
 [data-nav-version="5"] .profile-copy p+p{margin-top:12px}
 body[data-home-design="index"][data-nav-version="5"] .intro{margin-top:0;padding:32px 0 16px}

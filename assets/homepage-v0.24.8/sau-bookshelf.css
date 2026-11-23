@@ -9,7 +9,7 @@ body[data-nav-version="5"] #panel-comics[hidden] {
   --sau-accent: #762e23;
   --sau-selected: #eee5d7;
   --sau-muted: #565047;
-  --sau-serif: "Xiaowho Serif", "Noto Serif SC", "Songti SC", SimSun, serif;
+  --sau-serif: "Xiaowho Serif", "Site Serif Coverage", "Noto Serif SC", "Songti SC", SimSun, serif;
   --sau-reader-width: min(100%, 560px);
   padding: clamp(24px, 3vw, 40px) 0 28px;
 }

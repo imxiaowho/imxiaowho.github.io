@@ -155,7 +155,7 @@
   border-radius: 3px;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Xiaowho Dictionary Serif", "Xiaowho Serif", serif;
+  font-family: "Xiaowho Dictionary Serif", "Xiaowho Serif", "Site Serif Coverage", serif;
   font-size: clamp(19px, 5vw, 23px);
   font-weight: 550;
   line-height: 1.38;
